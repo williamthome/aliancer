@@ -35,7 +35,10 @@ defmodule Aliancer.Products do
       ** (Ecto.NoResultsError)
 
   """
-  def get_product!(id), do: Repo.get!(Product, id)
+  def get_product!(id) do
+    Repo.get!(Product, id)
+    |> Repo.preload(:sub_products)
+  end
 
   @doc """
   Creates a product.

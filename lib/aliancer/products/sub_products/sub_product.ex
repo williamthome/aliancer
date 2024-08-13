@@ -2,10 +2,12 @@ defmodule Aliancer.Products.SubProducts.SubProduct do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Aliancer.Products.Product
+
   schema "sub_products" do
     field :quantity, :decimal
-    field :product_id, :id
-    field :sub_product_id, :id
+    belongs_to :product, Product
+    belongs_to :sub_product, Product, foreign_key: :sub_product_id
 
     timestamps(type: :utc_datetime)
   end
@@ -15,5 +17,8 @@ defmodule Aliancer.Products.SubProducts.SubProduct do
     sub_product
     |> cast(attrs, [:quantity])
     |> validate_required([:quantity])
+    |> validate_number(:quantity, greater_than_or_equal_to: 0)
+    |> unique_constraint([:product, :sub_product],
+      name: "sub_products_product_id_sub_product_id_index")
   end
 end
