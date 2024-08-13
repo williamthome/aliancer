@@ -1,0 +1,41 @@
+<.header>
+  Listing Sub products
+  <:actions>
+    <.link patch={~p"/sub_products/new"}>
+      <.button>New Sub product</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="sub_products"
+  rows={@streams.sub_products}
+  row_click={fn {_id, sub_product} -> JS.navigate(~p"/sub_products/#{sub_product}") end}
+>
+  <:col :let={{_id, sub_product}} label="Quantity"><%= sub_product.quantity %></:col>
+  <:action :let={{_id, sub_product}}>
+    <div class="sr-only">
+      <.link navigate={~p"/sub_products/#{sub_product}"}>Show</.link>
+    </div>
+    <.link patch={~p"/sub_products/#{sub_product}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, sub_product}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: sub_product.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="sub_product-modal" show on_cancel={JS.patch(~p"/sub_products")}>
+  <.live_component
+    module={AliancerWeb.SubProductLive.FormComponent}
+    id={@sub_product.id || :new}
+    title={@page_title}
+    action={@live_action}
+    sub_product={@sub_product}
+    patch={~p"/sub_products"}
+  />
+</.modal>
