@@ -25,13 +25,6 @@ defmodule AliancerWeb.Router do
 
     live "/products/:id", ProductLive.Show, :show
     live "/products/:id/show/edit", ProductLive.Show, :edit
-
-    live "/sub_products", SubProductLive.Index, :index
-    live "/sub_products/new", SubProductLive.Index, :new
-    live "/sub_products/:id/edit", SubProductLive.Index, :edit
-
-    live "/sub_products/:id", SubProductLive.Show, :show
-    live "/sub_products/:id/show/edit", SubProductLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
