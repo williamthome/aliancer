@@ -19,6 +19,7 @@ defmodule Aliancer.Products.SubProducts.SubProduct do
     |> validate_required([:quantity])
     |> validate_number(:quantity, greater_than_or_equal_to: 0)
     |> unique_constraint([:product, :sub_product],
-      name: "sub_products_product_id_sub_product_id_index")
+      name: "sub_products_product_id_sub_product_id_index"
+    )
   end
 end

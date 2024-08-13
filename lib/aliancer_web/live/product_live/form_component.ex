@@ -35,11 +35,7 @@ defmodule AliancerWeb.ProductLive.FormComponent do
           Listing Sub products
           <:actions>
             <label class="rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3 text-sm font-semibold leading-6 text-white active:text-white/80 cursor-pointer">
-              <input
-                type="checkbox"
-                name="product[sub_products_order][]"
-                class="hidden"
-              />
+              <input type="checkbox" name="product[sub_products_order][]" class="hidden" />
               <span>Add Sub Product</span>
             </label>
           </:actions>
@@ -47,11 +43,7 @@ defmodule AliancerWeb.ProductLive.FormComponent do
 
         <div class="space-y-2">
           <.inputs_for :let={sub_product_form} field={@form[:sub_products]}>
-            <input
-              type="hidden"
-              name="product[sub_products_order][]"
-              value={sub_product_form.index}
-            />
+            <input type="hidden" name="product[sub_products_order][]" value={sub_product_form.index} />
             <div class="flex space-x-2">
               <.input
                 field={sub_product_form[:id]}
@@ -107,9 +99,9 @@ defmodule AliancerWeb.ProductLive.FormComponent do
   end
 
   defp assign_form(socket, product) do
-     assign_new(socket, :form, fn ->
-       to_form(Products.change_product(product))
-     end)
+    assign_new(socket, :form, fn ->
+      to_form(Products.change_product(product))
+    end)
   end
 
   defp assign_sub_products(socket, _product) do
@@ -117,7 +109,7 @@ defmodule AliancerWeb.ProductLive.FormComponent do
       Products.list_products()
       |> Enum.map(&{&1.name, &1.id})
 
-  assign(socket, :sub_products, sub_products)
+    assign(socket, :sub_products, sub_products)
   end
 
   @impl true

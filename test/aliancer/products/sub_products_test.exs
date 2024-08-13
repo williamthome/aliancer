@@ -35,13 +35,18 @@ defmodule Aliancer.Products.SubProductsTest do
       sub_product = sub_product_fixture()
       update_attrs = %{quantity: "456.7"}
 
-      assert {:ok, %SubProduct{} = sub_product} = SubProducts.update_sub_product(sub_product, update_attrs)
+      assert {:ok, %SubProduct{} = sub_product} =
+               SubProducts.update_sub_product(sub_product, update_attrs)
+
       assert sub_product.quantity == Decimal.new("456.7")
     end
 
     test "update_sub_product/2 with invalid data returns error changeset" do
       sub_product = sub_product_fixture()
-      assert {:error, %Ecto.Changeset{}} = SubProducts.update_sub_product(sub_product, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               SubProducts.update_sub_product(sub_product, @invalid_attrs)
+
       assert sub_product == SubProducts.get_sub_product!(sub_product.id)
     end
 
