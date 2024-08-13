@@ -16,7 +16,7 @@ defmodule Aliancer.ProductsTest do
     end
 
     test "get_product!/1 returns the product with given id" do
-      product = product_fixture()
+      product = product_fixture() |> Map.put(:sub_products, [])
       assert Products.get_product!(product.id) == product
     end
 
@@ -61,7 +61,7 @@ defmodule Aliancer.ProductsTest do
     end
 
     test "update_product/2 with invalid data returns error changeset" do
-      product = product_fixture()
+      product = product_fixture() |> Map.put(:sub_products, [])
       assert {:error, %Ecto.Changeset{}} = Products.update_product(product, @invalid_attrs)
       assert product == Products.get_product!(product.id)
     end
