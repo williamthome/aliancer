@@ -4,8 +4,8 @@ defmodule Aliancer.Repo.Migrations.CreateSubProducts do
   def change do
     create table(:sub_products) do
       add :quantity, :decimal
-      add :product_id, references(:products, on_delete: :nothing)
-      add :sub_product_id, references(:products, on_delete: :nothing)
+      add :product_id, references(:products, on_delete: :delete_all)
+      add :sub_product_id, references(:products, on_delete: :delete_all)
 
       timestamps(type: :utc_datetime)
     end
