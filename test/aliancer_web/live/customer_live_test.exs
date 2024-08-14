@@ -4,8 +4,20 @@ defmodule AliancerWeb.CustomerLiveTest do
   import Phoenix.LiveViewTest
   import Aliancer.PersonsFixtures
 
-  @create_attrs %{name: "some name", address: "some address", phone: "some phone", email: "some email", notes: "some notes"}
-  @update_attrs %{name: "some updated name", address: "some updated address", phone: "some updated phone", email: "some updated email", notes: "some updated notes"}
+  @create_attrs %{
+    name: "some name",
+    address: "some address",
+    phone: "some phone",
+    email: "some email",
+    notes: "some notes"
+  }
+  @update_attrs %{
+    name: "some updated name",
+    address: "some updated address",
+    phone: "some updated phone",
+    email: "some updated email",
+    notes: "some updated notes"
+  }
   @invalid_attrs %{name: nil, address: nil, phone: nil, email: nil, notes: nil}
 
   defp create_customer(_) do

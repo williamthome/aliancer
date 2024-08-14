@@ -21,7 +21,13 @@ defmodule Aliancer.PersonsTest do
     end
 
     test "create_customer/1 with valid data creates a customer" do
-      valid_attrs = %{name: "some name", address: "some address", phone: "some phone", email: "some email", notes: "some notes"}
+      valid_attrs = %{
+        name: "some name",
+        address: "some address",
+        phone: "some phone",
+        email: "some email",
+        notes: "some notes"
+      }
 
       assert {:ok, %Customer{} = customer} = Persons.create_customer(valid_attrs)
       assert customer.name == "some name"
@@ -37,7 +43,14 @@ defmodule Aliancer.PersonsTest do
 
     test "update_customer/2 with valid data updates the customer" do
       customer = customer_fixture()
-      update_attrs = %{name: "some updated name", address: "some updated address", phone: "some updated phone", email: "some updated email", notes: "some updated notes"}
+
+      update_attrs = %{
+        name: "some updated name",
+        address: "some updated address",
+        phone: "some updated phone",
+        email: "some updated email",
+        notes: "some updated notes"
+      }
 
       assert {:ok, %Customer{} = customer} = Persons.update_customer(customer, update_attrs)
       assert customer.name == "some updated name"
