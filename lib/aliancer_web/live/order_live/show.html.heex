@@ -10,8 +10,9 @@
 
 <.list>
   <:item title="Datetime"><%= @order.datetime %></:item>
-  <:item title="Address"><%= @order.address %></:item>
-  <:item title="Customer pickup"><%= @order.customer_pickup %></:item>
+  <:item title="Customer"><%= @order.customer.name %></:item>
+  <:item :if={@order.customer_pickup} title="Address">Customer pickup</:item>
+  <:item :if={!@order.customer_pickup} title="Address"><%= @order.address %></:item>
   <:item title="Total"><%= @order.total %></:item>
   <:item title="Paid"><%= @order.paid %></:item>
   <:item title="Status"><%= @order.status %></:item>

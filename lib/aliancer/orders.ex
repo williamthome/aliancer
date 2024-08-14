@@ -19,6 +19,7 @@ defmodule Aliancer.Orders do
   """
   def list_orders do
     Repo.all(Order)
+    |> Repo.preload(:customer)
   end
 
   @doc """
@@ -35,7 +36,10 @@ defmodule Aliancer.Orders do
       ** (Ecto.NoResultsError)
 
   """
-  def get_order!(id), do: Repo.get!(Order, id)
+  def get_order!(id) do
+    Repo.get!(Order, id)
+    |> Repo.preload(:customer)
+  end
 
   @doc """
   Creates a order.

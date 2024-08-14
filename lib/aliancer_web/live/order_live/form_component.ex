@@ -2,6 +2,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
   use AliancerWeb, :live_component
 
   alias Aliancer.Orders
+  alias Aliancer.Persons
 
   @impl true
   def render(assigns) do
@@ -20,6 +21,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
         phx-submit="save"
       >
         <.input field={@form[:datetime]} type="datetime-local" label="Datetime" />
+        <.input field={@form[:customer_id]} label="Customer" type="select" options={@customers} />
         <.input field={@form[:customer_pickup]} type="checkbox" label="Customer pickup" />
         <.input :if={@show_address} field={@form[:address]} type="text" label="Address" />
         <.input field={@form[:total]} type="number" label="Total" step="any" />
@@ -48,9 +50,18 @@ defmodule AliancerWeb.OrderLive.FormComponent do
       socket
       |> assign(assigns)
       |> assign_new(:form, fn -> to_form(changeset) end)
+      |> assign_customers()
       |> assign_show_address(changeset)
 
     {:ok, socket}
+  end
+
+  defp assign_customers(socket) do
+    customers =
+      Persons.list_customers()
+      |> Enum.map(&{&1.name, &1.id})
+
+    assign(socket, :customers, customers)
   end
 
   defp assign_show_address(socket, %{changes: %{customer_pickup: true}}) do
