@@ -54,5 +54,6 @@
     action={@live_action}
     order={@order}
     patch={~p"/orders"}
+    show_address={!@order.customer_pickup}
   />
 </.modal>

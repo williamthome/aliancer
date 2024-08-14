@@ -51,7 +51,6 @@ defmodule AliancerWeb.OrderLive.FormComponent do
       |> assign(assigns)
       |> assign_new(:form, fn -> to_form(changeset) end)
       |> assign_customers()
-      |> assign_show_address(changeset)
 
     {:ok, socket}
   end
@@ -62,14 +61,6 @@ defmodule AliancerWeb.OrderLive.FormComponent do
       |> Enum.map(&{&1.name, &1.id})
 
     assign(socket, :customers, customers)
-  end
-
-  defp assign_show_address(socket, %{changes: %{customer_pickup: true}}) do
-    assign(socket, :show_address, false)
-  end
-
-  defp assign_show_address(socket, _changeset) do
-    assign(socket, :show_address, true)
   end
 
   @impl true
@@ -83,6 +74,15 @@ defmodule AliancerWeb.OrderLive.FormComponent do
 
   def handle_event("save", %{"order" => order_params}, socket) do
     save_order(socket, socket.assigns.action, order_params)
+  end
+
+  defp assign_show_address(socket, %{changes: changes})
+       when is_map_key(changes, :customer_pickup) do
+    assign(socket, :show_address, !changes.customer_pickup)
+  end
+
+  defp assign_show_address(socket, _changeset) do
+    assign(socket, :show_address, !socket.assigns.order.customer_pickup)
   end
 
   defp save_order(socket, :edit, order_params) do
