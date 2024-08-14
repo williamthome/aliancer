@@ -21,7 +21,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
       >
         <.input field={@form[:datetime]} type="datetime-local" label="Datetime" />
         <.input field={@form[:customer_pickup]} type="checkbox" label="Customer pickup" />
-        <.input field={@form[:address]} type="text" label="Address" />
+        <.input :if={@show_address} field={@form[:address]} type="text" label="Address" />
         <.input field={@form[:total]} type="number" label="Total" step="any" />
         <.input field={@form[:paid]} type="checkbox" label="Paid" />
         <.input
@@ -31,7 +31,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
           prompt="Choose a value"
           options={Ecto.Enum.values(Aliancer.Orders.Order, :status)}
         />
-        <.input field={@form[:notes]} type="text" label="Notes" />
+        <.input field={@form[:notes]} type="textarea" label="Notes" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Order</.button>
         </:actions>
@@ -42,18 +42,32 @@ defmodule AliancerWeb.OrderLive.FormComponent do
 
   @impl true
   def update(%{order: order} = assigns, socket) do
-    {:ok,
-     socket
-     |> assign(assigns)
-     |> assign_new(:form, fn ->
-       to_form(Orders.change_order(order))
-     end)}
+    changeset = Orders.change_order(order)
+
+    socket =
+      socket
+      |> assign(assigns)
+      |> assign_new(:form, fn -> to_form(changeset) end)
+      |> assign_show_address(changeset)
+
+    {:ok, socket}
+  end
+
+  defp assign_show_address(socket, %{changes: %{customer_pickup: true}}) do
+    assign(socket, :show_address, false)
+  end
+
+  defp assign_show_address(socket, _changeset) do
+    assign(socket, :show_address, true)
   end
 
   @impl true
   def handle_event("validate", %{"order" => order_params}, socket) do
     changeset = Orders.change_order(socket.assigns.order, order_params)
-    {:noreply, assign(socket, form: to_form(changeset, action: :validate))}
+
+    {:noreply,
+     assign(socket, form: to_form(changeset, action: :validate))
+     |> assign_show_address(changeset)}
   end
 
   def handle_event("save", %{"order" => order_params}, socket) do

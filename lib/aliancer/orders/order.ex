@@ -36,8 +36,16 @@ defmodule Aliancer.Orders.Order do
 
   @doc false
   def changeset(order, attrs) do
+    attrs = resolve_address(attrs)
+
     order
     |> cast(attrs, [:datetime, :address, :customer_pickup, :total, :paid, :status, :notes])
     |> validate_required([:datetime, :status, :customer_id])
   end
+
+  defp resolve_address(%{customer_pickup: true} = attrs) do
+    Map.put(attrs, :address, nil)
+  end
+
+  defp resolve_address(attrs), do: attrs
 end
