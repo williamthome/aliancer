@@ -39,7 +39,16 @@ defmodule Aliancer.Orders.Order do
     attrs = resolve_address(attrs)
 
     order
-    |> cast(attrs, [:datetime, :address, :customer_pickup, :total, :paid, :status, :notes])
+    |> cast(attrs, [
+      :datetime,
+      :address,
+      :customer_pickup,
+      :total,
+      :paid,
+      :status,
+      :notes,
+      :customer_id
+    ])
     |> validate_required([:datetime, :status, :customer_id])
   end
 
