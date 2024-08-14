@@ -47,7 +47,9 @@ defmodule AliancerWeb.ProductionLiveTest do
     test "updates daily_production in listing", %{conn: conn, daily_production: daily_production} do
       {:ok, index_live, _html} = live(conn, ~p"/daily_production")
 
-      assert index_live |> element("#daily_production_collection-#{daily_production.id} a", "Edit") |> render_click() =~
+      assert index_live
+             |> element("#daily_production_collection-#{daily_production.id} a", "Edit")
+             |> render_click() =~
                "Edit Daily production"
 
       assert_patch(index_live, ~p"/daily_production/#{daily_production}/edit")
@@ -69,7 +71,10 @@ defmodule AliancerWeb.ProductionLiveTest do
     test "deletes daily_production in listing", %{conn: conn, daily_production: daily_production} do
       {:ok, index_live, _html} = live(conn, ~p"/daily_production")
 
-      assert index_live |> element("#daily_production_collection-#{daily_production.id} a", "Delete") |> render_click()
+      assert index_live
+             |> element("#daily_production_collection-#{daily_production.id} a", "Delete")
+             |> render_click()
+
       refute has_element?(index_live, "#daily_production_collection-#{daily_production.id}")
     end
   end
@@ -83,7 +88,10 @@ defmodule AliancerWeb.ProductionLiveTest do
       assert html =~ "Show Daily production"
     end
 
-    test "updates daily_production within modal", %{conn: conn, daily_production: daily_production} do
+    test "updates daily_production within modal", %{
+      conn: conn,
+      daily_production: daily_production
+    } do
       {:ok, show_live, _html} = live(conn, ~p"/daily_production/#{daily_production}")
 
       assert show_live |> element("a", "Edit") |> render_click() =~

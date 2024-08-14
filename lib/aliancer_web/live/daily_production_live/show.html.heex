@@ -2,7 +2,10 @@
   Daily production <%= @daily_production.id %>
   <:subtitle>This is a daily_production record from your database.</:subtitle>
   <:actions>
-    <.link patch={~p"/daily_production/#{@daily_production}/show/edit"} phx-click={JS.push_focus()}>
+    <.link
+      patch={~p"/daily_production/#{@daily_production}/show/edit"}
+      phx-click={JS.push_focus()}
+    >
       <.button>Edit daily_production</.button>
     </.link>
   </:actions>
@@ -16,7 +19,12 @@
 
 <.back navigate={~p"/daily_production"}>Back to daily_production</.back>
 
-<.modal :if={@live_action == :edit} id="daily_production-modal" show on_cancel={JS.patch(~p"/daily_production/#{@daily_production}")}>
+<.modal
+  :if={@live_action == :edit}
+  id="daily_production-modal"
+  show
+  on_cancel={JS.patch(~p"/daily_production/#{@daily_production}")}
+>
   <.live_component
     module={AliancerWeb.DailyProductionLive.FormComponent}
     id={@daily_production.id}

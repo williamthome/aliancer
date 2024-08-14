@@ -21,12 +21,7 @@ defmodule AliancerWeb.DailyProductionLive.FormComponent do
         phx-submit="save"
       >
         <.input field={@form[:date]} type="date" label="Date" />
-        <.input
-          field={@form[:product_id]}
-          label="Product"
-          type="select"
-          options={@products}
-        />
+        <.input field={@form[:product_id]} label="Product" type="select" options={@products} />
         <.input field={@form[:quantity]} type="number" label="Quantity" step="any" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Daily production</.button>
@@ -63,7 +58,9 @@ defmodule AliancerWeb.DailyProductionLive.FormComponent do
 
   @impl true
   def handle_event("validate", %{"daily_production" => daily_production_params}, socket) do
-    changeset = Production.change_daily_production(socket.assigns.daily_production, daily_production_params)
+    changeset =
+      Production.change_daily_production(socket.assigns.daily_production, daily_production_params)
+
     {:noreply, assign(socket, form: to_form(changeset, action: :validate))}
   end
 
@@ -72,7 +69,10 @@ defmodule AliancerWeb.DailyProductionLive.FormComponent do
   end
 
   defp save_daily_production(socket, :edit, daily_production_params) do
-    case Production.update_daily_production(socket.assigns.daily_production, daily_production_params) do
+    case Production.update_daily_production(
+           socket.assigns.daily_production,
+           daily_production_params
+         ) do
       {:ok, daily_production} ->
         notify_parent({:saved, daily_production})
 

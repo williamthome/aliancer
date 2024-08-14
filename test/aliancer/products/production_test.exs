@@ -26,7 +26,9 @@ defmodule Aliancer.Products.ProductionTest do
 
       valid_attrs = %{date: ~D[2024-08-13], quantity: "120.5", product_id: product.id}
 
-      assert {:ok, %DailyProduction{} = daily_production} = Production.create_daily_production(valid_attrs)
+      assert {:ok, %DailyProduction{} = daily_production} =
+               Production.create_daily_production(valid_attrs)
+
       assert daily_production.date == ~D[2024-08-13]
       assert daily_production.quantity == Decimal.new("120.5")
     end
@@ -39,21 +41,29 @@ defmodule Aliancer.Products.ProductionTest do
       daily_production = daily_production_fixture()
       update_attrs = %{date: ~D[2024-08-14], quantity: "456.7"}
 
-      assert {:ok, %DailyProduction{} = daily_production} = Production.update_daily_production(daily_production, update_attrs)
+      assert {:ok, %DailyProduction{} = daily_production} =
+               Production.update_daily_production(daily_production, update_attrs)
+
       assert daily_production.date == ~D[2024-08-14]
       assert daily_production.quantity == Decimal.new("456.7")
     end
 
     test "update_daily_production/2 with invalid data returns error changeset" do
       daily_production = daily_production_fixture()
-      assert {:error, %Ecto.Changeset{}} = Production.update_daily_production(daily_production, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Production.update_daily_production(daily_production, @invalid_attrs)
+
       assert daily_production == Production.get_daily_production!(daily_production.id)
     end
 
     test "delete_daily_production/1 deletes the daily_production" do
       daily_production = daily_production_fixture()
       assert {:ok, %DailyProduction{}} = Production.delete_daily_production(daily_production)
-      assert_raise Ecto.NoResultsError, fn -> Production.get_daily_production!(daily_production.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Production.get_daily_production!(daily_production.id)
+      end
     end
 
     test "change_daily_production/1 returns a daily_production changeset" do

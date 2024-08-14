@@ -33,7 +33,10 @@ defmodule AliancerWeb.DailyProductionLive.Index do
   end
 
   @impl true
-  def handle_info({AliancerWeb.DailyProductionLive.FormComponent, {:saved, daily_production}}, socket) do
+  def handle_info(
+        {AliancerWeb.DailyProductionLive.FormComponent, {:saved, daily_production}},
+        socket
+      ) do
     {:noreply, stream_insert(socket, :daily_production_collection, daily_production)}
   end
 

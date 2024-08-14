@@ -56,8 +56,7 @@ defmodule Aliancer.Products.Production do
   def create_daily_production(attrs \\ %{}) do
     case %DailyProduction{}
          |> DailyProduction.changeset(attrs)
-         |> Repo.insert()
-    do
+         |> Repo.insert() do
       {:ok, updated_daily_production} ->
         {:ok, Repo.preload(updated_daily_production, :product)}
 
