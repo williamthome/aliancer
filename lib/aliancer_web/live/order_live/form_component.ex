@@ -23,7 +23,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
         <.input field={@form[:datetime]} type="datetime-local" label="Datetime" />
         <.input field={@form[:customer_id]} label="Customer" type="select" options={@customers} />
         <.input field={@form[:customer_pickup]} type="checkbox" label="Customer pickup" />
-        <.input :if={@show_address} field={@form[:address]} type="text" label="Address" />
+        <.input :if={@show_address} field={@form[:address]} type="textarea" label="Address" />
         <.input field={@form[:total]} type="number" label="Total" step="any" />
         <.input field={@form[:paid]} type="checkbox" label="Paid" />
         <.input
