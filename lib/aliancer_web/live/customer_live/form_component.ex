@@ -23,7 +23,7 @@ defmodule AliancerWeb.CustomerLive.FormComponent do
         <.input field={@form[:address]} type="text" label="Address" />
         <.input field={@form[:phone]} type="text" label="Phone" />
         <.input field={@form[:email]} type="text" label="Email" />
-        <.input field={@form[:notes]} type="text" label="Notes" />
+        <.input field={@form[:notes]} type="textarea" label="Notes" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Customer</.button>
         </:actions>
