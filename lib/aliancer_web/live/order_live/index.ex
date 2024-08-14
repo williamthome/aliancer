@@ -23,7 +23,11 @@ defmodule AliancerWeb.OrderLive.Index do
   defp apply_action(socket, :new, _params) do
     socket
     |> assign(:page_title, "New Order")
-    |> assign(:order, %Order{})
+    |> assign(:order, %Order{
+      datetime: DateTime.utc_now(),
+      total: 0,
+      status: :in_process
+    })
   end
 
   defp apply_action(socket, :index, _params) do
