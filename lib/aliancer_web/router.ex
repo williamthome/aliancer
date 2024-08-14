@@ -26,7 +26,7 @@ defmodule AliancerWeb.Router do
     live "/products/:id", ProductLive.Show, :show
     live "/products/:id/show/edit", ProductLive.Show, :edit
 
-    live "/daily_production", DailyProductionLive.Index, :inde
+    live "/daily_production", DailyProductionLive.Index, :index
     live "/daily_production/new", DailyProductionLive.Index, :new
     live "/daily_production/:id/edit", DailyProductionLive.Index, :edit
 

@@ -1,16 +1,16 @@
-defmodule AliancerWeb.DailyProductionLiveTest do
+defmodule AliancerWeb.ProductionLiveTest do
   use AliancerWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import Aliancer.Products.DailyProductionFixtures
+  import Aliancer.Products.ProductionFixtures
 
-  @create_attrs %{date: "2024-08-13T00:56:00Z", quantity: "120.5"}
-  @update_attrs %{date: "2024-08-14T00:56:00Z", quantity: "456.7"}
+  @create_attrs %{date: "2024-08-13", quantity: "120.5"}
+  @update_attrs %{date: "2024-08-14", quantity: "456.7"}
   @invalid_attrs %{date: nil, quantity: nil}
 
   defp create_daily_production(_) do
     daily_production = daily_production_fixture()
-    %{daily_production: daily_production}
+    %{daily_production: daily_production, product: daily_production.product}
   end
 
   describe "Index" do
@@ -47,7 +47,7 @@ defmodule AliancerWeb.DailyProductionLiveTest do
     test "updates daily_production in listing", %{conn: conn, daily_production: daily_production} do
       {:ok, index_live, _html} = live(conn, ~p"/daily_production")
 
-      assert index_live |> element("#daily_production-#{daily_production.id} a", "Edit") |> render_click() =~
+      assert index_live |> element("#daily_production_collection-#{daily_production.id} a", "Edit") |> render_click() =~
                "Edit Daily production"
 
       assert_patch(index_live, ~p"/daily_production/#{daily_production}/edit")
@@ -69,8 +69,8 @@ defmodule AliancerWeb.DailyProductionLiveTest do
     test "deletes daily_production in listing", %{conn: conn, daily_production: daily_production} do
       {:ok, index_live, _html} = live(conn, ~p"/daily_production")
 
-      assert index_live |> element("#daily_production-#{daily_production.id} a", "Delete") |> render_click()
-      refute has_element?(index_live, "#daily_production-#{daily_production.id}")
+      assert index_live |> element("#daily_production_collection-#{daily_production.id} a", "Delete") |> render_click()
+      refute has_element?(index_live, "#daily_production_collection-#{daily_production.id}")
     end
   end
 

@@ -3,7 +3,7 @@ defmodule Aliancer.Repo.Migrations.CreateDailyProduction do
 
   def change do
     create table(:daily_production) do
-      add :date, :utc_datetime, null: false
+      add :date, :date, null: false
       add :quantity, :decimal, null: false
       add :product_id, references(:products, on_delete: :restrict), null: false
 

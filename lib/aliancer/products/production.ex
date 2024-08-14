@@ -1,12 +1,12 @@
-defmodule Aliancer.Products.DailyProduction do
+defmodule Aliancer.Products.Production do
   @moduledoc """
-  The Products.DailyProduction context.
+  The Products.Production context.
   """
 
   import Ecto.Query, warn: false
   alias Aliancer.Repo
 
-  alias Aliancer.Products.DailyProduction.DailyProduction
+  alias Aliancer.Products.Production.DailyProduction
 
   @doc """
   Returns the list of daily_production.
@@ -19,6 +19,7 @@ defmodule Aliancer.Products.DailyProduction do
   """
   def list_daily_production do
     Repo.all(DailyProduction)
+    |> Repo.preload(:product)
   end
 
   @doc """
@@ -35,7 +36,10 @@ defmodule Aliancer.Products.DailyProduction do
       ** (Ecto.NoResultsError)
 
   """
-  def get_daily_production!(id), do: Repo.get!(DailyProduction, id)
+  def get_daily_production!(id) do
+    Repo.get!(DailyProduction, id)
+    |> Repo.preload(:product)
+  end
 
   @doc """
   Creates a daily_production.
@@ -50,9 +54,16 @@ defmodule Aliancer.Products.DailyProduction do
 
   """
   def create_daily_production(attrs \\ %{}) do
-    %DailyProduction{}
-    |> DailyProduction.changeset(attrs)
-    |> Repo.insert()
+    case %DailyProduction{}
+         |> DailyProduction.changeset(attrs)
+         |> Repo.insert()
+    do
+      {:ok, updated_daily_production} ->
+        {:ok, Repo.preload(updated_daily_production, :product)}
+
+      {:error, reason} ->
+        {:error, reason}
+    end
   end
 
   @doc """
