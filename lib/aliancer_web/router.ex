@@ -17,7 +17,8 @@ defmodule AliancerWeb.Router do
   scope "/", AliancerWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", DashboardLive.Index, :index
+    live "/dashboard", DashboardLive.Index, :index
 
     live "/products", ProductLive.Index, :index
     live "/products/new", ProductLive.Index, :new
