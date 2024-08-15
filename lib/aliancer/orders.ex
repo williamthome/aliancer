@@ -54,9 +54,15 @@ defmodule Aliancer.Orders do
 
   """
   def create_order(attrs \\ %{}) do
-    %Order{}
-    |> Order.changeset(attrs)
-    |> Repo.insert()
+    case %Order{}
+         |> Order.changeset(attrs)
+         |> Repo.insert() do
+      {:ok, order} ->
+        {:ok, Repo.preload(order, :customer)}
+
+      {:error, reason} ->
+        {:error, reason}
+    end
   end
 
   @doc """
@@ -72,9 +78,15 @@ defmodule Aliancer.Orders do
 
   """
   def update_order(%Order{} = order, attrs) do
-    order
-    |> Order.changeset(attrs)
-    |> Repo.update()
+    case order
+         |> Order.changeset(attrs)
+         |> Repo.update() do
+      {:ok, updated_order} ->
+        {:ok, Repo.preload(updated_order, :customer)}
+
+      {:error, reason} ->
+        {:error, reason}
+    end
   end
 
   @doc """
