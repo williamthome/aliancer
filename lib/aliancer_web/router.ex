@@ -20,7 +20,7 @@ defmodule AliancerWeb.Router do
     live_session :admin,
       on_mount: [
         {AliancerWeb.Hooks.Assign, :current_uri}
-    ] do
+      ] do
       live "/", DashboardLive.Index, :index
       live "/dashboard", DashboardLive.Index, :index
 

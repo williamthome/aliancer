@@ -16,7 +16,9 @@
     }
   >
     <:col :let={{_id, daily_production}} label="Date"><%= daily_production.date %></:col>
-    <:col :let={{_id, daily_production}} label="Product"><%= daily_production.product.name %></:col>
+    <:col :let={{_id, daily_production}} label="Product">
+      <%= daily_production.product.name %>
+    </:col>
     <:col :let={{_id, daily_production}} label="Quantity"><%= daily_production.quantity %></:col>
     <:action :let={{_id, daily_production}}>
       <div class="sr-only">

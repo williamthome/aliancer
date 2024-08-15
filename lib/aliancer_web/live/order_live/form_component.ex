@@ -90,8 +90,8 @@ defmodule AliancerWeb.OrderLive.FormComponent do
           </.inputs_for>
 
           <div
-            class="text-center px-3 py-5 border"
             :if={!is_list(@form[:items].value) || @form[:items].value == []}
+            class="text-center px-3 py-5 border"
           >
             <.header>
               Nothing!
