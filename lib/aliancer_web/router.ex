@@ -17,36 +17,41 @@ defmodule AliancerWeb.Router do
   scope "/", AliancerWeb do
     pipe_through :browser
 
-    live "/", DashboardLive.Index, :index
-    live "/dashboard", DashboardLive.Index, :index
+    live_session :admin,
+      on_mount: [
+        {AliancerWeb.Hooks.Assign, :current_uri}
+    ] do
+      live "/", DashboardLive.Index, :index
+      live "/dashboard", DashboardLive.Index, :index
 
-    live "/products", ProductLive.Index, :index
-    live "/products/new", ProductLive.Index, :new
-    live "/products/:id/edit", ProductLive.Index, :edit
+      live "/products", ProductLive.Index, :index
+      live "/products/new", ProductLive.Index, :new
+      live "/products/:id/edit", ProductLive.Index, :edit
 
-    live "/products/:id", ProductLive.Show, :show
-    live "/products/:id/show/edit", ProductLive.Show, :edit
+      live "/products/:id", ProductLive.Show, :show
+      live "/products/:id/show/edit", ProductLive.Show, :edit
 
-    live "/daily_production", DailyProductionLive.Index, :index
-    live "/daily_production/new", DailyProductionLive.Index, :new
-    live "/daily_production/:id/edit", DailyProductionLive.Index, :edit
+      live "/daily_production", DailyProductionLive.Index, :index
+      live "/daily_production/new", DailyProductionLive.Index, :new
+      live "/daily_production/:id/edit", DailyProductionLive.Index, :edit
 
-    live "/daily_production/:id", DailyProductionLive.Show, :show
-    live "/daily_production/:id/show/edit", DailyProductionLive.Show, :edit
+      live "/daily_production/:id", DailyProductionLive.Show, :show
+      live "/daily_production/:id/show/edit", DailyProductionLive.Show, :edit
 
-    live "/customers", CustomerLive.Index, :index
-    live "/customers/new", CustomerLive.Index, :new
-    live "/customers/:id/edit", CustomerLive.Index, :edit
+      live "/customers", CustomerLive.Index, :index
+      live "/customers/new", CustomerLive.Index, :new
+      live "/customers/:id/edit", CustomerLive.Index, :edit
 
-    live "/customers/:id", CustomerLive.Show, :show
-    live "/customers/:id/show/edit", CustomerLive.Show, :edit
+      live "/customers/:id", CustomerLive.Show, :show
+      live "/customers/:id/show/edit", CustomerLive.Show, :edit
 
-    live "/orders", OrderLive.Index, :index
-    live "/orders/new", OrderLive.Index, :new
-    live "/orders/:id/edit", OrderLive.Index, :edit
+      live "/orders", OrderLive.Index, :index
+      live "/orders/new", OrderLive.Index, :new
+      live "/orders/:id/edit", OrderLive.Index, :edit
 
-    live "/orders/:id", OrderLive.Show, :show
-    live "/orders/:id/show/edit", OrderLive.Show, :edit
+      live "/orders/:id", OrderLive.Show, :show
+      live "/orders/:id/show/edit", OrderLive.Show, :edit
+    end
   end
 
   # Other scopes may use custom stacks.

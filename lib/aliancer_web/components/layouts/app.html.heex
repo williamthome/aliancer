@@ -17,21 +17,20 @@
         <div>
           <ul class="flex flex-col gap-2">
             <%!-- Menu Items --%>
-            <%!-- TODO: https://github.com/phoenixframework/phoenix_live_view/issues/1389#issuecomment-1496644880 --%>
             <li
               :for={item <- [
-                %{url: ~p"/", title: "Dashboard", icon: "hero-squares-2x2", active: true},
-                %{url: ~p"/customers", title: "Customers", icon: "hero-squares-2x2", active: false},
-                %{url: ~p"/products", title: "Products", icon: "hero-squares-2x2", active: false},
-                %{url: ~p"/orders", title: "Orders", icon: "hero-squares-2x2", active: false},
-                %{url: ~p"/daily_production", title: "Production", icon: "hero-squares-2x2", active: false}
+                %{title: "Dashboard", uri: ~p"/", icon: "hero-squares-2x2"},
+                %{title: "Customers", uri: ~p"/customers", icon: "hero-squares-2x2"},
+                %{title: "Products", uri: ~p"/products", icon: "hero-squares-2x2"},
+                %{title: "Orders", uri: ~p"/orders", icon: "hero-squares-2x2"},
+                %{title: "Production", uri: ~p"/daily_production", icon: "hero-squares-2x2"}
               ]}
               class={[
                 "text-slate-400 rounded-md hover:bg-slate-800",
-                item.active && "bg-slate-800"
+                item.uri == @current_uri && "bg-slate-800"
               ]}
             >
-              <a class="flex items-center gap-2 px-3 py-2" href={item.url}>
+              <a class="flex items-center gap-2 px-3 py-2" href={item.uri}>
                 <.icon name={item.icon} class="h-5 w-5" />
                 <%= item.title %>
               </a>
