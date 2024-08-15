@@ -3,6 +3,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
 
   alias Aliancer.Orders
   alias Aliancer.Persons
+  alias Aliancer.Products
 
   @impl true
   def render(assigns) do
@@ -34,6 +35,61 @@ defmodule AliancerWeb.OrderLive.FormComponent do
           options={Ecto.Enum.values(Aliancer.Orders.Order, :status)}
         />
         <.input field={@form[:notes]} type="textarea" label="Notes" />
+
+        <.header>
+          Listing Items
+          <:actions>
+            <label class="rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3 text-sm font-semibold leading-6 text-white active:text-white/80 cursor-pointer">
+              <input type="checkbox" name="order[items_order][]" class="hidden" />
+              <span>Add Item</span>
+            </label>
+          </:actions>
+        </.header>
+
+        <div class="space-y-2">
+          <.inputs_for :let={item_form} field={@form[:items]}>
+            <input type="hidden" name="order[items_order][]" value={item_form.index} />
+            <div class="flex space-x-2">
+              <.input
+                field={item_form[:product_id]}
+                label={if item_form.index == 0, do: "Item"}
+                type="select"
+                options={@products}
+                control_class="grow"
+              />
+              <.input
+                field={item_form[:quantity]}
+                type="number"
+                label={if item_form.index == 0, do: "Quantity"}
+                step="any"
+              />
+              <.input
+                field={item_form[:total]}
+                type="number"
+                label={if item_form.index == 0, do: "Total"}
+                step="any"
+              />
+              <div class="flex flex-col">
+                <label
+                  :if={item_form.index == 0}
+                  class="block text-sm font-semibold leading-6 text-zinc-800 invisible"
+                >
+                  X
+                </label>
+                <label class="mt-2 flex items-center justify-center grow cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="order[items_delete][]"
+                    value={item_form.index}
+                    class="hidden"
+                  />
+                  <.icon name="hero-x-mark" />
+                </label>
+              </div>
+            </div>
+          </.inputs_for>
+        </div>
+
         <:actions>
           <.button phx-disable-with="Saving...">Save Order</.button>
         </:actions>
@@ -51,6 +107,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
       |> assign(assigns)
       |> assign_new(:form, fn -> to_form(changeset) end)
       |> assign_customers()
+      |> assign_products()
 
     {:ok, socket}
   end
@@ -61,6 +118,14 @@ defmodule AliancerWeb.OrderLive.FormComponent do
       |> Enum.map(&{&1.name, &1.id})
 
     assign(socket, :customers, customers)
+  end
+
+  defp assign_products(socket) do
+    products =
+      Products.list_products()
+      |> Enum.map(&{&1.name, &1.id})
+
+    assign(socket, :products, products)
   end
 
   @impl true
