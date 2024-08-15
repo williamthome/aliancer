@@ -77,6 +77,18 @@ defmodule AliancerWeb.ProductLive.FormComponent do
               </div>
             </div>
           </.inputs_for>
+
+          <div
+            :if={!is_list(@form[:sub_products].value) || @form[:sub_products].value == []}
+            class="text-center px-3 py-5 border"
+          >
+            <.header>
+              Nothing!
+              <:subtitle>
+                Add products that compose that product
+              </:subtitle>
+            </.header>
+          </div>
         </div>
 
         <:actions>

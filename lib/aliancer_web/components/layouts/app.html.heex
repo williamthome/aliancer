@@ -1,32 +1,66 @@
-<header class="px-4 sm:px-6 lg:px-8">
-  <div class="flex items-center justify-between border-b border-zinc-100 py-3 text-sm">
-    <div class="flex items-center gap-4">
-      <a href="/">
-        <img src={~p"/images/logo.svg"} width="36" />
-      </a>
-      <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
-        v<%= Application.spec(:phoenix, :vsn) %>
-      </p>
-    </div>
-    <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <a href="https://twitter.com/elixirphoenix" class="hover:text-zinc-700">
-        @elixirphoenix
-      </a>
-      <a href="https://github.com/phoenixframework/phoenix" class="hover:text-zinc-700">
-        GitHub
-      </a>
-      <a
-        href="https://hexdocs.pm/phoenix/overview.html"
-        class="rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80"
-      >
-        Get Started <span aria-hidden="true">&rarr;</span>
+<div class="flex h-screen overflow-hidden">
+  <aside class=" flex flex-col bg-slate-900 px-4">
+    <%!-- Sidebar Header --%>
+    <div class="flex items-center justify-center px-14 py-10">
+      <a href="/" class="flex items-center gap-4 text-white">
+        <img
+          src="https://lh3.googleusercontent.com/a-/ALV-UjVztsEvbnXRpzthvot38y4VGnM3ffAEItgDSW2EqmdCWxvE6c8=s265-w265-h265"
+          width="36"
+        />
+        <p class="text-2xl leading-6">
+          Aliancer
+        </p>
       </a>
     </div>
+
+    <%!-- Sidebar Menu --%>
+    <div class="flex flex-col overflow-y-auto">
+      <nav>
+        <%!-- Menu Group --%>
+        <div>
+          <ul class="flex flex-col gap-2">
+            <%!-- Menu Items --%>
+            <li
+              :for={
+                item <- [
+                  %{title: "Dashboard", uri: ~p"/", icon: "hero-squares-2x2"},
+                  %{title: "Customers", uri: ~p"/customers", icon: "hero-user"},
+                  %{title: "Products", uri: ~p"/products", icon: "hero-cube"},
+                  %{title: "Orders", uri: ~p"/orders", icon: "hero-newspaper"},
+                  %{title: "Daily production", uri: ~p"/daily_production", icon: "hero-beaker"}
+                ]
+              }
+              class={[
+                "text-slate-400 rounded-md hover:bg-slate-800",
+                item.uri == @current_uri && "bg-slate-800"
+              ]}
+            >
+              <a class="flex items-center gap-2 px-3 py-2" href={item.uri}>
+                <.icon name={item.icon} class="h-5 w-5" />
+                <%= item.title %>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </aside>
+  <div class="flex flex-col grow">
+    <header class="border-b border-zinc-100 py-4 text-sm shadow-sm">
+      <div class="flex items-center justify-between px-4">
+        <div class="flex items-center gap-4">
+          <%!-- Nothing here yet! --%>
+        </div>
+        <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
+          <a href="https://aliancer.com.br/" class="hover:text-zinc-700">
+            @aliancer
+          </a>
+        </div>
+      </div>
+    </header>
+    <main class="grow overflow-y-auto">
+      <.flash_group flash={@flash} />
+      <%= @inner_content %>
+    </main>
   </div>
-</header>
-<main class="px-4 py-20 sm:px-6 lg:px-8">
-  <div class="mx-auto max-w-2xl">
-    <.flash_group flash={@flash} />
-    <%= @inner_content %>
-  </div>
-</main>
+</div>

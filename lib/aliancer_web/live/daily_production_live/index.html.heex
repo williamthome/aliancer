@@ -1,37 +1,41 @@
-<.header>
-  Listing Daily production
-  <:actions>
-    <.link patch={~p"/daily_production/new"}>
-      <.button>New Daily production</.button>
-    </.link>
-  </:actions>
-</.header>
+<div class="px-4 py-8">
+  <.header>
+    Listing Daily production
+    <:actions>
+      <.link patch={~p"/daily_production/new"}>
+        <.button>New Daily production</.button>
+      </.link>
+    </:actions>
+  </.header>
 
-<.table
-  id="daily_production"
-  rows={@streams.daily_production_collection}
-  row_click={
-    fn {_id, daily_production} -> JS.navigate(~p"/daily_production/#{daily_production}") end
-  }
->
-  <:col :let={{_id, daily_production}} label="Date"><%= daily_production.date %></:col>
-  <:col :let={{_id, daily_production}} label="Product"><%= daily_production.product.name %></:col>
-  <:col :let={{_id, daily_production}} label="Quantity"><%= daily_production.quantity %></:col>
-  <:action :let={{_id, daily_production}}>
-    <div class="sr-only">
-      <.link navigate={~p"/daily_production/#{daily_production}"}>Show</.link>
-    </div>
-    <.link patch={~p"/daily_production/#{daily_production}/edit"}>Edit</.link>
-  </:action>
-  <:action :let={{id, daily_production}}>
-    <.link
-      phx-click={JS.push("delete", value: %{id: daily_production.id}) |> hide("##{id}")}
-      data-confirm="Are you sure?"
-    >
-      Delete
-    </.link>
-  </:action>
-</.table>
+  <.table
+    id="daily_production"
+    rows={@streams.daily_production_collection}
+    row_click={
+      fn {_id, daily_production} -> JS.navigate(~p"/daily_production/#{daily_production}") end
+    }
+  >
+    <:col :let={{_id, daily_production}} label="Date"><%= daily_production.date %></:col>
+    <:col :let={{_id, daily_production}} label="Product">
+      <%= daily_production.product.name %>
+    </:col>
+    <:col :let={{_id, daily_production}} label="Quantity"><%= daily_production.quantity %></:col>
+    <:action :let={{_id, daily_production}}>
+      <div class="sr-only">
+        <.link navigate={~p"/daily_production/#{daily_production}"}>Show</.link>
+      </div>
+      <.link patch={~p"/daily_production/#{daily_production}/edit"}>Edit</.link>
+    </:action>
+    <:action :let={{id, daily_production}}>
+      <.link
+        phx-click={JS.push("delete", value: %{id: daily_production.id}) |> hide("##{id}")}
+        data-confirm="Are you sure?"
+      >
+        Delete
+      </.link>
+    </:action>
+  </.table>
+</div>
 
 <.modal
   :if={@live_action in [:new, :edit]}
