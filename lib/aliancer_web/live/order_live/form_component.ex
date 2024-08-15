@@ -88,6 +88,18 @@ defmodule AliancerWeb.OrderLive.FormComponent do
               </div>
             </div>
           </.inputs_for>
+
+          <div
+            class="text-center px-3 py-5 border"
+            :if={!is_list(@form[:items].value) || @form[:items].value == []}
+          >
+            <.header>
+              Nothing!
+              <:subtitle>
+                Please add the order items
+              </:subtitle>
+            </.header>
+          </div>
         </div>
 
         <:actions>
