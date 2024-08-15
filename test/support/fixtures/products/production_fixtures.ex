@@ -1,10 +1,10 @@
 defmodule Aliancer.Products.ProductionFixtures do
-  import Aliancer.ProductsFixtures
-
   @moduledoc """
   This module defines test helpers for creating
   entities via the `Aliancer.Products.Production` context.
   """
+
+  import Aliancer.ProductsFixtures
 
   @doc """
   Generate a daily_production.
