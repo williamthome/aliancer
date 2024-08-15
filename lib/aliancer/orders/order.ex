@@ -39,8 +39,6 @@ defmodule Aliancer.Orders.Order do
 
   @doc false
   def changeset(order, attrs) do
-    attrs = resolve_address(attrs)
-
     order
     |> cast(attrs, [
       :datetime,
@@ -52,6 +50,7 @@ defmodule Aliancer.Orders.Order do
       :notes,
       :customer_id
     ])
+    |> cast_address()
     |> validate_required([:datetime, :status, :customer_id])
     |> cast_assoc(:items,
       with: &OrderItems.changeset/2,
@@ -60,9 +59,9 @@ defmodule Aliancer.Orders.Order do
     )
   end
 
-  defp resolve_address(%{customer_pickup: true} = attrs) do
-    Map.put(attrs, :address, nil)
+  defp cast_address(%{changes: %{customer_pickup: true}} = changeset) do
+    put_change(changeset, :address, nil)
   end
 
-  defp resolve_address(attrs), do: attrs
+  defp cast_address(changeset), do: changeset
 end
