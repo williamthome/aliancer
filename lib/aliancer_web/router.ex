@@ -22,7 +22,6 @@ defmodule AliancerWeb.Router do
         {AliancerWeb.Hooks.Assign, :current_uri}
       ] do
       live "/", DashboardLive.Index, :index
-      live "/dashboard", DashboardLive.Index, :index
 
       live "/products", ProductLive.Index, :index
       live "/products/new", ProductLive.Index, :new
