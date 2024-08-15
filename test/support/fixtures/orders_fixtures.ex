@@ -23,4 +23,19 @@ defmodule Aliancer.OrdersFixtures do
 
     order
   end
+
+  @doc """
+  Generate a order_items.
+  """
+  def order_items_fixture(attrs \\ %{}) do
+    {:ok, order_items} =
+      attrs
+      |> Enum.into(%{
+        quantity: "120.5",
+        total: "120.5"
+      })
+      |> Aliancer.Orders.create_order_items()
+
+    order_items
+  end
 end
