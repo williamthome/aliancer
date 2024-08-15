@@ -1,23 +1,25 @@
-<.header>
-  Daily production <%= @daily_production.id %>
-  <:subtitle>This is a daily_production record from your database.</:subtitle>
-  <:actions>
-    <.link
-      patch={~p"/daily_production/#{@daily_production}/show/edit"}
-      phx-click={JS.push_focus()}
-    >
-      <.button>Edit daily_production</.button>
-    </.link>
-  </:actions>
-</.header>
+<div class="px-4 py-8">
+  <.header>
+    Daily production <%= @daily_production.id %>
+    <:subtitle>This is a daily_production record from your database.</:subtitle>
+    <:actions>
+      <.link
+        patch={~p"/daily_production/#{@daily_production}/show/edit"}
+        phx-click={JS.push_focus()}
+      >
+        <.button>Edit daily_production</.button>
+      </.link>
+    </:actions>
+  </.header>
 
-<.list>
-  <:item title="Date"><%= @daily_production.date %></:item>
-  <:item title="Product"><%= @daily_production.product.name %></:item>
-  <:item title="Quantity"><%= @daily_production.quantity %></:item>
-</.list>
+  <.list>
+    <:item title="Date"><%= @daily_production.date %></:item>
+    <:item title="Product"><%= @daily_production.product.name %></:item>
+    <:item title="Quantity"><%= @daily_production.quantity %></:item>
+  </.list>
 
-<.back navigate={~p"/daily_production"}>Back to daily_production</.back>
+  <.back navigate={~p"/daily_production"}>Back to daily_production</.back>
+</div>
 
 <.modal
   :if={@live_action == :edit}

@@ -1,45 +1,47 @@
-<.header>
-  Listing Orders
-  <:actions>
-    <.link patch={~p"/orders/new"}>
-      <.button>New Order</.button>
-    </.link>
-  </:actions>
-</.header>
+<div class="px-4 py-8">
+  <.header>
+    Listing Orders
+    <:actions>
+      <.link patch={~p"/orders/new"}>
+        <.button>New Order</.button>
+      </.link>
+    </:actions>
+  </.header>
 
-<.table
-  id="orders"
-  rows={@streams.orders}
-  row_click={fn {_id, order} -> JS.navigate(~p"/orders/#{order}") end}
->
-  <:col :let={{_id, order}} label="Datetime"><%= order.datetime %></:col>
-  <:col :let={{_id, order}} label="Customer"><%= order.customer.name %></:col>
-  <:col :let={{_id, order}} label="Address">
-    <%= if order.customer_pickup do
-      "Customer pickup"
-    else
-      order.address
-    end %>
-  </:col>
-  <:col :let={{_id, order}} label="Total"><%= order.total %></:col>
-  <:col :let={{_id, order}} label="Paid"><%= order.paid %></:col>
-  <:col :let={{_id, order}} label="Status"><%= order.status %></:col>
-  <:col :let={{_id, order}} label="Notes"><%= order.notes %></:col>
-  <:action :let={{_id, order}}>
-    <div class="sr-only">
-      <.link navigate={~p"/orders/#{order}"}>Show</.link>
-    </div>
-    <.link patch={~p"/orders/#{order}/edit"}>Edit</.link>
-  </:action>
-  <:action :let={{id, order}}>
-    <.link
-      phx-click={JS.push("delete", value: %{id: order.id}) |> hide("##{id}")}
-      data-confirm="Are you sure?"
-    >
-      Delete
-    </.link>
-  </:action>
-</.table>
+  <.table
+    id="orders"
+    rows={@streams.orders}
+    row_click={fn {_id, order} -> JS.navigate(~p"/orders/#{order}") end}
+  >
+    <:col :let={{_id, order}} label="Datetime"><%= order.datetime %></:col>
+    <:col :let={{_id, order}} label="Customer"><%= order.customer.name %></:col>
+    <:col :let={{_id, order}} label="Address">
+      <%= if order.customer_pickup do
+        "Customer pickup"
+      else
+        order.address
+      end %>
+    </:col>
+    <:col :let={{_id, order}} label="Total"><%= order.total %></:col>
+    <:col :let={{_id, order}} label="Paid"><%= order.paid %></:col>
+    <:col :let={{_id, order}} label="Status"><%= order.status %></:col>
+    <:col :let={{_id, order}} label="Notes"><%= order.notes %></:col>
+    <:action :let={{_id, order}}>
+      <div class="sr-only">
+        <.link navigate={~p"/orders/#{order}"}>Show</.link>
+      </div>
+      <.link patch={~p"/orders/#{order}/edit"}>Edit</.link>
+    </:action>
+    <:action :let={{id, order}}>
+      <.link
+        phx-click={JS.push("delete", value: %{id: order.id}) |> hide("##{id}")}
+        data-confirm="Are you sure?"
+      >
+        Delete
+      </.link>
+    </:action>
+  </.table>
+</div>
 
 <.modal
   :if={@live_action in [:new, :edit]}
