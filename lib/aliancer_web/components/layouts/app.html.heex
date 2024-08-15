@@ -27,11 +27,11 @@
                 %{url: ~p"/daily_production", title: "Production", icon: "hero-squares-2x2", active: false}
               ]}
               class={[
-                "text-slate-400 px-3 py-2 rounded-md hover:bg-slate-800",
+                "text-slate-400 rounded-md hover:bg-slate-800",
                 item.active && "bg-slate-800"
               ]}
             >
-              <a class="flex items-center gap-2" href={item.url}>
+              <a class="flex items-center gap-2 px-3 py-2" href={item.url}>
                 <.icon name={item.icon} class="h-5 w-5" />
                 <%= item.title %>
               </a>
