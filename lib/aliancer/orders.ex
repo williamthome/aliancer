@@ -7,6 +7,7 @@ defmodule Aliancer.Orders do
   alias Aliancer.Repo
 
   alias Aliancer.Orders.Order
+  alias Aliancer.Orders.OrderItems
 
   @doc """
   Returns the list of orders.
@@ -39,6 +40,7 @@ defmodule Aliancer.Orders do
   def get_order!(id) do
     Repo.get!(Order, id)
     |> Repo.preload(:customer)
+    |> Repo.preload(:items)
   end
 
   @doc """
@@ -54,15 +56,38 @@ defmodule Aliancer.Orders do
 
   """
   def create_order(attrs \\ %{}) do
-    case %Order{}
-         |> Order.changeset(attrs)
-         |> Repo.insert() do
-      {:ok, order} ->
-        {:ok, Repo.preload(order, :customer)}
+    Repo.transaction(fn ->
+      case %Order{}
+           |> Order.changeset(Map.drop(attrs, ["items", "items_order", "items_delete"]))
+           |> Repo.insert() do
+        {:ok, order} ->
+          items =
+            Map.new(Map.get(attrs, "items", []), fn {index, item} ->
+              {index, Map.put(item, "order_id", order.id)}
+            end)
 
-      {:error, reason} ->
-        {:error, reason}
-    end
+          case order
+               |> Repo.preload(:items)
+               |> Ecto.Changeset.cast(Map.put(attrs, "items", items), [])
+               |> Ecto.Changeset.cast_assoc(:items,
+                 with: &OrderItems.changeset/2,
+                 sort_param: :items_order,
+                 drop_param: :items_delete
+               )
+               |> Repo.update() do
+            {:ok, updated_order} ->
+              updated_order
+              |> Repo.preload(:customer)
+              |> Repo.preload(:items)
+
+            {:error, reason} ->
+              Repo.rollback(reason)
+          end
+
+        {:error, reason} ->
+          Repo.rollback(reason)
+      end
+    end)
   end
 
   @doc """
@@ -78,11 +103,19 @@ defmodule Aliancer.Orders do
 
   """
   def update_order(%Order{} = order, attrs) do
+    items =
+      Map.new(Map.get(attrs, "items", []), fn {index, item} ->
+        {index, Map.put(item, "order_id", order.id)}
+      end)
+
     case order
-         |> Order.changeset(attrs)
+         |> Order.changeset(Map.put(attrs, "items", items))
          |> Repo.update() do
       {:ok, updated_order} ->
-        {:ok, Repo.preload(updated_order, :customer)}
+        {:ok,
+         updated_order
+         |> Repo.preload(:customer)
+         |> Repo.preload(:items)}
 
       {:error, reason} ->
         {:error, reason}

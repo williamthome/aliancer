@@ -3,6 +3,7 @@ defmodule Aliancer.Orders.Order do
   import Ecto.Changeset
 
   alias Aliancer.Persons.Customer
+  alias Aliancer.Orders.OrderItems
 
   schema "orders" do
     field :status, Ecto.Enum,
@@ -31,6 +32,8 @@ defmodule Aliancer.Orders.Order do
     field :notes, :string
     belongs_to :customer, Customer
 
+    has_many :items, OrderItems, on_replace: :delete
+
     timestamps(type: :utc_datetime)
   end
 
@@ -50,6 +53,11 @@ defmodule Aliancer.Orders.Order do
       :customer_id
     ])
     |> validate_required([:datetime, :status, :customer_id])
+    |> cast_assoc(:items,
+      with: &OrderItems.changeset/2,
+      sort_param: :items_order,
+      drop_param: :items_delete
+    )
   end
 
   defp resolve_address(%{customer_pickup: true} = attrs) do
