@@ -21,4 +21,23 @@ defmodule Aliancer.PersonsFixtures do
 
     customer
   end
+
+  @doc """
+  Generate a employee.
+  """
+  def employee_fixture(attrs \\ %{}) do
+    {:ok, employee} =
+      attrs
+      |> Enum.into(%{
+        birth_date: ~D[2024-08-15],
+        dismiss_date: ~D[2024-08-15],
+        hire_date: ~D[2024-08-15],
+        job_name: "some job_name",
+        name: "some name",
+        salary: "120.5"
+      })
+      |> Aliancer.Persons.create_employee()
+
+    employee
+  end
 end
