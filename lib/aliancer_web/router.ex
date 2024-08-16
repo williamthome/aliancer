@@ -50,6 +50,13 @@ defmodule AliancerWeb.Router do
 
       live "/orders/:id", OrderLive.Show, :show
       live "/orders/:id/show/edit", OrderLive.Show, :edit
+
+      live "/employees", EmployeeLive.Index, :index
+      live "/employees/new", EmployeeLive.Index, :new
+      live "/employees/:id/edit", EmployeeLive.Index, :edit
+
+      live "/employees/:id", EmployeeLive.Show, :show
+      live "/employees/:id/show/edit", EmployeeLive.Show, :edit
     end
   end
 

@@ -1,10 +1,15 @@
 <div class="bg-slate-100 p-6 min-h-full">
   <div class="flex flex-col gap-6 m-auto" style="max-width: calc(100vh + 3rem)">
-    <div class="grid grid-cols-3 gap-6">
+    <div class="grid grid-cols-4 gap-6">
       <div
         :for={
           item <- [
             %{title: "Customers", icon: "hero-user", value: Aliancer.Persons.count_customers()},
+            %{
+              title: "Employees",
+              icon: "hero-identification",
+              value: Aliancer.Persons.count_employees()
+            },
             %{title: "Products", icon: "hero-cube", value: Aliancer.Products.count_products()},
             %{title: "Orders", icon: "hero-newspaper", value: Aliancer.Orders.count_orders()}
           ]
