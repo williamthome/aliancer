@@ -98,6 +98,12 @@ defmodule Aliancer.PersonsTest do
       birth_date: nil
     }
 
+    test "count_employees/0 returns employees count" do
+      assert Persons.count_employees() == 0
+      _employee = employee_fixture()
+      assert Persons.count_employees() == 1
+    end
+
     test "list_employees/0 returns all employees" do
       employee = employee_fixture()
       assert Persons.list_employees() == [employee]

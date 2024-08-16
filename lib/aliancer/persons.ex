@@ -116,6 +116,17 @@ defmodule Aliancer.Persons do
   alias Aliancer.Persons.Employee
 
   @doc """
+  Returns the customers count.
+
+  ## Examples
+
+      iex> count_customers()
+      0
+
+  """
+  def count_employees, do: Repo.aggregate(Employee, :count)
+
+  @doc """
   Returns the list of employees.
 
   ## Examples
