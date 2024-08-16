@@ -20,11 +20,11 @@ defmodule AliancerWeb.EmployeeLive.FormComponent do
         phx-submit="save"
       >
         <.input field={@form[:name]} type="text" label="Name" />
+        <.input field={@form[:job_name]} type="text" label="Job name" />
         <.input field={@form[:salary]} type="number" label="Salary" step="any" />
+        <.input field={@form[:birth_date]} type="date" label="Birth date" />
         <.input field={@form[:hire_date]} type="date" label="Hire date" />
         <.input field={@form[:dismiss_date]} type="date" label="Dismiss date" />
-        <.input field={@form[:job_name]} type="text" label="Job name" />
-        <.input field={@form[:birth_date]} type="date" label="Birth date" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Employee</.button>
         </:actions>
