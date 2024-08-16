@@ -1,9 +1,16 @@
 import ApexCharts from "apexcharts"
 
+function currencyFormat(number) {
+  return new Intl.NumberFormat(undefined, {
+    style: "currency",
+    currency: "BRL"
+  }).format(number)
+}
+
 export default Chart = {
   mounted() {
     const seriesData = JSON.parse(this.el.dataset.series)
-    const goal = this.el.dataset.goal
+    const goal = parseFloat(this.el.dataset.goal)
     const goalLabel = this.el.dataset.goalLabel
 
     const options = {
@@ -28,7 +35,7 @@ export default Chart = {
                 background: "#0e182a",
                 fontSize: "1rem"
               },
-              text: goalLabel
+              text: `${goalLabel}: ${currencyFormat(goal)}`
             }
           }
         ]
@@ -50,12 +57,7 @@ export default Chart = {
       },
       yaxis: {
         labels: {
-          formatter: function (value) {
-            return new Intl.NumberFormat(undefined, {
-              style: "currency",
-              currency: "BRL"
-            }).format(value)
-          },
+          formatter: currencyFormat,
           offsetX: -16
         }
       },
