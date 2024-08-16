@@ -7,6 +7,19 @@ defmodule Aliancer.Products.Production do
   alias Aliancer.Repo
 
   alias Aliancer.Products.Production.DailyProduction
+  alias Aliancer.Products.Product
+
+  def daily_production_series do
+    from(dp in DailyProduction,
+      join: p in Product, on: dp.product_id == p.id,
+      group_by: dp.date,
+      select: {dp.date, sum(p.price * dp.quantity)}
+    )
+    |> Repo.all
+    |> Enum.map(fn {date, total} ->
+      [date, Decimal.to_float(total)]
+    end)
+  end
 
   @doc """
   Returns the list of daily_production.
