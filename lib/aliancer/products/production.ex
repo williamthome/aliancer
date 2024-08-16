@@ -11,11 +11,12 @@ defmodule Aliancer.Products.Production do
 
   def daily_production_series do
     from(dp in DailyProduction,
-      join: p in Product, on: dp.product_id == p.id,
+      join: p in Product,
+      on: dp.product_id == p.id,
       group_by: dp.date,
       select: {dp.date, sum(p.price * dp.quantity)}
     )
-    |> Repo.all
+    |> Repo.all()
     |> Enum.map(fn {date, total} ->
       [date, Decimal.to_float(total)]
     end)
