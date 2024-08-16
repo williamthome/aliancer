@@ -7,7 +7,7 @@ defmodule AliancerWeb.DashboardLiveTest do
     test "render", %{conn: conn} do
       {:ok, _index_live, html} = live(conn, ~p"/")
 
-      assert html =~ "Aliancer Engenharia e Topografia"
+      assert html =~ "Goal"
     end
   end
 end

@@ -1,10 +1,41 @@
-<div class="px-4 py-10 sm:px-6 sm:py-28 lg:px-8 xl:px-28 xl:py-32">
-  <div class="mx-auto max-w-xl lg:mx-0">
-    <.header>
-      Aliancer Engenharia e Topografia
-      <:subtitle>
-        A dashboard will appear here soon. Stay tuned! 🚀
-      </:subtitle>
-    </.header>
+<div class="bg-slate-100 p-6 min-h-full">
+  <div class="flex flex-col gap-6 m-auto" style="max-width: calc(100vh + 3rem)">
+    <div class="grid grid-cols-3 gap-6">
+      <div
+        :for={
+          item <- [
+            %{title: "Customers", icon: "hero-user", value: Aliancer.Persons.count_customers()},
+            %{title: "Products", icon: "hero-cube", value: Aliancer.Products.count_products()},
+            %{title: "Orders", icon: "hero-newspaper", value: Aliancer.Orders.count_orders()}
+          ]
+        }
+        class="flex justify-between gap-2 p-4 bg-white shadow-md hover:shadow-lg bg-clip-border rounded-xl"
+      >
+        <div class="flex flex-col gap-2">
+          <.icon name={item.icon} class="h-5 w-5 text-slate-400" />
+          <div class="font-bold">
+            <%= item.title %>
+          </div>
+        </div>
+        <div class="flex items-end text-4xl font-light">
+          <%= item.value %>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white shadow-md hover:shadow-lg bg-clip-border rounded-xl">
+      <div class="flex items-center gap-2 p-4 font-bold border-b">
+        <.icon name="hero-beaker" class="h-5 w-5 text-slate-400" /> Daily production
+      </div>
+      <div class="p-4">
+        <div
+          id="chart"
+          phx-hook="Chart"
+          data-series={Jason.encode!(Aliancer.Products.Production.daily_production_series())}
+          data-goal={400}
+          data-goal-label="Goal"
+        >
+        </div>
+      </div>
+    </div>
   </div>
 </div>

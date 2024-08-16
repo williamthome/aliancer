@@ -10,6 +10,17 @@ defmodule Aliancer.Orders do
   alias Aliancer.Orders.OrderItems
 
   @doc """
+  Returns the orders count.
+
+  ## Examples
+
+      iex> count_orders()
+      0
+
+  """
+  def count_orders, do: Repo.aggregate(Order, :count)
+
+  @doc """
   Returns the list of orders.
 
   ## Examples

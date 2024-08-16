@@ -9,6 +9,17 @@ defmodule Aliancer.Products do
   alias Aliancer.Products.Product
 
   @doc """
+  Returns the products count.
+
+  ## Examples
+
+      iex> count_products()
+      0
+
+  """
+  def count_products, do: Repo.aggregate(Product, :count)
+
+  @doc """
   Returns the list of products.
 
   ## Examples

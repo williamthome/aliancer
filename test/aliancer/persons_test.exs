@@ -10,6 +10,12 @@ defmodule Aliancer.PersonsTest do
 
     @invalid_attrs %{name: nil, address: nil, phone: nil, email: nil, notes: nil}
 
+    test "count_customers/0 returns customers count" do
+      assert Persons.count_customers() == 0
+      _customer = customer_fixture()
+      assert Persons.count_customers() == 1
+    end
+
     test "list_customers/0 returns all customers" do
       customer = customer_fixture()
       assert Persons.list_customers() == [customer]
