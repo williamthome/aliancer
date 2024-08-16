@@ -10,6 +10,12 @@ defmodule Aliancer.ProductsTest do
 
     @invalid_attrs %{name: nil, unit: nil, description: nil, cost: nil, price: nil}
 
+    test "count_products/0 returns products count" do
+      assert Products.count_products() == 0
+      _product = product_fixture()
+      assert Products.count_products() == 1
+    end
+
     test "list_products/0 returns all products" do
       product = product_fixture()
       assert Products.list_products() == [product]

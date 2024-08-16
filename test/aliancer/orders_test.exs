@@ -20,6 +20,19 @@ defmodule Aliancer.OrdersTest do
       notes: nil
     }
 
+    test "count_orders/0 returns orders count" do
+      assert Orders.count_orders() == 0
+
+      customer = customer_fixture()
+
+      _order =
+        order_fixture(%{customer_id: customer.id})
+        |> Map.put(:customer, customer)
+        |> Ecto.reset_fields([:items])
+
+      assert Orders.count_orders() == 1
+    end
+
     test "list_orders/0 returns all orders" do
       customer = customer_fixture()
 
