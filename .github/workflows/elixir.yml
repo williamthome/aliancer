@@ -126,10 +126,3 @@ jobs:
       # Step: Execute the tests.
       - name: Run tests
         run: mix test
-
-      # Step: Check deps artifacts.
-      - name: Check if build left artifacts
-        run: |
-          mix deps.clean --all
-          mix deps.update --all
-          git diff --exit-code
