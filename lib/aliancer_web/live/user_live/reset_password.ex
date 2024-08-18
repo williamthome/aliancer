@@ -50,7 +50,12 @@ defmodule AliancerWeb.UserLive.ResetPassword do
           %{}
       end
 
-    {:ok, assign_form(socket, form_source), temporary_assigns: [form: nil]}
+    socket =
+      socket
+      |> assign(:page_title, "Reset Password")
+      |> assign_form(form_source)
+
+    {:ok, socket, temporary_assigns: [form: nil]}
   end
 
   # Do not log in the user after reset password to avoid a

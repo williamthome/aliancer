@@ -29,7 +29,12 @@ defmodule AliancerWeb.UserLive.ConfirmationInstructions do
   end
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, form: to_form(%{}, as: "user"))}
+    socket =
+      socket
+      |> assign(:page_title, "Confirmation Instructions")
+      |> assign(:form, to_form(%{}, as: "user"))
+
+    {:ok, socket}
   end
 
   def handle_event("send_instructions", %{"user" => %{"email" => email}}, socket) do
