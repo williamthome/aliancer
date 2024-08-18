@@ -3,6 +3,7 @@ defmodule AliancerWeb.ProductLiveTest do
 
   import Phoenix.LiveViewTest
   import Aliancer.ProductsFixtures
+  import Aliancer.AccountsFixtures
 
   @create_attrs %{
     name: "some name",
@@ -20,13 +21,19 @@ defmodule AliancerWeb.ProductLiveTest do
   }
   @invalid_attrs %{name: nil, unit: nil, description: nil, cost: nil, price: nil}
 
+  defp authenticate(%{conn: conn}) do
+    password = valid_user_password()
+    user = user_fixture(%{password: password})
+    %{conn: log_in_user(conn, user)}
+  end
+
   defp create_product(_) do
     product = product_fixture()
     %{product: product}
   end
 
   describe "Index" do
-    setup [:create_product]
+    setup [:authenticate, :create_product]
 
     test "lists all products", %{conn: conn, product: product} do
       {:ok, _index_live, html} = live(conn, ~p"/products")
@@ -90,7 +97,7 @@ defmodule AliancerWeb.ProductLiveTest do
   end
 
   describe "Show" do
-    setup [:create_product]
+    setup [:authenticate, :create_product]
 
     test "displays product", %{conn: conn, product: product} do
       {:ok, _show_live, html} = live(conn, ~p"/products/#{product}")
