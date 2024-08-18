@@ -91,7 +91,8 @@ defmodule AliancerWeb.Router do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
     live_session :redirect_if_user_is_authenticated,
-      on_mount: [{AliancerWeb.UserAuth, :redirect_if_user_is_authenticated}] do
+      on_mount: [{AliancerWeb.UserAuth, :redirect_if_user_is_authenticated}],
+      layout: {AliancerWeb.Layouts, :guest} do
       live "/users/register", UserLive.Registration, :new
       live "/users/log_in", UserLive.Login, :new
       live "/users/reset_password", UserLive.ForgotPassword, :new
@@ -105,7 +106,10 @@ defmodule AliancerWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
 
     live_session :require_authenticated_user,
-      on_mount: [{AliancerWeb.UserAuth, :ensure_authenticated}] do
+      on_mount: [
+        {AliancerWeb.UserAuth, :ensure_authenticated},
+        {AliancerWeb.Hooks.Assign, :current_uri}
+      ] do
       live "/users/settings", UserLive.Settings, :edit
       live "/users/settings/confirm_email/:token", UserLive.Settings, :confirm_email
     end
@@ -117,7 +121,8 @@ defmodule AliancerWeb.Router do
     delete "/users/log_out", UserSessionController, :delete
 
     live_session :current_user,
-      on_mount: [{AliancerWeb.UserAuth, :mount_current_user}] do
+      on_mount: [{AliancerWeb.UserAuth, :mount_current_user}],
+      layout: {AliancerWeb.Layouts, :guest} do
       live "/users/confirm/:token", UserLive.Confirmation, :edit
       live "/users/confirm", UserLive.ConfirmationInstructions, :new
     end
