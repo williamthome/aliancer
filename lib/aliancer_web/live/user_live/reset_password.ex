@@ -1,4 +1,4 @@
-defmodule AliancerWeb.UserResetPasswordLive do
+defmodule AliancerWeb.UserLive.ResetPassword do
   use AliancerWeb, :live_view
 
   alias Aliancer.Accounts

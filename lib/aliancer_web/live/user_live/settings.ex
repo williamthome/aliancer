@@ -1,4 +1,4 @@
-defmodule AliancerWeb.UserSettingsLive do
+defmodule AliancerWeb.UserLive.Settings do
   use AliancerWeb, :live_view
 
   alias Aliancer.Accounts

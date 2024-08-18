@@ -1,4 +1,4 @@
-defmodule AliancerWeb.UserRegistrationLive do
+defmodule AliancerWeb.UserLive.Registration do
   use AliancerWeb, :live_view
 
   alias Aliancer.Accounts

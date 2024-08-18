@@ -1,4 +1,4 @@
-defmodule AliancerWeb.UserLoginLive do
+defmodule AliancerWeb.UserLive.Login do
   use AliancerWeb, :live_view
 
   def render(assigns) do

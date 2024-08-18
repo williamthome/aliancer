@@ -1,4 +1,4 @@
-defmodule AliancerWeb.UserConfirmationLive do
+defmodule AliancerWeb.UserLive.Confirmation do
   use AliancerWeb, :live_view
 
   alias Aliancer.Accounts
