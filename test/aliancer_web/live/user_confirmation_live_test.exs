@@ -52,7 +52,7 @@ defmodule AliancerWeb.UserConfirmationLiveTest do
       assert {:ok, _conn} = result
 
       # Our home page requires a authenticated user, so.. how do we test this?
-      #assert Phoenix.Flash.get(conn.assigns.flash, :error) =~
+      # assert Phoenix.Flash.get(conn.assigns.flash, :error) =~
       #         "User confirmation link is invalid or it has expired"
 
       # when logged in
@@ -82,7 +82,7 @@ defmodule AliancerWeb.UserConfirmationLiveTest do
         |> follow_redirect(conn, ~p"/")
 
       # Our home page requires a authenticated user, so.. how do we test this?
-      #assert Phoenix.Flash.get(conn.assigns.flash, :error) =~
+      # assert Phoenix.Flash.get(conn.assigns.flash, :error) =~
       #         "User confirmation link is invalid or it has expired"
 
       refute Accounts.get_user!(user.id).confirmed_at
