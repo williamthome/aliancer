@@ -29,7 +29,15 @@ defmodule AliancerWeb.ProductLive.FormComponent do
           options={Ecto.Enum.values(Aliancer.Products.Product, :unit)}
         />
         <.input field={@form[:cost]} type="number" label="Cost" step="any" />
-        <.input field={@form[:price]} type="number" label="Price" step="any" />
+        <.input field={@form[:saleable]} type="checkbox" label="Saleable" />
+        <.input
+          :if={@form[:saleable].value}
+          field={@form[:price]}
+          type="number"
+          label="Price"
+          step="any"
+        />
+        <.input field={@form[:own_production]} type="checkbox" label="Own production" />
 
         <.header>
           Listing Sub products

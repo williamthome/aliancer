@@ -15,7 +15,9 @@ defmodule Aliancer.ProductsFixtures do
         description: "some description",
         name: "some name",
         price: "120.50",
-        unit: :un
+        unit: :un,
+        saleable: true,
+        own_production: false
       })
       |> Aliancer.Products.create_product()
 

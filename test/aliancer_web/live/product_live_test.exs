@@ -10,16 +10,28 @@ defmodule AliancerWeb.ProductLiveTest do
     unit: :un,
     description: "some description",
     cost: "120.5",
-    price: "120.5"
+    price: "120.5",
+    saleable: true,
+    own_production: false
   }
   @update_attrs %{
     name: "some updated name",
     unit: :m2,
     description: "some updated description",
     cost: "456.7",
-    price: "456.7"
+    price: nil,
+    saleable: false,
+    own_production: true
   }
-  @invalid_attrs %{name: nil, unit: nil, description: nil, cost: nil, price: nil}
+  @invalid_attrs %{
+    name: nil,
+    unit: nil,
+    description: nil,
+    cost: nil,
+    price: nil,
+    saleable: true,
+    own_production: false
+  }
 
   defp authenticate(%{conn: conn}) do
     password = valid_user_password()
