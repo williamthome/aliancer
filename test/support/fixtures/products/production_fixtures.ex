@@ -10,7 +10,7 @@ defmodule Aliancer.Products.ProductionFixtures do
   Generate a daily_production.
   """
   def daily_production_fixture(attrs \\ %{}) do
-    product = product_fixture()
+    product = product_fixture(%{own_production: true})
 
     {:ok, daily_production} =
       attrs
