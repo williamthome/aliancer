@@ -4,6 +4,7 @@ defmodule AliancerWeb.OrderLiveTest do
   import Phoenix.LiveViewTest
   import Aliancer.OrdersFixtures
   import Aliancer.PersonsFixtures
+  import Aliancer.AccountsFixtures
 
   @create_attrs %{
     status: :in_process,
@@ -33,6 +34,12 @@ defmodule AliancerWeb.OrderLiveTest do
     notes: nil
   }
 
+  defp authenticate(%{conn: conn}) do
+    password = valid_user_password()
+    user = user_fixture(%{password: password})
+    %{conn: log_in_user(conn, user)}
+  end
+
   defp create_order(_) do
     customer = customer_fixture()
 
@@ -44,7 +51,7 @@ defmodule AliancerWeb.OrderLiveTest do
   end
 
   describe "Index" do
-    setup [:create_order]
+    setup [:authenticate, :create_order]
 
     test "lists all orders", %{conn: conn, order: order} do
       {:ok, _index_live, html} = live(conn, ~p"/orders")
@@ -110,7 +117,7 @@ defmodule AliancerWeb.OrderLiveTest do
   end
 
   describe "Show" do
-    setup [:create_order]
+    setup [:authenticate, :create_order]
 
     test "displays order", %{conn: conn, order: order} do
       {:ok, _show_live, html} = live(conn, ~p"/orders/#{order}")

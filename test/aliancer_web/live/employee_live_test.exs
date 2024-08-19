@@ -3,6 +3,7 @@ defmodule AliancerWeb.EmployeeLiveTest do
 
   import Phoenix.LiveViewTest
   import Aliancer.PersonsFixtures
+  import Aliancer.AccountsFixtures
 
   @create_attrs %{
     name: "some name",
@@ -29,13 +30,19 @@ defmodule AliancerWeb.EmployeeLiveTest do
     birth_date: nil
   }
 
+  defp authenticate(%{conn: conn}) do
+    password = valid_user_password()
+    user = user_fixture(%{password: password})
+    %{conn: log_in_user(conn, user)}
+  end
+
   defp create_employee(_) do
     employee = employee_fixture()
     %{employee: employee}
   end
 
   describe "Index" do
-    setup [:create_employee]
+    setup [:authenticate, :create_employee]
 
     test "lists all employees", %{conn: conn, employee: employee} do
       {:ok, _index_live, html} = live(conn, ~p"/employees")
@@ -99,7 +106,7 @@ defmodule AliancerWeb.EmployeeLiveTest do
   end
 
   describe "Show" do
-    setup [:create_employee]
+    setup [:authenticate, :create_employee]
 
     test "displays employee", %{conn: conn, employee: employee} do
       {:ok, _show_live, html} = live(conn, ~p"/employees/#{employee}")

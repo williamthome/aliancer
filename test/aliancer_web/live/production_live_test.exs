@@ -3,10 +3,17 @@ defmodule AliancerWeb.ProductionLiveTest do
 
   import Phoenix.LiveViewTest
   import Aliancer.Products.ProductionFixtures
+  import Aliancer.AccountsFixtures
 
   @create_attrs %{date: "2024-08-13", quantity: "120.5"}
   @update_attrs %{date: "2024-08-14", quantity: "456.7"}
   @invalid_attrs %{date: nil, quantity: nil}
+
+  defp authenticate(%{conn: conn}) do
+    password = valid_user_password()
+    user = user_fixture(%{password: password})
+    %{conn: log_in_user(conn, user)}
+  end
 
   defp create_daily_production(_) do
     daily_production = daily_production_fixture()
@@ -14,7 +21,7 @@ defmodule AliancerWeb.ProductionLiveTest do
   end
 
   describe "Index" do
-    setup [:create_daily_production]
+    setup [:authenticate, :create_daily_production]
 
     test "lists all daily_production", %{conn: conn} do
       {:ok, _index_live, html} = live(conn, ~p"/daily_production")
@@ -80,7 +87,7 @@ defmodule AliancerWeb.ProductionLiveTest do
   end
 
   describe "Show" do
-    setup [:create_daily_production]
+    setup [:authenticate, :create_daily_production]
 
     test "displays daily_production", %{conn: conn, daily_production: daily_production} do
       {:ok, _show_live, html} = live(conn, ~p"/daily_production/#{daily_production}")

@@ -3,6 +3,7 @@ defmodule AliancerWeb.CustomerLiveTest do
 
   import Phoenix.LiveViewTest
   import Aliancer.PersonsFixtures
+  import Aliancer.AccountsFixtures
 
   @create_attrs %{
     name: "some name",
@@ -20,13 +21,19 @@ defmodule AliancerWeb.CustomerLiveTest do
   }
   @invalid_attrs %{name: nil, address: nil, phone: nil, email: nil, notes: nil}
 
+  defp authenticate(%{conn: conn}) do
+    password = valid_user_password()
+    user = user_fixture(%{password: password})
+    %{conn: log_in_user(conn, user)}
+  end
+
   defp create_customer(_) do
     customer = customer_fixture()
     %{customer: customer}
   end
 
   describe "Index" do
-    setup [:create_customer]
+    setup [:authenticate, :create_customer]
 
     test "lists all customers", %{conn: conn, customer: customer} do
       {:ok, _index_live, html} = live(conn, ~p"/customers")
@@ -90,7 +97,7 @@ defmodule AliancerWeb.CustomerLiveTest do
   end
 
   describe "Show" do
-    setup [:create_customer]
+    setup [:authenticate, :create_customer]
 
     test "displays customer", %{conn: conn, customer: customer} do
       {:ok, _show_live, html} = live(conn, ~p"/customers/#{customer}")
