@@ -134,7 +134,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
 
   defp assign_products(socket) do
     products =
-      Products.list_products()
+      Products.list_saleable_products()
       |> Enum.map(&{&1.name, &1.id})
 
     assign(socket, :products, products)

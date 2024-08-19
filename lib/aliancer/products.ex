@@ -33,6 +33,34 @@ defmodule Aliancer.Products do
   end
 
   @doc """
+  Returns the list of saleable products.
+
+  ## Examples
+
+      iex> list_saleable_products()
+      [%Product{}, ...]
+
+  """
+  def list_saleable_products do
+    from(p in Product, where: p.saleable)
+    |> Repo.all()
+  end
+
+  @doc """
+  Returns the list of own production products.
+
+  ## Examples
+
+      iex> list_own_production_products()
+      [%Product{}, ...]
+
+  """
+  def list_own_production_products do
+    from(p in Product, where: p.own_production)
+    |> Repo.all()
+  end
+
+  @doc """
   Gets a single product.
 
   Raises `Ecto.NoResultsError` if the Product does not exist.

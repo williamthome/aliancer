@@ -21,6 +21,16 @@ defmodule Aliancer.ProductsTest do
       assert Products.list_products() == [product]
     end
 
+    test "list_saleable_products/0 returns all saleable products" do
+      product = product_fixture(%{saleable: true})
+      assert Products.list_saleable_products() == [product]
+    end
+
+    test "list_own_production_products/0 returns all own production products" do
+      product = product_fixture(%{own_production: true})
+      assert Products.list_own_production_products() == [product]
+    end
+
     test "get_product!/1 returns the product with given id" do
       product = product_fixture() |> Map.put(:sub_products, [])
       assert Products.get_product!(product.id) == product
