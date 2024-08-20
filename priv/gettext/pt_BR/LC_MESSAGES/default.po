@@ -1,0 +1,942 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: lib/aliancer_web/components/core_components.ex:494
+#, elixir-autogen, elixir-format
+msgid "Actions"
+msgstr "Ações"
+
+#: lib/aliancer_web/components/core_components.ex:160
+#, elixir-autogen, elixir-format
+msgid "Attempting to reconnect"
+msgstr "Tentando reconectar"
+
+#: lib/aliancer_web/components/layouts/app.html.heex:28
+#: lib/aliancer_web/live/dashboard_live/index.html.heex:8
+#, elixir-autogen, elixir-format
+msgid "Customers"
+msgstr "Clientes"
+
+#: lib/aliancer_web/components/layouts/app.html.heex:32
+#: lib/aliancer_web/live/daily_production_live/show.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Daily production"
+msgstr "Produção diária"
+
+#: lib/aliancer_web/components/layouts/app.html.heex:27
+#: lib/aliancer_web/live/dashboard_live/index.ex:16
+#, elixir-autogen, elixir-format
+msgid "Dashboard"
+msgstr ""
+
+#: lib/aliancer_web/components/layouts/app.html.heex:58
+#: lib/aliancer_web/live/dashboard_live/index.html.heex:13
+#, elixir-autogen, elixir-format
+msgid "Employees"
+msgstr "Colaboradores"
+
+#: lib/aliancer_web/components/core_components.ex:151
+#, elixir-autogen, elixir-format
+msgid "Error!"
+msgstr "Erro!"
+
+#: lib/aliancer_web/components/core_components.ex:172
+#, elixir-autogen, elixir-format
+msgid "Hang in there while we get back on track"
+msgstr "Aguente firme enquanto voltamos aos trilhos"
+
+#: lib/aliancer_web/components/layouts/app.html.heex:140
+#, elixir-autogen, elixir-format
+msgid "Log out"
+msgstr "Sair"
+
+#: lib/aliancer_web/components/layouts/app.html.heex:30
+#: lib/aliancer_web/live/dashboard_live/index.html.heex:23
+#, elixir-autogen, elixir-format
+msgid "Orders"
+msgstr "Pedidos"
+
+#: lib/aliancer_web/components/layouts/app.html.heex:29
+#: lib/aliancer_web/live/dashboard_live/index.html.heex:18
+#, elixir-autogen, elixir-format
+msgid "Products"
+msgstr "Produtos"
+
+#: lib/aliancer_web/components/layouts/app.html.heex:128
+#: lib/aliancer_web/live/user_live/settings.ex:109
+#, elixir-autogen, elixir-format
+msgid "Settings"
+msgstr "Configurações"
+
+#: lib/aliancer_web/components/core_components.ex:167
+#, elixir-autogen, elixir-format
+msgid "Something went wrong!"
+msgstr "Alguma coisa deu errado!"
+
+#: lib/aliancer_web/components/core_components.ex:150
+#, elixir-autogen, elixir-format
+msgid "Success!"
+msgstr "Sucesso!"
+
+#: lib/aliancer_web/components/layouts/app.html.heex:62
+#, elixir-autogen, elixir-format
+msgid "System"
+msgstr "Sistema"
+
+#: lib/aliancer_web/components/core_components.ex:155
+#, elixir-autogen, elixir-format
+msgid "We can't find the internet"
+msgstr "Não conseguimos encontrar a internet"
+
+#: lib/aliancer_web/components/core_components.ex:76
+#: lib/aliancer_web/components/core_components.ex:130
+#, elixir-autogen, elixir-format
+msgid "close"
+msgstr "fechar"
+
+#: lib/aliancer_web/live/user_live/settings.ex:144
+#, elixir-autogen, elixir-format
+msgid "A link to confirm your email change has been sent to the new address."
+msgstr "Um link para confirmar a alteração do seu email foi enviado para o seu novo endereço."
+
+#: lib/aliancer_web/live/user_live/settings.ex:10
+#, elixir-autogen, elixir-format
+msgid "Account Settings"
+msgstr "Configurações da Conta"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:56
+#, elixir-autogen, elixir-format
+msgid "Add Item"
+msgstr "Adicionar Item"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:49
+#, elixir-autogen, elixir-format
+msgid "Add Sub Product"
+msgstr "Adicionar Sub Produto"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:98
+#, elixir-autogen, elixir-format
+msgid "Add products that compose that product"
+msgstr "Adicione produtos que compõem este produto"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:25
+#: lib/aliancer_web/live/customer_live/index.html.heex:19
+#: lib/aliancer_web/live/customer_live/show.html.heex:14
+#: lib/aliancer_web/live/order_live/form_component.ex:38
+#: lib/aliancer_web/live/order_live/index.html.heex:18
+#: lib/aliancer_web/live/order_live/show.html.heex:15
+#: lib/aliancer_web/live/order_live/show.html.heex:16
+#, elixir-autogen, elixir-format
+msgid "Address"
+msgstr "Endereço"
+
+#: lib/aliancer_web/live/user_live/registration.ex:13
+#, elixir-autogen, elixir-format
+msgid "Already registered?"
+msgstr "Já está registrado?"
+
+#: lib/aliancer_web/live/customer_live/index.html.heex:32
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:36
+#: lib/aliancer_web/live/employee_live/index.html.heex:33
+#: lib/aliancer_web/live/order_live/index.html.heex:38
+#: lib/aliancer_web/live/product_live/index.html.heex:30
+#, elixir-autogen, elixir-format
+msgid "Are you sure?"
+msgstr "Você tem certeza?"
+
+#: lib/aliancer_web/live/customer_live/show.html.heex:20
+#, elixir-autogen, elixir-format
+msgid "Back to customers"
+msgstr "Voltar para clientes"
+
+#: lib/aliancer_web/live/employee_live/show.html.heex:21
+#, elixir-autogen, elixir-format
+msgid "Back to employees"
+msgstr "Voltar para colaboradores"
+
+#: lib/aliancer_web/live/order_live/show.html.heex:23
+#, elixir-autogen, elixir-format
+msgid "Back to orders"
+msgstr "Voltar para pedidos"
+
+#: lib/aliancer_web/live/product_live/show.html.heex:22
+#, elixir-autogen, elixir-format
+msgid "Back to products"
+msgstr "Voltar para produtos"
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:27
+#: lib/aliancer_web/live/employee_live/index.html.heex:19
+#: lib/aliancer_web/live/employee_live/show.html.heex:16
+#, elixir-autogen, elixir-format
+msgid "Birth date"
+msgstr "Data de nascimento"
+
+#: lib/aliancer_web/live/user_live/settings.ex:36
+#, elixir-autogen, elixir-format
+msgid "Change Email"
+msgstr "Alterar Email"
+
+#: lib/aliancer_web/live/user_live/settings.ex:79
+#, elixir-autogen, elixir-format
+msgid "Change Password"
+msgstr "Alterar Senha"
+
+#: lib/aliancer_web/live/user_live/settings.ex:35
+#: lib/aliancer_web/live/user_live/settings.ex:78
+#, elixir-autogen, elixir-format
+msgid "Changing..."
+msgstr "Alterando..."
+
+#: lib/aliancer_web/live/order_live/form_component.ex:46
+#: lib/aliancer_web/live/product_live/form_component.ex:30
+#, elixir-autogen, elixir-format
+msgid "Choose a value"
+msgstr "Escolha um valor"
+
+#: lib/aliancer_web/live/user_live/confirmation.ex:30
+#, elixir-autogen, elixir-format
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: lib/aliancer_web/live/user_live/confirmation.ex:9
+#, elixir-autogen, elixir-format
+msgid "Confirm Account"
+msgstr "Confirmar Conta"
+
+#: lib/aliancer_web/live/user_live/confirmation.ex:15
+#, elixir-autogen, elixir-format
+msgid "Confirm my account"
+msgstr "Confirmar minha conta"
+
+#: lib/aliancer_web/live/user_live/reset_password.ex:25
+#: lib/aliancer_web/live/user_live/settings.ex:66
+#, elixir-autogen, elixir-format
+msgid "Confirm new password"
+msgstr "Confirmar nova senha"
+
+#: lib/aliancer_web/live/user_live/confirmation_instructions.ex:33
+#, elixir-autogen, elixir-format
+msgid "Confirmation Instructions"
+msgstr "Confirmação de Instruções"
+
+#: lib/aliancer_web/live/user_live/confirmation.ex:14
+#, elixir-autogen, elixir-format
+msgid "Confirming..."
+msgstr "Confirmando..."
+
+#: lib/aliancer_web/live/product_live/form_component.ex:33
+#: lib/aliancer_web/live/product_live/index.html.heex:19
+#: lib/aliancer_web/live/product_live/show.html.heex:16
+#, elixir-autogen, elixir-format
+msgid "Cost"
+msgstr "Custo"
+
+#: lib/aliancer_web/live/user_live/registration.ex:39
+#, elixir-autogen, elixir-format
+msgid "Create an account"
+msgstr "Criar uma conta"
+
+#: lib/aliancer_web/live/user_live/registration.ex:38
+#, elixir-autogen, elixir-format
+msgid "Creating account..."
+msgstr "Criando conta..."
+
+#: lib/aliancer_web/live/user_live/settings.ex:30
+#: lib/aliancer_web/live/user_live/settings.ex:72
+#, elixir-autogen, elixir-format
+msgid "Current password"
+msgstr "Senha atual"
+
+#: lib/aliancer_web/live/customer_live/show.html.heex:3
+#: lib/aliancer_web/live/order_live/form_component.ex:29
+#: lib/aliancer_web/live/order_live/index.html.heex:17
+#: lib/aliancer_web/live/order_live/show.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "Customer"
+msgstr "Cliente"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:81
+#, elixir-autogen, elixir-format
+msgid "Customer created successfully"
+msgstr "Cliente criado com sucesso"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:33
+#: lib/aliancer_web/live/order_live/index.html.heex:20
+#, elixir-autogen, elixir-format
+msgid "Customer pickup"
+msgstr "Cliente retira"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:66
+#, elixir-autogen, elixir-format
+msgid "Customer updated successfully"
+msgstr "Cliente atualizado com sucesso"
+
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:100
+#, elixir-autogen, elixir-format
+msgid "Daily production created successfully"
+msgstr "Produção diária criada com sucesso"
+
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:85
+#, elixir-autogen, elixir-format
+msgid "Daily production updated successfully"
+msgstr "Produção diária atualizada com sucesso"
+
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:18
+#: lib/aliancer_web/live/daily_production_live/show.html.heex:16
+#, elixir-autogen, elixir-format
+msgid "Date"
+msgstr "Data"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:26
+#: lib/aliancer_web/live/order_live/index.html.heex:16
+#: lib/aliancer_web/live/order_live/show.html.heex:13
+#, elixir-autogen, elixir-format
+msgid "Datetime"
+msgstr "Data e hora"
+
+#: lib/aliancer_web/live/customer_live/index.html.heex:34
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:38
+#: lib/aliancer_web/live/employee_live/index.html.heex:35
+#: lib/aliancer_web/live/order_live/index.html.heex:40
+#: lib/aliancer_web/live/product_live/index.html.heex:32
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr "Excluir"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:25
+#: lib/aliancer_web/live/product_live/index.html.heex:17
+#: lib/aliancer_web/live/product_live/show.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "Description"
+msgstr "Descrição"
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:29
+#: lib/aliancer_web/live/employee_live/index.html.heex:21
+#: lib/aliancer_web/live/employee_live/show.html.heex:18
+#, elixir-autogen, elixir-format
+msgid "Dismiss date"
+msgstr "Data de demissão"
+
+#: lib/aliancer_web/live/customer_live/index.html.heex:27
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:31
+#: lib/aliancer_web/live/employee_live/index.html.heex:28
+#: lib/aliancer_web/live/order_live/index.html.heex:33
+#: lib/aliancer_web/live/product_live/index.html.heex:25
+#, elixir-autogen, elixir-format
+msgid "Edit"
+msgstr "Editar"
+
+#: lib/aliancer_web/live/customer_live/index.ex:19
+#: lib/aliancer_web/live/customer_live/show.ex:20
+#, elixir-autogen, elixir-format
+msgid "Edit Customer"
+msgstr "Editar Cliente"
+
+#: lib/aliancer_web/live/daily_production_live/index.ex:19
+#: lib/aliancer_web/live/daily_production_live/show.ex:20
+#, elixir-autogen, elixir-format
+msgid "Edit Daily production"
+msgstr "Editar Produção Diária"
+
+#: lib/aliancer_web/live/employee_live/index.ex:19
+#: lib/aliancer_web/live/employee_live/show.ex:20
+#, elixir-autogen, elixir-format
+msgid "Edit Employee"
+msgstr "Editar Colaborador"
+
+#: lib/aliancer_web/live/order_live/index.ex:19
+#: lib/aliancer_web/live/order_live/show.ex:20
+#, elixir-autogen, elixir-format
+msgid "Edit Order"
+msgstr "Editar Pedido"
+
+#: lib/aliancer_web/live/product_live/index.ex:19
+#: lib/aliancer_web/live/product_live/show.ex:20
+#, elixir-autogen, elixir-format
+msgid "Edit Product"
+msgstr "Editar Produto"
+
+#: lib/aliancer_web/live/customer_live/show.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Edit customer"
+msgstr "Editar cliente"
+
+#: lib/aliancer_web/live/employee_live/show.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Edit employee"
+msgstr "Editar colaborador"
+
+#: lib/aliancer_web/live/order_live/show.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Edit order"
+msgstr "Editar pedido"
+
+#: lib/aliancer_web/live/product_live/show.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Edit product"
+msgstr "Editar produto"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:27
+#: lib/aliancer_web/live/customer_live/index.html.heex:21
+#: lib/aliancer_web/live/customer_live/show.html.heex:16
+#: lib/aliancer_web/live/user_live/confirmation_instructions.ex:15
+#: lib/aliancer_web/live/user_live/forgot_password.ex:15
+#: lib/aliancer_web/live/user_live/login.ex:19
+#: lib/aliancer_web/live/user_live/registration.ex:34
+#: lib/aliancer_web/live/user_live/settings.ex:24
+#, elixir-autogen, elixir-format
+msgid "Email"
+msgstr ""
+
+#: lib/aliancer_web/live/user_live/settings.ex:96
+#, elixir-autogen, elixir-format
+msgid "Email change link is invalid or it has expired."
+msgstr "O link de alteração de email é inválido ou expirou."
+
+#: lib/aliancer_web/live/user_live/settings.ex:93
+#, elixir-autogen, elixir-format
+msgid "Email changed successfully."
+msgstr "Email alterado com sucesso."
+
+#: lib/aliancer_web/live/employee_live/show.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Employee"
+msgstr "Colaborador"
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:82
+#, elixir-autogen, elixir-format
+msgid "Employee created successfully"
+msgstr "Colaborador criado com sucesso"
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:67
+#, elixir-autogen, elixir-format
+msgid "Employee updated successfully"
+msgstr "Colaborador atualizado com sucesso"
+
+#: lib/aliancer_web/live/user_live/forgot_password.ex:10
+#: lib/aliancer_web/live/user_live/login.ex:25
+#, elixir-autogen, elixir-format
+msgid "Forgot your password?"
+msgstr "Esqueceu sua senha?"
+
+#: lib/aliancer_web/live/dashboard_live/index.html.heex:52
+#, elixir-autogen, elixir-format
+msgid "Goal"
+msgstr "Objetivo"
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:28
+#: lib/aliancer_web/live/employee_live/index.html.heex:20
+#: lib/aliancer_web/live/employee_live/show.html.heex:17
+#, elixir-autogen, elixir-format
+msgid "Hire date"
+msgstr "Data de admissão"
+
+#: lib/aliancer_web/live/user_live/confirmation_instructions.ex:48
+#, elixir-autogen, elixir-format
+msgid "If your email is in our system and it has not been confirmed yet, you will receive an email with instructions shortly."
+msgstr "Se seu e-mail estiver em nosso sistema e ainda não tiver sido confirmado, você receberá um e-mail com instruções em breve."
+
+#: lib/aliancer_web/live/user_live/forgot_password.ex:47
+#, elixir-autogen, elixir-format
+msgid "If your email is in our system, you will receive instructions to reset your password shortly."
+msgstr "Se seu e-mail estiver em nosso sistema, você receberá instruções para redefinir sua senha em breve."
+
+#: lib/aliancer_web/live/order_live/form_component.ex:67
+#, elixir-autogen, elixir-format
+msgid "Item"
+msgstr ""
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:25
+#: lib/aliancer_web/live/employee_live/index.html.heex:17
+#: lib/aliancer_web/live/employee_live/show.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "Job name"
+msgstr "Cargo"
+
+#: lib/aliancer_web/live/user_live/login.ex:23
+#, elixir-autogen, elixir-format
+msgid "Keep me logged in"
+msgstr "Mantenha-me conectado"
+
+#: lib/aliancer_web/live/customer_live/index.ex:31
+#: lib/aliancer_web/live/customer_live/index.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Listing Customers"
+msgstr "Listando Clientes"
+
+#: lib/aliancer_web/live/daily_production_live/index.ex:31
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Listing Daily production"
+msgstr "Listando Produção diária"
+
+#: lib/aliancer_web/live/employee_live/index.ex:31
+#: lib/aliancer_web/live/employee_live/index.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Listing Employees"
+msgstr "Listando Colaboradores"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:52
+#, elixir-autogen, elixir-format
+msgid "Listing Items"
+msgstr "Listando Itens"
+
+#: lib/aliancer_web/live/order_live/index.ex:35
+#: lib/aliancer_web/live/order_live/index.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Listing Orders"
+msgstr "Listando Pedidos"
+
+#: lib/aliancer_web/live/product_live/index.ex:31
+#: lib/aliancer_web/live/product_live/index.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Listing Products"
+msgstr "Listando Produtos"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:45
+#, elixir-autogen, elixir-format
+msgid "Listing Sub products"
+msgstr "Listando Sub produtos"
+
+#: lib/aliancer_web/live/user_live/confirmation.ex:21
+#: lib/aliancer_web/live/user_live/confirmation_instructions.ex:24
+#: lib/aliancer_web/live/user_live/forgot_password.ex:23
+#: lib/aliancer_web/live/user_live/login.ex:30
+#: lib/aliancer_web/live/user_live/registration.ex:15
+#: lib/aliancer_web/live/user_live/reset_password.ex:36
+#, elixir-autogen, elixir-format
+msgid "Log in"
+msgstr "Entrar"
+
+#: lib/aliancer_web/live/user_live/login.ex:8
+#, elixir-autogen, elixir-format
+msgid "Log in to account"
+msgstr "Entrar na conta"
+
+#: lib/aliancer_web/live/user_live/login.ex:29
+#, elixir-autogen, elixir-format
+msgid "Logging in..."
+msgstr "Entrando..."
+
+#: lib/aliancer_web/live/user_live/login.ex:44
+#, elixir-autogen, elixir-format
+msgid "Login"
+msgstr "Entrar"
+
+#: lib/aliancer_web/live/user_live/settings.ex:12
+#, elixir-autogen, elixir-format
+msgid "Manage your account email address and password settings"
+msgstr "Gerencie as configurações de endereço de email e senha da sua conta"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:24
+#: lib/aliancer_web/live/customer_live/index.html.heex:18
+#: lib/aliancer_web/live/customer_live/show.html.heex:13
+#: lib/aliancer_web/live/employee_live/form_component.ex:24
+#: lib/aliancer_web/live/employee_live/index.html.heex:16
+#: lib/aliancer_web/live/employee_live/show.html.heex:13
+#: lib/aliancer_web/live/product_live/form_component.ex:24
+#: lib/aliancer_web/live/product_live/index.html.heex:16
+#: lib/aliancer_web/live/product_live/show.html.heex:13
+#, elixir-autogen, elixir-format
+msgid "Name"
+msgstr "Nome"
+
+#: lib/aliancer_web/live/customer_live/index.ex:25
+#: lib/aliancer_web/live/customer_live/index.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "New Customer"
+msgstr "Novo Cliente"
+
+#: lib/aliancer_web/live/daily_production_live/index.ex:25
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:6
+#, elixir-autogen, elixir-format
+msgid "New Daily production"
+msgstr "Nova Produção diária"
+
+#: lib/aliancer_web/live/employee_live/index.ex:25
+#: lib/aliancer_web/live/employee_live/index.html.heex:6
+#, elixir-autogen, elixir-format
+msgid "New Employee"
+msgstr "Novo Colaborador"
+
+#: lib/aliancer_web/live/order_live/index.ex:25
+#: lib/aliancer_web/live/order_live/index.html.heex:6
+#, elixir-autogen, elixir-format
+msgid "New Order"
+msgstr "Novo Pedido"
+
+#: lib/aliancer_web/live/product_live/index.ex:25
+#: lib/aliancer_web/live/product_live/index.html.heex:6
+#, elixir-autogen, elixir-format
+msgid "New Product"
+msgstr "Novo Produto"
+
+#: lib/aliancer_web/live/user_live/reset_password.ex:21
+#: lib/aliancer_web/live/user_live/settings.ex:60
+#, elixir-autogen, elixir-format
+msgid "New password"
+msgstr "Nova senha"
+
+#: lib/aliancer_web/live/user_live/confirmation_instructions.ex:10
+#, elixir-autogen, elixir-format
+msgid "No confirmation instructions received?"
+msgstr "Não recebeu instruções de confirmação?"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:28
+#: lib/aliancer_web/live/customer_live/index.html.heex:22
+#: lib/aliancer_web/live/customer_live/show.html.heex:17
+#: lib/aliancer_web/live/order_live/form_component.ex:49
+#: lib/aliancer_web/live/order_live/index.html.heex:28
+#: lib/aliancer_web/live/order_live/show.html.heex:20
+#, elixir-autogen, elixir-format
+msgid "Notes"
+msgstr "Observações"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:109
+#: lib/aliancer_web/live/product_live/form_component.ex:96
+#, elixir-autogen, elixir-format
+msgid "Nothing!"
+msgstr "Nada!"
+
+#: lib/aliancer_web/live/user_live/registration.ex:31
+#: lib/aliancer_web/live/user_live/reset_password.ex:18
+#, elixir-autogen, elixir-format
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr "Oops, algo deu errado! Por favor, verifique os erros abaixo."
+
+#: lib/aliancer_web/live/order_live/show.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Order"
+msgstr "Pedido"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:201
+#, elixir-autogen, elixir-format
+msgid "Order created successfully"
+msgstr "Pedido criado com sucesso"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:186
+#, elixir-autogen, elixir-format
+msgid "Order updated successfully"
+msgstr "Pedido atualizado com sucesso"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:42
+#: lib/aliancer_web/live/product_live/show.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "Own production"
+msgstr "Produção própria"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:41
+#: lib/aliancer_web/live/order_live/index.html.heex:26
+#: lib/aliancer_web/live/order_live/show.html.heex:18
+#, elixir-autogen, elixir-format
+msgid "Paid"
+msgstr "Está pago"
+
+#: lib/aliancer_web/live/user_live/login.ex:20
+#: lib/aliancer_web/live/user_live/registration.ex:35
+#, elixir-autogen, elixir-format
+msgid "Password"
+msgstr "Senha"
+
+#: lib/aliancer_web/live/user_live/forgot_password.ex:32
+#, elixir-autogen, elixir-format
+msgid "Password Recovery"
+msgstr "Recuperação de Senha"
+
+#: lib/aliancer_web/live/user_live/reset_password.ex:69
+#, elixir-autogen, elixir-format
+msgid "Password reset successfully."
+msgstr "Senha redefinida com sucesso."
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:26
+#: lib/aliancer_web/live/customer_live/index.html.heex:20
+#: lib/aliancer_web/live/customer_live/show.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "Phone"
+msgstr "Telefone"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:111
+#, elixir-autogen, elixir-format
+msgid "Please add the order items"
+msgstr "Por favor, adicione os itens do pedido"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:39
+#: lib/aliancer_web/live/product_live/index.html.heex:20
+#: lib/aliancer_web/live/product_live/show.html.heex:18
+#, elixir-autogen, elixir-format
+msgid "Price"
+msgstr "Preço"
+
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:21
+#: lib/aliancer_web/live/daily_production_live/show.html.heex:17
+#: lib/aliancer_web/live/product_live/form_component.ex:60
+#: lib/aliancer_web/live/product_live/show.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Product"
+msgstr "Produto"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:171
+#, elixir-autogen, elixir-format
+msgid "Product created successfully"
+msgstr "Produto criado com sucesso"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:156
+#, elixir-autogen, elixir-format
+msgid "Product updated successfully"
+msgstr "Produto atualizado com sucesso"
+
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:24
+#: lib/aliancer_web/live/daily_production_live/show.html.heex:18
+#: lib/aliancer_web/live/order_live/form_component.ex:75
+#: lib/aliancer_web/live/product_live/form_component.ex:68
+#, elixir-autogen, elixir-format
+msgid "Quantity"
+msgstr "Quantidade"
+
+#: lib/aliancer_web/live/user_live/registration.ex:52
+#, elixir-autogen, elixir-format
+msgid "Register"
+msgstr "Registrar"
+
+#: lib/aliancer_web/live/user_live/registration.ex:11
+#, elixir-autogen, elixir-format
+msgid "Register for an account"
+msgstr "Registrar uma nova conta"
+
+#: lib/aliancer_web/live/user_live/confirmation_instructions.ex:18
+#, elixir-autogen, elixir-format
+msgid "Resend confirmation instructions"
+msgstr "Re-enviar instruções de confirmação"
+
+#: lib/aliancer_web/live/user_live/reset_password.ex:9
+#: lib/aliancer_web/live/user_live/reset_password.ex:30
+#: lib/aliancer_web/live/user_live/reset_password.ex:56
+#, elixir-autogen, elixir-format
+msgid "Reset Password"
+msgstr "Redefinir Senha"
+
+#: lib/aliancer_web/live/user_live/reset_password.ex:87
+#, elixir-autogen, elixir-format
+msgid "Reset password link is invalid or it has expired."
+msgstr "O link de redefinição de senha é inválido ou expirou."
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:26
+#: lib/aliancer_web/live/employee_live/index.html.heex:18
+#: lib/aliancer_web/live/employee_live/show.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "Salary"
+msgstr "Salário"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:34
+#: lib/aliancer_web/live/product_live/show.html.heex:17
+#, elixir-autogen, elixir-format
+msgid "Saleable"
+msgstr "Vendável"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:31
+#, elixir-autogen, elixir-format
+msgid "Save Customer"
+msgstr "Salvar Cliente"
+
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:30
+#, elixir-autogen, elixir-format
+msgid "Save Daily production"
+msgstr "Salvar Produção diária"
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:32
+#, elixir-autogen, elixir-format
+msgid "Save Employee"
+msgstr "Salvar Colaborador"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:119
+#, elixir-autogen, elixir-format
+msgid "Save Order"
+msgstr "Salvar Pedido"
+
+#: lib/aliancer_web/live/product_live/form_component.ex:106
+#, elixir-autogen, elixir-format
+msgid "Save Product"
+msgstr "Salvar Produto"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:30
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:29
+#: lib/aliancer_web/live/employee_live/form_component.ex:31
+#: lib/aliancer_web/live/order_live/form_component.ex:118
+#: lib/aliancer_web/live/product_live/form_component.ex:105
+#, elixir-autogen, elixir-format
+msgid "Saving..."
+msgstr "Salvando..."
+
+#: lib/aliancer_web/live/user_live/forgot_password.ex:18
+#, elixir-autogen, elixir-format
+msgid "Send password reset instructions"
+msgstr "Enviar instruções de redefinição de senha"
+
+#: lib/aliancer_web/live/user_live/confirmation_instructions.ex:17
+#: lib/aliancer_web/live/user_live/forgot_password.ex:17
+#, elixir-autogen, elixir-format
+msgid "Sending..."
+msgstr "Enviando..."
+
+#: lib/aliancer_web/live/customer_live/index.html.heex:25
+#: lib/aliancer_web/live/daily_production_live/index.html.heex:29
+#: lib/aliancer_web/live/employee_live/index.html.heex:26
+#: lib/aliancer_web/live/order_live/index.html.heex:31
+#: lib/aliancer_web/live/product_live/index.html.heex:23
+#, elixir-autogen, elixir-format
+msgid "Show"
+msgstr "Mostrar"
+
+#: lib/aliancer_web/live/customer_live/show.ex:19
+#, elixir-autogen, elixir-format
+msgid "Show Customer"
+msgstr "Mostrar Cliente"
+
+#: lib/aliancer_web/live/daily_production_live/show.ex:19
+#, elixir-autogen, elixir-format
+msgid "Show Daily production"
+msgstr "Mostrar Produção diária"
+
+#: lib/aliancer_web/live/employee_live/show.ex:19
+#, elixir-autogen, elixir-format
+msgid "Show Employee"
+msgstr "Mostrar Colaborador"
+
+#: lib/aliancer_web/live/order_live/show.ex:19
+#, elixir-autogen, elixir-format
+msgid "Show Order"
+msgstr "Mostrar Pedido"
+
+#: lib/aliancer_web/live/product_live/show.ex:19
+#, elixir-autogen, elixir-format
+msgid "Show Product"
+msgstr "Mostrar Produto"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:45
+#: lib/aliancer_web/live/order_live/index.html.heex:27
+#: lib/aliancer_web/live/order_live/show.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "Status"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/show.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "This is a customer record from your database."
+msgstr "Este é um registro de cliente do seu banco de dados."
+
+#: lib/aliancer_web/live/employee_live/show.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "This is a employee record from your database."
+msgstr "Este é um registro de colaborador do seu banco de dados."
+
+#: lib/aliancer_web/live/order_live/show.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "This is a order record from your database."
+msgstr "Este é um registro de pedido do seu banco de dados."
+
+#: lib/aliancer_web/live/product_live/show.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "This is a product record from your database."
+msgstr "Este é um registro de produto do seu banco de dados."
+
+#: lib/aliancer_web/live/order_live/form_component.ex:40
+#: lib/aliancer_web/live/order_live/form_component.ex:81
+#: lib/aliancer_web/live/order_live/index.html.heex:25
+#: lib/aliancer_web/live/order_live/show.html.heex:17
+#, elixir-autogen, elixir-format
+msgid "Total"
+msgstr ""
+
+#: lib/aliancer_web/live/product_live/form_component.ex:29
+#: lib/aliancer_web/live/product_live/index.html.heex:18
+#: lib/aliancer_web/live/product_live/show.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "Unit"
+msgstr "Unidade"
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:13
+#, elixir-autogen, elixir-format
+msgid "Use this form to manage customer records in your database."
+msgstr "Use este formulário para gerenciar registros de clientes em seu banco de dados."
+
+#: lib/aliancer_web/live/employee_live/form_component.ex:13
+#, elixir-autogen, elixir-format
+msgid "Use this form to manage employee records in your database."
+msgstr "Use este formulário para gerenciar registros de colaboradores em seu banco de dados."
+
+#: lib/aliancer_web/live/order_live/form_component.ex:15
+#, elixir-autogen, elixir-format
+msgid "Use this form to manage order records in your database."
+msgstr "Use este formulário para gerenciar registros de pedidos em seu banco de dados."
+
+#: lib/aliancer_web/live/product_live/form_component.ex:13
+#, elixir-autogen, elixir-format
+msgid "Use this form to manage product records in your database."
+msgstr "Use este formulário para gerenciar registros de produtos em seu banco de dados."
+
+#: lib/aliancer_web/live/user_live/confirmation.ex:58
+#, elixir-autogen, elixir-format
+msgid "User confirmation link is invalid or it has expired."
+msgstr "O link de confirmação de usuário é inválido ou expirou."
+
+#: lib/aliancer_web/live/user_live/confirmation.ex:43
+#, elixir-autogen, elixir-format
+msgid "User confirmed successfully."
+msgstr "Usuário confirmado com sucesso."
+
+#: lib/aliancer_web/live/user_live/confirmation_instructions.ex:11
+#, elixir-autogen, elixir-format
+msgid "We'll send a new confirmation link to your inbox"
+msgstr "Iremos enviar um novo link de confirmação para sua caixa de entrada"
+
+#: lib/aliancer_web/live/user_live/forgot_password.ex:11
+#, elixir-autogen, elixir-format
+msgid "We'll send a password reset link to your inbox"
+msgstr "Iremos enviar um link de redefinição de senha para sua caixa de entrada"
+
+#: lib/aliancer_web/plugs/ensure_user_is_admin.ex:12
+#: lib/aliancer_web/user_auth.ex:188
+#, elixir-autogen, elixir-format
+msgid "You must be an admin to access this page."
+msgstr "Você deve ser um administrador para acessar esta página."
+
+#: lib/aliancer_web/user_auth.ex:161
+#: lib/aliancer_web/user_auth.ex:228
+#, elixir-autogen, elixir-format
+msgid "You must log in to access this page."
+msgstr "Você deve efetuar login para acessar esta página."
+
+#: lib/aliancer_web/live/user_live/registration.ex:17
+#, elixir-autogen, elixir-format
+msgid "to your account now."
+msgstr "na sua conta agora."
+
+#: lib/aliancer_web/live/daily_production_live/show.html.heex:21
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Back to daily production"
+msgstr "Voltar para produção diária"
+
+#: lib/aliancer_web/live/daily_production_live/show.html.heex:10
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Edit daily production"
+msgstr "Editar produção diária"
+
+#: lib/aliancer_web/live/daily_production_live/show.html.heex:4
+#, elixir-autogen, elixir-format, fuzzy
+msgid "This is a daily production record from your database."
+msgstr "Este é um registro de produção diária do seu banco de dados."
+
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:14
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Use this form to manage daily production records in your database."
+msgstr "Use este formulário para gerenciar registros de produção diária em seu banco de dados."
