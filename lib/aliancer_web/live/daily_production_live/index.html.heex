@@ -1,9 +1,9 @@
 <div class="px-4 py-8">
   <.header>
-    Listing Daily production
+    <%= gettext("Listing Daily production") %>
     <:actions>
       <.link patch={~p"/daily_production/new"}>
-        <.button>New Daily production</.button>
+        <.button><%= gettext("New Daily production") %></.button>
       </.link>
     </:actions>
   </.header>
@@ -15,23 +15,27 @@
       fn {_id, daily_production} -> JS.navigate(~p"/daily_production/#{daily_production}") end
     }
   >
-    <:col :let={{_id, daily_production}} label="Date"><%= daily_production.date %></:col>
-    <:col :let={{_id, daily_production}} label="Product">
+    <:col :let={{_id, daily_production}} label={gettext("Date")}>
+      <%= daily_production.date %>
+    </:col>
+    <:col :let={{_id, daily_production}} label={gettext("Product")}>
       <%= daily_production.product.name %>
     </:col>
-    <:col :let={{_id, daily_production}} label="Quantity"><%= daily_production.quantity %></:col>
+    <:col :let={{_id, daily_production}} label={gettext("Quantity")}>
+      <%= daily_production.quantity %>
+    </:col>
     <:action :let={{_id, daily_production}}>
       <div class="sr-only">
-        <.link navigate={~p"/daily_production/#{daily_production}"}>Show</.link>
+        <.link navigate={~p"/daily_production/#{daily_production}"}><%= gettext("Show") %></.link>
       </div>
-      <.link patch={~p"/daily_production/#{daily_production}/edit"}>Edit</.link>
+      <.link patch={~p"/daily_production/#{daily_production}/edit"}><%= gettext("Edit") %></.link>
     </:action>
     <:action :let={{id, daily_production}}>
       <.link
         phx-click={JS.push("delete", value: %{id: daily_production.id}) |> hide("##{id}")}
-        data-confirm="Are you sure?"
+        data-confirm={gettext("Are you sure?")}
       >
-        Delete
+        <%= gettext("Delete") %>
       </.link>
     </:action>
   </.table>

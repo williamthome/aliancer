@@ -1,9 +1,9 @@
 <div class="px-4 py-8">
   <.header>
-    Listing Employees
+    <%= gettext("Listing Employees") %>
     <:actions>
       <.link patch={~p"/employees/new"}>
-        <.button>New Employee</.button>
+        <.button><%= gettext("New Employee") %></.button>
       </.link>
     </:actions>
   </.header>
@@ -13,24 +13,26 @@
     rows={@streams.employees}
     row_click={fn {_id, employee} -> JS.navigate(~p"/employees/#{employee}") end}
   >
-    <:col :let={{_id, employee}} label="Name"><%= employee.name %></:col>
-    <:col :let={{_id, employee}} label="Job name"><%= employee.job_name %></:col>
-    <:col :let={{_id, employee}} label="Salary"><%= employee.salary %></:col>
-    <:col :let={{_id, employee}} label="Birth date"><%= employee.birth_date %></:col>
-    <:col :let={{_id, employee}} label="Hire date"><%= employee.hire_date %></:col>
-    <:col :let={{_id, employee}} label="Dismiss date"><%= employee.dismiss_date %></:col>
+    <:col :let={{_id, employee}} label={gettext("Name")}><%= employee.name %></:col>
+    <:col :let={{_id, employee}} label={gettext("Job name")}><%= employee.job_name %></:col>
+    <:col :let={{_id, employee}} label={gettext("Salary")}><%= employee.salary %></:col>
+    <:col :let={{_id, employee}} label={gettext("Birth date")}><%= employee.birth_date %></:col>
+    <:col :let={{_id, employee}} label={gettext("Hire date")}><%= employee.hire_date %></:col>
+    <:col :let={{_id, employee}} label={gettext("Dismiss date")}>
+      <%= employee.dismiss_date %>
+    </:col>
     <:action :let={{_id, employee}}>
       <div class="sr-only">
-        <.link navigate={~p"/employees/#{employee}"}>Show</.link>
+        <.link navigate={~p"/employees/#{employee}"}><%= gettext("Show") %></.link>
       </div>
-      <.link patch={~p"/employees/#{employee}/edit"}>Edit</.link>
+      <.link patch={~p"/employees/#{employee}/edit"}><%= gettext("Edit") %></.link>
     </:action>
     <:action :let={{id, employee}}>
       <.link
         phx-click={JS.push("delete", value: %{id: employee.id}) |> hide("##{id}")}
-        data-confirm="Are you sure?"
+        data-confirm={gettext("Are you sure?")}
       >
-        Delete
+        <%= gettext("Delete") %>
       </.link>
     </:action>
   </.table>

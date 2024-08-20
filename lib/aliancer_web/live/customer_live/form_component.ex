@@ -9,7 +9,9 @@ defmodule AliancerWeb.CustomerLive.FormComponent do
     <div>
       <.header>
         <%= @title %>
-        <:subtitle>Use this form to manage customer records in your database.</:subtitle>
+        <:subtitle>
+          <%= gettext("Use this form to manage customer records in your database.") %>
+        </:subtitle>
       </.header>
 
       <.simple_form
@@ -19,13 +21,15 @@ defmodule AliancerWeb.CustomerLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:name]} type="text" label="Name" />
-        <.input field={@form[:address]} type="text" label="Address" />
-        <.input field={@form[:phone]} type="text" label="Phone" />
-        <.input field={@form[:email]} type="text" label="Email" />
-        <.input field={@form[:notes]} type="textarea" label="Notes" />
+        <.input field={@form[:name]} type="text" label={gettext("Name")} />
+        <.input field={@form[:address]} type="text" label={gettext("Address")} />
+        <.input field={@form[:phone]} type="text" label={gettext("Phone")} />
+        <.input field={@form[:email]} type="text" label={gettext("Email")} />
+        <.input field={@form[:notes]} type="textarea" label={gettext("Notes")} />
         <:actions>
-          <.button phx-disable-with="Saving...">Save Customer</.button>
+          <.button phx-disable-with={gettext("Saving...")}>
+            <%= gettext("Save Customer") %>
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -59,7 +63,7 @@ defmodule AliancerWeb.CustomerLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Customer updated successfully")
+         |> put_flash(:info, gettext("Customer updated successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -74,7 +78,7 @@ defmodule AliancerWeb.CustomerLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Customer created successfully")
+         |> put_flash(:info, gettext("Customer created successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->

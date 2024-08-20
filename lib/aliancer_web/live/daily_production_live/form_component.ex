@@ -10,7 +10,9 @@ defmodule AliancerWeb.DailyProductionLive.FormComponent do
     <div>
       <.header>
         <%= @title %>
-        <:subtitle>Use this form to manage daily_production records in your database.</:subtitle>
+        <:subtitle>
+          <%= gettext("Use this form to manage daily production records in your database.") %>
+        </:subtitle>
       </.header>
 
       <.simple_form
@@ -24,7 +26,9 @@ defmodule AliancerWeb.DailyProductionLive.FormComponent do
         <.input field={@form[:product_id]} label="Product" type="select" options={@products} />
         <.input field={@form[:quantity]} type="number" label="Quantity" step="any" />
         <:actions>
-          <.button phx-disable-with="Saving...">Save Daily production</.button>
+          <.button phx-disable-with={gettext("Saving...")}>
+            <%= gettext("Save Daily production") %>
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -78,7 +82,7 @@ defmodule AliancerWeb.DailyProductionLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Daily production updated successfully")
+         |> put_flash(:info, gettext("Daily production updated successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -93,7 +97,7 @@ defmodule AliancerWeb.DailyProductionLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Daily production created successfully")
+         |> put_flash(:info, gettext("Daily production created successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->

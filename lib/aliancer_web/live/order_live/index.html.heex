@@ -1,9 +1,9 @@
 <div class="px-4 py-8">
   <.header>
-    Listing Orders
+    <%= gettext("Listing Orders") %>
     <:actions>
       <.link patch={~p"/orders/new"}>
-        <.button>New Order</.button>
+        <.button><%= gettext("New Order") %></.button>
       </.link>
     </:actions>
   </.header>
@@ -13,31 +13,31 @@
     rows={@streams.orders}
     row_click={fn {_id, order} -> JS.navigate(~p"/orders/#{order}") end}
   >
-    <:col :let={{_id, order}} label="Datetime"><%= order.datetime %></:col>
-    <:col :let={{_id, order}} label="Customer"><%= order.customer.name %></:col>
-    <:col :let={{_id, order}} label="Address">
+    <:col :let={{_id, order}} label={gettext("Datetime")}><%= order.datetime %></:col>
+    <:col :let={{_id, order}} label={gettext("Customer")}><%= order.customer.name %></:col>
+    <:col :let={{_id, order}} label={gettext("Address")}>
       <%= if order.customer_pickup do
-        "Customer pickup"
+        gettext("Customer pickup")
       else
         order.address
       end %>
     </:col>
-    <:col :let={{_id, order}} label="Total"><%= order.total %></:col>
-    <:col :let={{_id, order}} label="Paid"><%= order.paid %></:col>
-    <:col :let={{_id, order}} label="Status"><%= order.status %></:col>
-    <:col :let={{_id, order}} label="Notes"><%= order.notes %></:col>
+    <:col :let={{_id, order}} label={gettext("Total")}><%= order.total %></:col>
+    <:col :let={{_id, order}} label={gettext("Paid")}><%= order.paid %></:col>
+    <:col :let={{_id, order}} label={gettext("Status")}><%= order.status %></:col>
+    <:col :let={{_id, order}} label={gettext("Notes")}><%= order.notes %></:col>
     <:action :let={{_id, order}}>
       <div class="sr-only">
-        <.link navigate={~p"/orders/#{order}"}>Show</.link>
+        <.link navigate={~p"/orders/#{order}"}><%= gettext("Show") %></.link>
       </div>
-      <.link patch={~p"/orders/#{order}/edit"}>Edit</.link>
+      <.link patch={~p"/orders/#{order}/edit"}><%= gettext("Edit") %></.link>
     </:action>
     <:action :let={{id, order}}>
       <.link
         phx-click={JS.push("delete", value: %{id: order.id}) |> hide("##{id}")}
-        data-confirm="Are you sure?"
+        data-confirm={gettext("Are you sure?")}
       >
-        Delete
+        <%= gettext("Delete") %>
       </.link>
     </:action>
   </.table>

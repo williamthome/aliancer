@@ -1,23 +1,23 @@
 <div class="px-4 py-8">
   <.header>
-    Customer <%= @customer.id %>
-    <:subtitle>This is a customer record from your database.</:subtitle>
+    <%= gettext("Customer") %> <%= @customer.id %>
+    <:subtitle><%= gettext("This is a customer record from your database.") %></:subtitle>
     <:actions>
       <.link patch={~p"/customers/#{@customer}/show/edit"} phx-click={JS.push_focus()}>
-        <.button>Edit customer</.button>
+        <.button><%= gettext("Edit customer") %></.button>
       </.link>
     </:actions>
   </.header>
 
   <.list>
-    <:item title="Name"><%= @customer.name %></:item>
-    <:item title="Address"><%= @customer.address %></:item>
-    <:item title="Phone"><%= @customer.phone %></:item>
-    <:item title="Email"><%= @customer.email %></:item>
-    <:item title="Notes"><%= @customer.notes %></:item>
+    <:item title={gettext("Name")}><%= @customer.name %></:item>
+    <:item title={gettext("Address")}><%= @customer.address %></:item>
+    <:item title={gettext("Phone")}><%= @customer.phone %></:item>
+    <:item title={gettext("Email")}><%= @customer.email %></:item>
+    <:item title={gettext("Notes")}><%= @customer.notes %></:item>
   </.list>
 
-  <.back navigate={~p"/customers"}>Back to customers</.back>
+  <.back navigate={~p"/customers"}><%= gettext("Back to customers") %></.back>
 
   <.modal
     :if={@live_action == :edit}

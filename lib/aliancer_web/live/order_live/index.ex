@@ -16,13 +16,13 @@ defmodule AliancerWeb.OrderLive.Index do
 
   defp apply_action(socket, :edit, %{"id" => id}) do
     socket
-    |> assign(:page_title, "Edit Order")
+    |> assign(:page_title, gettext("Edit Order"))
     |> assign(:order, Orders.get_order!(id))
   end
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Order")
+    |> assign(:page_title, gettext("New Order"))
     |> assign(:order, %Order{
       datetime: DateTime.utc_now(),
       total: 0,
@@ -32,7 +32,7 @@ defmodule AliancerWeb.OrderLive.Index do
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Listing Orders")
+    |> assign(:page_title, gettext("Listing Orders"))
     |> assign(:order, nil)
   end
 

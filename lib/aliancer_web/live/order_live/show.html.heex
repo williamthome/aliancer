@@ -1,26 +1,26 @@
 <div class="px-4 py-8">
   <.header>
-    Order <%= @order.id %>
-    <:subtitle>This is a order record from your database.</:subtitle>
+    <%= gettext("Order") %> <%= @order.id %>
+    <:subtitle><%= gettext("This is a order record from your database.") %></:subtitle>
     <:actions>
       <.link patch={~p"/orders/#{@order}/show/edit"} phx-click={JS.push_focus()}>
-        <.button>Edit order</.button>
+        <.button><%= gettext("Edit order") %></.button>
       </.link>
     </:actions>
   </.header>
 
   <.list>
-    <:item title="Datetime"><%= @order.datetime %></:item>
-    <:item title="Customer"><%= @order.customer.name %></:item>
-    <:item :if={@order.customer_pickup} title="Address">Customer pickup</:item>
-    <:item :if={!@order.customer_pickup} title="Address"><%= @order.address %></:item>
-    <:item title="Total"><%= @order.total %></:item>
-    <:item title="Paid"><%= @order.paid %></:item>
-    <:item title="Status"><%= @order.status %></:item>
-    <:item title="Notes"><%= @order.notes %></:item>
+    <:item title={gettext("Datetime")}><%= @order.datetime %></:item>
+    <:item title={gettext("Customer")}><%= @order.customer.name %></:item>
+    <:item :if={@order.customer_pickup} title={gettext("Address")}>Customer pickup</:item>
+    <:item :if={!@order.customer_pickup} title={gettext("Address")}><%= @order.address %></:item>
+    <:item title={gettext("Total")}><%= @order.total %></:item>
+    <:item title={gettext("Paid")}><%= @order.paid %></:item>
+    <:item title={gettext("Status")}><%= @order.status %></:item>
+    <:item title={gettext("Notes")}><%= @order.notes %></:item>
   </.list>
 
-  <.back navigate={~p"/orders"}>Back to orders</.back>
+  <.back navigate={~p"/orders"}><%= gettext("Back to orders") %></.back>
 </div>
 
 <.modal

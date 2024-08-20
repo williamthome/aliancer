@@ -1,9 +1,11 @@
 <div class="px-4 py-8">
   <.header>
-    Listing Customers
+    <%= gettext("Listing Customers") %>
     <:actions>
       <.link patch={~p"/customers/new"}>
-        <.button>New Customer</.button>
+        <.button>
+          <%= gettext("New Customer") %>
+        </.button>
       </.link>
     </:actions>
   </.header>
@@ -13,23 +15,23 @@
     rows={@streams.customers}
     row_click={fn {_id, customer} -> JS.navigate(~p"/customers/#{customer}") end}
   >
-    <:col :let={{_id, customer}} label="Name"><%= customer.name %></:col>
-    <:col :let={{_id, customer}} label="Address"><%= customer.address %></:col>
-    <:col :let={{_id, customer}} label="Phone"><%= customer.phone %></:col>
-    <:col :let={{_id, customer}} label="Email"><%= customer.email %></:col>
-    <:col :let={{_id, customer}} label="Notes"><%= customer.notes %></:col>
+    <:col :let={{_id, customer}} label={gettext("Name")}><%= customer.name %></:col>
+    <:col :let={{_id, customer}} label={gettext("Address")}><%= customer.address %></:col>
+    <:col :let={{_id, customer}} label={gettext("Phone")}><%= customer.phone %></:col>
+    <:col :let={{_id, customer}} label={gettext("Email")}><%= customer.email %></:col>
+    <:col :let={{_id, customer}} label={gettext("Notes")}><%= customer.notes %></:col>
     <:action :let={{_id, customer}}>
       <div class="sr-only">
-        <.link navigate={~p"/customers/#{customer}"}>Show</.link>
+        <.link navigate={~p"/customers/#{customer}"}><%= gettext("Show") %></.link>
       </div>
-      <.link patch={~p"/customers/#{customer}/edit"}>Edit</.link>
+      <.link patch={~p"/customers/#{customer}/edit"}><%= gettext("Edit") %></.link>
     </:action>
     <:action :let={{id, customer}}>
       <.link
         phx-click={JS.push("delete", value: %{id: customer.id}) |> hide("##{id}")}
-        data-confirm="Are you sure?"
+        data-confirm={gettext("Are you sure?")}
       >
-        Delete
+        <%= gettext("Delete") %>
       </.link>
     </:action>
   </.table>

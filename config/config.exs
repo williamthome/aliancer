@@ -22,6 +22,11 @@ config :aliancer, AliancerWeb.Endpoint,
   pubsub_server: Aliancer.PubSub,
   live_view: [signing_salt: "arahsHEZ"]
 
+# Gettext
+config :aliancer, AliancerWeb.Gettext,
+  default_locale: "pt_BR",
+  locales: ~w(en pt_BR)
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails

@@ -16,6 +16,6 @@ defmodule AliancerWeb.OrderLive.Show do
      |> assign(:order, Orders.get_order!(id))}
   end
 
-  defp page_title(:show), do: "Show Order"
-  defp page_title(:edit), do: "Edit Order"
+  defp page_title(:show), do: gettext("Show Order")
+  defp page_title(:edit), do: gettext("Edit Order")
 end

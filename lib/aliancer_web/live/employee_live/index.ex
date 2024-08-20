@@ -16,19 +16,19 @@ defmodule AliancerWeb.EmployeeLive.Index do
 
   defp apply_action(socket, :edit, %{"id" => id}) do
     socket
-    |> assign(:page_title, "Edit Employee")
+    |> assign(:page_title, gettext("Edit Employee"))
     |> assign(:employee, Persons.get_employee!(id))
   end
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Employee")
+    |> assign(:page_title, gettext("New Employee"))
     |> assign(:employee, %Employee{})
   end
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Listing Employees")
+    |> assign(:page_title, gettext("Listing Employees"))
     |> assign(:employee, nil)
   end
 

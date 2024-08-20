@@ -1,24 +1,24 @@
 <div class="px-4 py-8">
   <.header>
-    Employee <%= @employee.id %>
-    <:subtitle>This is a employee record from your database.</:subtitle>
+    <%= gettext("Employee") %> <%= @employee.id %>
+    <:subtitle><%= gettext("This is a employee record from your database.") %></:subtitle>
     <:actions>
       <.link patch={~p"/employees/#{@employee}/show/edit"} phx-click={JS.push_focus()}>
-        <.button>Edit employee</.button>
+        <.button><%= gettext("Edit employee") %></.button>
       </.link>
     </:actions>
   </.header>
 
   <.list>
-    <:item title="Name"><%= @employee.name %></:item>
-    <:item title="Job name"><%= @employee.job_name %></:item>
-    <:item title="Salary"><%= @employee.salary %></:item>
-    <:item title="Birth date"><%= @employee.birth_date %></:item>
-    <:item title="Hire date"><%= @employee.hire_date %></:item>
-    <:item title="Dismiss date"><%= @employee.dismiss_date %></:item>
+    <:item title={gettext("Name")}><%= @employee.name %></:item>
+    <:item title={gettext("Job name")}><%= @employee.job_name %></:item>
+    <:item title={gettext("Salary")}><%= @employee.salary %></:item>
+    <:item title={gettext("Birth date")}><%= @employee.birth_date %></:item>
+    <:item title={gettext("Hire date")}><%= @employee.hire_date %></:item>
+    <:item title={gettext("Dismiss date")}><%= @employee.dismiss_date %></:item>
   </.list>
 
-  <.back navigate={~p"/employees"}>Back to employees</.back>
+  <.back navigate={~p"/employees"}><%= gettext("Back to employees") %></.back>
 </div>
 
 <.modal

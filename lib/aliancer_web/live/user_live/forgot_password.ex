@@ -7,21 +7,20 @@ defmodule AliancerWeb.UserLive.ForgotPassword do
     ~H"""
     <div class="mx-auto max-w-sm">
       <.header class="text-center">
-        Forgot your password?
-        <:subtitle>We'll send a password reset link to your inbox</:subtitle>
+        <%= gettext("Forgot your password?") %>
+        <:subtitle><%= gettext("We'll send a password reset link to your inbox") %></:subtitle>
       </.header>
 
       <.simple_form for={@form} id="reset_password_form" phx-submit="send_email">
-        <.input field={@form[:email]} type="email" placeholder="Email" required />
+        <.input field={@form[:email]} type="email" placeholder={gettext("Email")} required />
         <:actions>
-          <.button phx-disable-with="Sending..." class="w-full">
-            Send password reset instructions
+          <.button phx-disable-with={gettext("Sending...")} class="w-full">
+            <%= gettext("Send password reset instructions") %>
           </.button>
         </:actions>
       </.simple_form>
       <p class="text-center text-sm mt-4">
-        <.link href={~p"/users/register"}>Register</.link>
-        | <.link href={~p"/users/log_in"}>Log in</.link>
+        <.link href={~p"/users/log_in"}><%= gettext("Log in") %></.link>
       </p>
     </div>
     """
@@ -30,7 +29,7 @@ defmodule AliancerWeb.UserLive.ForgotPassword do
   def mount(_params, _session, socket) do
     socket =
       socket
-      |> assign(:page_title, "Forgot Password")
+      |> assign(:page_title, gettext("Password Recovery"))
       |> assign(:form, to_form(%{}, as: "user"))
 
     {:ok, socket}
@@ -45,7 +44,9 @@ defmodule AliancerWeb.UserLive.ForgotPassword do
     end
 
     info =
-      "If your email is in our system, you will receive instructions to reset your password shortly."
+      gettext(
+        "If your email is in our system, you will receive instructions to reset your password shortly."
+      )
 
     {:noreply,
      socket
