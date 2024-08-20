@@ -14,11 +14,15 @@ defmodule AliancerWeb.Router do
     plug :fetch_current_user
   end
 
-  scope "/", AliancerWeb do
+  scope "/admin" do
     pipe_through [:browser, AliancerWeb.Plugs.EnsureUserIsAdmin]
 
-    live_dashboard "/dev/dashboard", metrics: AliancerWeb.Telemetry
-    forward "/dev/mailbox", Plug.Swoosh.MailboxPreview
+    live_dashboard "/dashboard", metrics: AliancerWeb.Telemetry
+    forward "/mailbox", Plug.Swoosh.MailboxPreview
+  end
+
+  scope "/", AliancerWeb do
+    pipe_through [:browser, AliancerWeb.Plugs.EnsureUserIsAdmin]
 
     live_session :ensure_user_is_admin,
       on_mount: [
