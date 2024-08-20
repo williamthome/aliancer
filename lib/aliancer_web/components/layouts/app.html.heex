@@ -50,7 +50,8 @@
             <li
               :for={
                 item <- [
-                  %{title: "Employees", uri: ~p"/employees", icon: "hero-identification"}
+                  %{title: "Employees", uri: ~p"/employees", icon: "hero-identification"},
+                  %{title: "System", uri: ~p"/admin/system", icon: "hero-shield-check"}
                 ]
               }
               class={[

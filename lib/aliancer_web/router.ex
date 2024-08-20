@@ -17,7 +17,7 @@ defmodule AliancerWeb.Router do
   scope "/admin" do
     pipe_through [:browser, AliancerWeb.Plugs.EnsureUserIsAdmin]
 
-    live_dashboard "/dashboard", metrics: AliancerWeb.Telemetry
+    live_dashboard "/system", metrics: AliancerWeb.Telemetry
     forward "/mailbox", Plug.Swoosh.MailboxPreview
   end
 
