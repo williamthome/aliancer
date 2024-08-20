@@ -2,6 +2,7 @@ defmodule AliancerWeb.Router do
   use AliancerWeb, :router
 
   import AliancerWeb.UserAuth
+  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,20 +14,27 @@ defmodule AliancerWeb.Router do
     plug :fetch_current_user
   end
 
-  # Enable LiveDashboard and Swoosh mailbox preview in development
-  if Application.compile_env(:aliancer, :dev_routes) do
-    # If you want to use the LiveDashboard in production, you should put
-    # it behind authentication and allow only admins to access it.
-    # If your application does not have an admins-only section yet,
-    # you can use Plug.BasicAuth to set up some basic authentication
-    # as long as you are also using SSL (which you should anyway).
-    import Phoenix.LiveDashboard.Router
+  scope "/admin" do
+    pipe_through [:browser, AliancerWeb.Plugs.EnsureUserIsAdmin]
 
-    scope "/dev" do
-      pipe_through :browser
+    live_dashboard "/system", metrics: AliancerWeb.Telemetry
+    forward "/mailbox", Plug.Swoosh.MailboxPreview
+  end
 
-      live_dashboard "/dashboard", metrics: AliancerWeb.Telemetry
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+  scope "/", AliancerWeb do
+    pipe_through [:browser, AliancerWeb.Plugs.EnsureUserIsAdmin]
+
+    live_session :ensure_user_is_admin,
+      on_mount: [
+        {AliancerWeb.UserAuth, :ensure_user_is_admin},
+        {AliancerWeb.Hooks.Assign, :current_uri}
+      ] do
+      live "/employees", EmployeeLive.Index, :index
+      live "/employees/new", EmployeeLive.Index, :new
+      live "/employees/:id/edit", EmployeeLive.Index, :edit
+
+      live "/employees/:id", EmployeeLive.Show, :show
+      live "/employees/:id/show/edit", EmployeeLive.Show, :edit
     end
   end
 
@@ -95,13 +103,6 @@ defmodule AliancerWeb.Router do
 
       live "/orders/:id", OrderLive.Show, :show
       live "/orders/:id/show/edit", OrderLive.Show, :edit
-
-      live "/employees", EmployeeLive.Index, :index
-      live "/employees/new", EmployeeLive.Index, :new
-      live "/employees/:id/edit", EmployeeLive.Index, :edit
-
-      live "/employees/:id", EmployeeLive.Show, :show
-      live "/employees/:id/show/edit", EmployeeLive.Show, :edit
 
       live "/users/settings", UserLive.Settings, :edit
       live "/users/settings/confirm_email/:token", UserLive.Settings, :confirm_email

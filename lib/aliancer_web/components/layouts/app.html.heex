@@ -14,10 +14,11 @@
       </a>
     </div>
     <%!-- Sidebar Menu --%>
-    <div class="flex flex-col overflow-y-auto">
-      <nav>
+    <div class="overflow-y-auto">
+      <nav class="flex flex-col gap-10">
         <%!-- Menu Group --%>
         <div>
+          <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">MENU</h3>
           <ul class="flex flex-col gap-2">
             <%!-- Menu Items --%>
             <li
@@ -25,7 +26,6 @@
                 item <- [
                   %{title: "Dashboard", uri: ~p"/", icon: "hero-squares-2x2"},
                   %{title: "Customers", uri: ~p"/customers", icon: "hero-user"},
-                  %{title: "Employees", uri: ~p"/employees", icon: "hero-identification"},
                   %{title: "Products", uri: ~p"/products", icon: "hero-cube"},
                   %{title: "Orders", uri: ~p"/orders", icon: "hero-newspaper"},
                   %{title: "Daily production", uri: ~p"/daily_production", icon: "hero-beaker"}
@@ -36,10 +36,33 @@
                 item.uri == @current_uri && "bg-slate-800"
               ]}
             >
-              <a class="flex items-center gap-2 px-3 py-2" href={item.uri}>
+              <.link class="flex items-center gap-2 px-3 py-2" navigate={item.uri}>
                 <.icon name={item.icon} class="h-5 w-5" />
                 <%= item.title %>
-              </a>
+              </.link>
+            </li>
+          </ul>
+        </div>
+        <%!-- Admin Menu Items --%>
+        <div :if={@current_user.is_admin}>
+          <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">ADMIN</h3>
+          <ul>
+            <li
+              :for={
+                item <- [
+                  %{title: "Employees", uri: ~p"/employees", icon: "hero-identification"},
+                  %{title: "System", uri: ~p"/admin/system", icon: "hero-shield-check"}
+                ]
+              }
+              class={[
+                "text-slate-400 rounded-md hover:bg-slate-800",
+                item.uri == @current_uri && "bg-slate-800"
+              ]}
+            >
+              <.link class="flex items-center gap-2 px-3 py-2" href={item.uri}>
+                <.icon name={item.icon} class="h-5 w-5" />
+                <%= item.title %>
+              </.link>
             </li>
           </ul>
         </div>
