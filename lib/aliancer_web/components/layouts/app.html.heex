@@ -44,7 +44,7 @@
               <.link
                 :if={!Map.get(item, :hidden, false)}
                 class="flex items-center gap-2 px-3 py-2"
-                href={item.uri}
+                navigate={item.uri}
               >
                 <.icon name={item.icon} class="h-5 w-5" />
                 <%= item.title %>
