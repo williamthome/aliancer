@@ -5,7 +5,7 @@ defmodule AliancerWeb.Gettext do
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import AliancerWeb.Gettext
+      use Gettext, backend: AliancerWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule AliancerWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :aliancer
+  use Gettext.Backend, otp_app: :aliancer
 end

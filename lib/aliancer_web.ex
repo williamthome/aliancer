@@ -42,8 +42,9 @@ defmodule AliancerWeb do
         formats: [:html, :json],
         layouts: [html: AliancerWeb.Layouts]
 
+      use Gettext, backend: AliancerWeb.Gettext
+
       import Plug.Conn
-      import AliancerWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -81,11 +82,12 @@ defmodule AliancerWeb do
 
   defp html_helpers do
     quote do
+      # Translation
+      use Gettext, backend: AliancerWeb.Gettext
       # HTML escaping functionality
       import Phoenix.HTML
-      # Core UI components and translation
+      # Core UI components
       import AliancerWeb.CoreComponents
-      import AliancerWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
