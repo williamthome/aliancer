@@ -23,6 +23,9 @@ config :aliancer, AliancerWeb.Endpoint,
   secret_key_base: "JFAK+uP5Sw6aK2PwngK85pi8aXh5wN3ZeIRwpANqWH/gEyatBbWBSg57Xkj7HDYg",
   server: false
 
+# Gettext
+config :aliancer, AliancerWeb.Gettext, default_locale: "en"
+
 # In test we don't send emails
 config :aliancer, Aliancer.Mailer, adapter: Swoosh.Adapters.Test
 
