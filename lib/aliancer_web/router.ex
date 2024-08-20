@@ -2,6 +2,7 @@ defmodule AliancerWeb.Router do
   use AliancerWeb, :router
 
   import AliancerWeb.UserAuth
+  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,20 +14,17 @@ defmodule AliancerWeb.Router do
     plug :fetch_current_user
   end
 
-  # Enable LiveDashboard and Swoosh mailbox preview in development
-  if Application.compile_env(:aliancer, :dev_routes) do
-    # If you want to use the LiveDashboard in production, you should put
-    # it behind authentication and allow only admins to access it.
-    # If your application does not have an admins-only section yet,
-    # you can use Plug.BasicAuth to set up some basic authentication
-    # as long as you are also using SSL (which you should anyway).
-    import Phoenix.LiveDashboard.Router
+  scope "/", AliancerWeb do
+    pipe_through [:browser, AliancerWeb.Plugs.EnsureUserIsAdmin]
 
-    scope "/dev" do
-      pipe_through :browser
+    live_dashboard "/dev/dashboard", metrics: AliancerWeb.Telemetry
+    forward "/dev/mailbox", Plug.Swoosh.MailboxPreview
 
-      live_dashboard "/dashboard", metrics: AliancerWeb.Telemetry
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+    live_session :ensure_user_is_admin,
+      on_mount: [
+        {AliancerWeb.UserAuth, :ensure_user_is_admin},
+        {AliancerWeb.Hooks.Assign, :current_uri}
+      ] do
     end
   end
 
