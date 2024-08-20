@@ -25,6 +25,12 @@ defmodule AliancerWeb.Router do
         {AliancerWeb.UserAuth, :ensure_user_is_admin},
         {AliancerWeb.Hooks.Assign, :current_uri}
       ] do
+      live "/employees", EmployeeLive.Index, :index
+      live "/employees/new", EmployeeLive.Index, :new
+      live "/employees/:id/edit", EmployeeLive.Index, :edit
+
+      live "/employees/:id", EmployeeLive.Show, :show
+      live "/employees/:id/show/edit", EmployeeLive.Show, :edit
     end
   end
 
@@ -93,13 +99,6 @@ defmodule AliancerWeb.Router do
 
       live "/orders/:id", OrderLive.Show, :show
       live "/orders/:id/show/edit", OrderLive.Show, :edit
-
-      live "/employees", EmployeeLive.Index, :index
-      live "/employees/new", EmployeeLive.Index, :new
-      live "/employees/:id/edit", EmployeeLive.Index, :edit
-
-      live "/employees/:id", EmployeeLive.Show, :show
-      live "/employees/:id/show/edit", EmployeeLive.Show, :edit
 
       live "/users/settings", UserLive.Settings, :edit
       live "/users/settings/confirm_email/:token", UserLive.Settings, :confirm_email
