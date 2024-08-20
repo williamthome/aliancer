@@ -32,7 +32,7 @@ defmodule AliancerWeb.EmployeeLiveTest do
 
   defp authenticate(%{conn: conn}) do
     password = valid_user_password()
-    user = user_fixture(%{password: password})
+    user = user_fixture(%{password: password, is_admin: true})
     %{conn: log_in_user(conn, user)}
   end
 
