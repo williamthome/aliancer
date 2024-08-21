@@ -14,9 +14,13 @@
     <:item title={gettext("Description")}><%= @product.description %></:item>
     <:item title={gettext("Unit")}><%= @product.unit %></:item>
     <:item title={gettext("Cost")}><%= @product.cost %></:item>
-    <:item title={gettext("Saleable")}><%= @product.saleable %></:item>
+    <:item title={gettext("Saleable")}>
+      <.input type="checkbox" name="saleable" checked={@product.saleable} disabled />
+    </:item>
     <:item title={gettext("Price")}><%= @product.price %></:item>
-    <:item title={gettext("Own production")}><%= @product.own_production %></:item>
+    <:item title={gettext("Own production")}>
+      <.input type="checkbox" name="own_production" checked={@product.own_production} disabled />
+    </:item>
   </.list>
 
   <.back navigate={~p"/products"}><%= gettext("Back to products") %></.back>

@@ -19,7 +19,9 @@
       <%= @order.address %>
     </:item>
     <:item title={gettext("Total")}><%= @order.total %></:item>
-    <:item title={gettext("Paid")}><%= @order.paid %></:item>
+    <:item title={gettext("Paid")}>
+      <.input type="checkbox" name="paid" checked={@order.paid} disabled />
+    </:item>
     <:item title={gettext("Status")}>
       <%= Aliancer.Orders.Order.status_label(@order.status) %>
     </:item>

@@ -23,7 +23,9 @@
       end %>
     </:col>
     <:col :let={{_id, order}} label={gettext("Total")}><%= order.total %></:col>
-    <:col :let={{_id, order}} label={gettext("Paid")}><%= order.paid %></:col>
+    <:col :let={{_id, order}} label={gettext("Paid")}>
+      <.input type="checkbox" name="paid" checked={order.paid} disabled />
+    </:col>
     <:col :let={{_id, order}} label={gettext("Status")}>
       <%= Aliancer.Orders.Order.status_label(order.status) %>
     </:col>
