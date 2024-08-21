@@ -13,6 +13,6 @@ defmodule AliancerWeb.DashboardLive.Index do
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Dashboard")
+    |> assign(:page_title, gettext("Dashboard"))
   end
 end

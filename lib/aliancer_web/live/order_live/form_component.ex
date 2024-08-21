@@ -11,7 +11,9 @@ defmodule AliancerWeb.OrderLive.FormComponent do
     <div>
       <.header>
         <%= @title %>
-        <:subtitle>Use this form to manage order records in your database.</:subtitle>
+        <:subtitle>
+          <%= gettext("Use this form to manage order records in your database.") %>
+        </:subtitle>
       </.header>
 
       <.simple_form
@@ -21,27 +23,37 @@ defmodule AliancerWeb.OrderLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:datetime]} type="datetime-local" label="Datetime" />
-        <.input field={@form[:customer_id]} label="Customer" type="select" options={@customers} />
-        <.input field={@form[:customer_pickup]} type="checkbox" label="Customer pickup" />
-        <.input :if={@show_address} field={@form[:address]} type="textarea" label="Address" />
-        <.input field={@form[:total]} type="number" label="Total" step="any" />
-        <.input field={@form[:paid]} type="checkbox" label="Paid" />
+        <.input field={@form[:datetime]} type="datetime-local" label={gettext("Datetime")} />
+        <.input
+          field={@form[:customer_id]}
+          label={gettext("Customer")}
+          type="select"
+          options={@customers}
+        />
+        <.input field={@form[:customer_pickup]} type="checkbox" label={gettext("Customer pickup")} />
+        <.input
+          :if={@show_address}
+          field={@form[:address]}
+          type="textarea"
+          label={gettext("Address")}
+        />
+        <.input field={@form[:total]} type="number" label={gettext("Total")} step="any" />
+        <.input field={@form[:paid]} type="checkbox" label={gettext("Paid")} />
         <.input
           field={@form[:status]}
           type="select"
-          label="Status"
-          prompt="Choose a value"
-          options={Ecto.Enum.values(Aliancer.Orders.Order, :status)}
+          label={gettext("Status")}
+          prompt={gettext("Choose a value")}
+          options={Aliancer.Orders.Order.statuses_select_options()}
         />
-        <.input field={@form[:notes]} type="textarea" label="Notes" />
+        <.input field={@form[:notes]} type="textarea" label={gettext("Notes")} />
 
         <.header>
-          Listing Items
+          <%= gettext("Listing Items") %>
           <:actions>
             <label class="rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3 text-sm font-semibold leading-6 text-white active:text-white/80 cursor-pointer">
               <input type="checkbox" name="order[items_order][]" class="hidden" />
-              <span>Add Item</span>
+              <span><%= gettext("Add Item") %></span>
             </label>
           </:actions>
         </.header>
@@ -52,7 +64,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
             <div class="flex space-x-2">
               <.input
                 field={item_form[:product_id]}
-                label={if item_form.index == 0, do: "Item"}
+                label={if item_form.index == 0, do: gettext("Item")}
                 type="select"
                 options={@products}
                 control_class="grow"
@@ -60,13 +72,13 @@ defmodule AliancerWeb.OrderLive.FormComponent do
               <.input
                 field={item_form[:quantity]}
                 type="number"
-                label={if item_form.index == 0, do: "Quantity"}
+                label={if item_form.index == 0, do: gettext("Quantity")}
                 step="any"
               />
               <.input
                 field={item_form[:total]}
                 type="number"
-                label={if item_form.index == 0, do: "Total"}
+                label={if item_form.index == 0, do: gettext("Total")}
                 step="any"
               />
               <div class="flex flex-col">
@@ -94,16 +106,18 @@ defmodule AliancerWeb.OrderLive.FormComponent do
             class="text-center px-3 py-5 border"
           >
             <.header>
-              Nothing!
+              <%= gettext("Nothing!") %>
               <:subtitle>
-                Please add the order items
+                <%= gettext("Please add the order items") %>
               </:subtitle>
             </.header>
           </div>
         </div>
 
         <:actions>
-          <.button phx-disable-with="Saving...">Save Order</.button>
+          <.button phx-disable-with={gettext("Saving...")}>
+            <%= gettext("Save Order") %>
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -169,7 +183,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Order updated successfully")
+         |> put_flash(:info, gettext("Order updated successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -184,7 +198,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Order created successfully")
+         |> put_flash(:info, gettext("Order created successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->

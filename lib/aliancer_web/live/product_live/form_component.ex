@@ -9,7 +9,9 @@ defmodule AliancerWeb.ProductLive.FormComponent do
     <div>
       <.header>
         <%= @title %>
-        <:subtitle>Use this form to manage product records in your database.</:subtitle>
+        <:subtitle>
+          <%= gettext("Use this form to manage product records in your database.") %>
+        </:subtitle>
       </.header>
 
       <.simple_form
@@ -19,32 +21,32 @@ defmodule AliancerWeb.ProductLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:name]} type="text" label="Name" />
-        <.input field={@form[:description]} type="text" label="Description" />
+        <.input field={@form[:name]} type="text" label={gettext("Name")} />
+        <.input field={@form[:description]} type="text" label={gettext("Description")} />
         <.input
           field={@form[:unit]}
           type="select"
-          label="Unit"
-          prompt="Choose a value"
+          label={gettext("Unit")}
+          prompt={gettext("Choose a value")}
           options={Ecto.Enum.values(Aliancer.Products.Product, :unit)}
         />
-        <.input field={@form[:cost]} type="number" label="Cost" step="any" />
-        <.input field={@form[:saleable]} type="checkbox" label="Saleable" />
+        <.input field={@form[:cost]} type="number" label={gettext("Cost")} step="any" />
+        <.input field={@form[:saleable]} type="checkbox" label={gettext("Saleable")} />
         <.input
           :if={@form[:saleable].value}
           field={@form[:price]}
           type="number"
-          label="Price"
+          label={gettext("Price")}
           step="any"
         />
-        <.input field={@form[:own_production]} type="checkbox" label="Own production" />
+        <.input field={@form[:own_production]} type="checkbox" label={gettext("Own production")} />
 
         <.header>
-          Listing Sub products
+          <%= gettext("Listing Sub products") %>
           <:actions>
             <label class="rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3 text-sm font-semibold leading-6 text-white active:text-white/80 cursor-pointer">
               <input type="checkbox" name="product[sub_products_order][]" class="hidden" />
-              <span>Add Sub Product</span>
+              <span><%= gettext("Add Sub Product") %></span>
             </label>
           </:actions>
         </.header>
@@ -55,7 +57,7 @@ defmodule AliancerWeb.ProductLive.FormComponent do
             <div class="flex space-x-2">
               <.input
                 field={sub_product_form[:id]}
-                label={if sub_product_form.index == 0, do: "Product"}
+                label={if sub_product_form.index == 0, do: gettext("Product")}
                 type="select"
                 options={@sub_products}
                 control_class="grow"
@@ -63,7 +65,7 @@ defmodule AliancerWeb.ProductLive.FormComponent do
               <.input
                 field={sub_product_form[:quantity]}
                 type="number"
-                label={if sub_product_form.index == 0, do: "Quantity"}
+                label={if sub_product_form.index == 0, do: gettext("Quantity")}
                 step="any"
               />
               <div class="flex flex-col">
@@ -91,16 +93,18 @@ defmodule AliancerWeb.ProductLive.FormComponent do
             class="text-center px-3 py-5 border"
           >
             <.header>
-              Nothing!
+              <%= gettext("Nothing!") %>
               <:subtitle>
-                Add products that compose that product
+                <%= gettext("Add products that compose that product") %>
               </:subtitle>
             </.header>
           </div>
         </div>
 
         <:actions>
-          <.button phx-disable-with="Saving...">Save Product</.button>
+          <.button phx-disable-with={gettext("Saving...")}>
+            <%= gettext("Save Product") %>
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -149,7 +153,7 @@ defmodule AliancerWeb.ProductLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Product updated successfully")
+         |> put_flash(:info, gettext("Product updated successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -164,7 +168,7 @@ defmodule AliancerWeb.ProductLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Product created successfully")
+         |> put_flash(:info, gettext("Product created successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->

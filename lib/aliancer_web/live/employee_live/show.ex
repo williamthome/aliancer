@@ -16,6 +16,6 @@ defmodule AliancerWeb.EmployeeLive.Show do
      |> assign(:employee, Persons.get_employee!(id))}
   end
 
-  defp page_title(:show), do: "Show Employee"
-  defp page_title(:edit), do: "Edit Employee"
+  defp page_title(:show), do: gettext("Show Employee")
+  defp page_title(:edit), do: gettext("Edit Employee")
 end

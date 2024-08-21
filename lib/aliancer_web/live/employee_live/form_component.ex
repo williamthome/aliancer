@@ -9,7 +9,9 @@ defmodule AliancerWeb.EmployeeLive.FormComponent do
     <div>
       <.header>
         <%= @title %>
-        <:subtitle>Use this form to manage employee records in your database.</:subtitle>
+        <:subtitle>
+          <%= gettext("Use this form to manage employee records in your database.") %>
+        </:subtitle>
       </.header>
 
       <.simple_form
@@ -19,14 +21,16 @@ defmodule AliancerWeb.EmployeeLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:name]} type="text" label="Name" />
-        <.input field={@form[:job_name]} type="text" label="Job name" />
-        <.input field={@form[:salary]} type="number" label="Salary" step="any" />
-        <.input field={@form[:birth_date]} type="date" label="Birth date" />
-        <.input field={@form[:hire_date]} type="date" label="Hire date" />
-        <.input field={@form[:dismiss_date]} type="date" label="Dismiss date" />
+        <.input field={@form[:name]} type="text" label={gettext("Name")} />
+        <.input field={@form[:job_name]} type="text" label={gettext("Job name")} />
+        <.input field={@form[:salary]} type="number" label={gettext("Salary")} step="any" />
+        <.input field={@form[:birth_date]} type="date" label={gettext("Birth date")} />
+        <.input field={@form[:hire_date]} type="date" label={gettext("Hire date")} />
+        <.input field={@form[:dismiss_date]} type="date" label={gettext("Dismiss date")} />
         <:actions>
-          <.button phx-disable-with="Saving...">Save Employee</.button>
+          <.button phx-disable-with={gettext("Saving...")}>
+            <%= gettext("Save Employee") %>
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -60,7 +64,7 @@ defmodule AliancerWeb.EmployeeLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Employee updated successfully")
+         |> put_flash(:info, gettext("Employee updated successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -75,7 +79,7 @@ defmodule AliancerWeb.EmployeeLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Employee created successfully")
+         |> put_flash(:info, gettext("Employee created successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->

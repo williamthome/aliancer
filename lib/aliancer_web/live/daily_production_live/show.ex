@@ -16,6 +16,6 @@ defmodule AliancerWeb.DailyProductionLive.Show do
      |> assign(:daily_production, Production.get_daily_production!(id))}
   end
 
-  defp page_title(:show), do: "Show Daily production"
-  defp page_title(:edit), do: "Edit Daily production"
+  defp page_title(:show), do: gettext("Show Daily production")
+  defp page_title(:edit), do: gettext("Edit Daily production")
 end

@@ -123,6 +123,12 @@ jobs:
       - name: Check Formatting
         run: mix format --check-formatted
 
+      # Step: Check translations.
+      - name: Check if build left translations
+        run: |
+          mix gettext.extract --merge
+          git diff --exit-code
+
       # Step: Execute the tests.
       - name: Run tests
         run: mix test

@@ -16,19 +16,19 @@ defmodule AliancerWeb.CustomerLive.Index do
 
   defp apply_action(socket, :edit, %{"id" => id}) do
     socket
-    |> assign(:page_title, "Edit Customer")
+    |> assign(:page_title, gettext("Edit Customer"))
     |> assign(:customer, Persons.get_customer!(id))
   end
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Customer")
+    |> assign(:page_title, gettext("New Customer"))
     |> assign(:customer, %Customer{})
   end
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Listing Customers")
+    |> assign(:page_title, gettext("Listing Customers"))
     |> assign(:customer, nil)
   end
 

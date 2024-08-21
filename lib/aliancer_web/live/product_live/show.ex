@@ -16,6 +16,6 @@ defmodule AliancerWeb.ProductLive.Show do
      |> assign(:product, Products.get_product!(id))}
   end
 
-  defp page_title(:show), do: "Show Product"
-  defp page_title(:edit), do: "Edit Product"
+  defp page_title(:show), do: gettext("Show Product")
+  defp page_title(:edit), do: gettext("Edit Product")
 end

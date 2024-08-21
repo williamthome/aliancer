@@ -16,6 +16,6 @@ defmodule AliancerWeb.CustomerLive.Show do
      |> assign(:customer, Persons.get_customer!(id))}
   end
 
-  defp page_title(:show), do: "Show Customer"
-  defp page_title(:edit), do: "Edit Customer"
+  defp page_title(:show), do: gettext("Show Customer")
+  defp page_title(:edit), do: gettext("Edit Customer")
 end

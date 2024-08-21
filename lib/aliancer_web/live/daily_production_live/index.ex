@@ -16,19 +16,19 @@ defmodule AliancerWeb.DailyProductionLive.Index do
 
   defp apply_action(socket, :edit, %{"id" => id}) do
     socket
-    |> assign(:page_title, "Edit Daily production")
+    |> assign(:page_title, gettext("Edit Daily production"))
     |> assign(:daily_production, Production.get_daily_production!(id))
   end
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Daily production")
+    |> assign(:page_title, gettext("New Daily production"))
     |> assign(:daily_production, %DailyProduction{date: Date.utc_today()})
   end
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Listing Daily production")
+    |> assign(:page_title, gettext("Listing Daily production"))
     |> assign(:daily_production, nil)
   end
 
