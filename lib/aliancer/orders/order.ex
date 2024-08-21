@@ -1,4 +1,5 @@
 defmodule Aliancer.Orders.Order do
+  use Gettext, backend: AliancerWeb.Gettext
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -64,4 +65,25 @@ defmodule Aliancer.Orders.Order do
   end
 
   defp cast_address(changeset), do: changeset
+
+  def statuses_select_options do
+    for s <- Ecto.Enum.values(Aliancer.Orders.Order, :status), into: %{} do
+      {status_label(s), s}
+    end
+  end
+
+  def status_label(:in_process), do: gettext("In process")
+  def status_label(:paused), do: gettext("Paused")
+  def status_label(:canceled), do: gettext("Canceled")
+  def status_label(:in_production), do: gettext("In production")
+  def status_label(:ready_for_dispatch), do: gettext("Ready for dispatch")
+  def status_label(:partially_dispatched), do: gettext("Partially dispatched")
+  def status_label(:attempted_dispatch), do: gettext("Attempted dispatch")
+  def status_label(:dispatched), do: gettext("Dispatched")
+  def status_label(:delayed), do: gettext("Delayed")
+  def status_label(:returned), do: gettext("Returned")
+  def status_label(:partially_returned), do: gettext("Partially returned")
+  def status_label(:lost), do: gettext("Lost")
+  def status_label(:awaiting_pickup), do: gettext("Awaiting pickup")
+  def status_label(:completed), do: gettext("Completed")
 end

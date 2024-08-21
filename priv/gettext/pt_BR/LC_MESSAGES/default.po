@@ -149,7 +149,7 @@ msgstr "Já está registrado?"
 #: lib/aliancer_web/live/customer_live/index.html.heex:32
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:36
 #: lib/aliancer_web/live/employee_live/index.html.heex:33
-#: lib/aliancer_web/live/order_live/index.html.heex:38
+#: lib/aliancer_web/live/order_live/index.html.heex:40
 #: lib/aliancer_web/live/product_live/index.html.heex:30
 #, elixir-autogen, elixir-format
 msgid "Are you sure?"
@@ -165,7 +165,7 @@ msgstr "Voltar para clientes"
 msgid "Back to employees"
 msgstr "Voltar para colaboradores"
 
-#: lib/aliancer_web/live/order_live/show.html.heex:23
+#: lib/aliancer_web/live/order_live/show.html.heex:25
 #, elixir-autogen, elixir-format
 msgid "Back to orders"
 msgstr "Voltar para pedidos"
@@ -309,7 +309,7 @@ msgstr "Data e hora"
 #: lib/aliancer_web/live/customer_live/index.html.heex:34
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:38
 #: lib/aliancer_web/live/employee_live/index.html.heex:35
-#: lib/aliancer_web/live/order_live/index.html.heex:40
+#: lib/aliancer_web/live/order_live/index.html.heex:42
 #: lib/aliancer_web/live/product_live/index.html.heex:32
 #, elixir-autogen, elixir-format
 msgid "Delete"
@@ -332,7 +332,7 @@ msgstr "Data de demissão"
 #: lib/aliancer_web/live/customer_live/index.html.heex:27
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:31
 #: lib/aliancer_web/live/employee_live/index.html.heex:28
-#: lib/aliancer_web/live/order_live/index.html.heex:33
+#: lib/aliancer_web/live/order_live/index.html.heex:35
 #: lib/aliancer_web/live/product_live/index.html.heex:25
 #, elixir-autogen, elixir-format
 msgid "Edit"
@@ -598,8 +598,8 @@ msgstr "Não recebeu instruções de confirmação?"
 #: lib/aliancer_web/live/customer_live/index.html.heex:22
 #: lib/aliancer_web/live/customer_live/show.html.heex:17
 #: lib/aliancer_web/live/order_live/form_component.ex:49
-#: lib/aliancer_web/live/order_live/index.html.heex:28
-#: lib/aliancer_web/live/order_live/show.html.heex:20
+#: lib/aliancer_web/live/order_live/index.html.heex:30
+#: lib/aliancer_web/live/order_live/show.html.heex:22
 #, elixir-autogen, elixir-format
 msgid "Notes"
 msgstr "Observações"
@@ -795,7 +795,7 @@ msgstr "Enviando..."
 #: lib/aliancer_web/live/customer_live/index.html.heex:25
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:29
 #: lib/aliancer_web/live/employee_live/index.html.heex:26
-#: lib/aliancer_web/live/order_live/index.html.heex:31
+#: lib/aliancer_web/live/order_live/index.html.heex:33
 #: lib/aliancer_web/live/product_live/index.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Show"
@@ -944,3 +944,73 @@ msgstr "Este é um registro de produção diária do seu banco de dados."
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Use this form to manage daily production records in your database."
 msgstr "Use este formulário para gerenciar registros de produção diária em seu banco de dados."
+
+#: lib/aliancer/orders/order.ex:81
+#, elixir-autogen, elixir-format
+msgid "Attempted dispatch"
+msgstr "Tentativa de despacho"
+
+#: lib/aliancer/orders/order.ex:87
+#, elixir-autogen, elixir-format
+msgid "Awaiting pickup"
+msgstr "Aguardando retirada"
+
+#: lib/aliancer/orders/order.ex:77
+#, elixir-autogen, elixir-format
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: lib/aliancer/orders/order.ex:88
+#, elixir-autogen, elixir-format
+msgid "Completed"
+msgstr "Finalizado"
+
+#: lib/aliancer/orders/order.ex:83
+#, elixir-autogen, elixir-format
+msgid "Delayed"
+msgstr "Atrasado"
+
+#: lib/aliancer/orders/order.ex:82
+#, elixir-autogen, elixir-format
+msgid "Dispatched"
+msgstr "Despachado"
+
+#: lib/aliancer/orders/order.ex:75
+#, elixir-autogen, elixir-format
+msgid "In process"
+msgstr "Em processo"
+
+#: lib/aliancer/orders/order.ex:78
+#, elixir-autogen, elixir-format, fuzzy
+msgid "In production"
+msgstr "Em produção"
+
+#: lib/aliancer/orders/order.ex:86
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Lost"
+msgstr "Perdido"
+
+#: lib/aliancer/orders/order.ex:80
+#, elixir-autogen, elixir-format
+msgid "Partially dispatched"
+msgstr "Parcialmente despachado"
+
+#: lib/aliancer/orders/order.ex:85
+#, elixir-autogen, elixir-format
+msgid "Partially returned"
+msgstr "Parcialmente retornado"
+
+#: lib/aliancer/orders/order.ex:76
+#, elixir-autogen, elixir-format
+msgid "Paused"
+msgstr "Pausado"
+
+#: lib/aliancer/orders/order.ex:79
+#, elixir-autogen, elixir-format
+msgid "Ready for dispatch"
+msgstr "Pronto para despacho"
+
+#: lib/aliancer/orders/order.ex:84
+#, elixir-autogen, elixir-format
+msgid "Returned"
+msgstr "Retornado"

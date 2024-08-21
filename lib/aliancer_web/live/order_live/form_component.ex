@@ -44,7 +44,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
           type="select"
           label={gettext("Status")}
           prompt={gettext("Choose a value")}
-          options={Ecto.Enum.values(Aliancer.Orders.Order, :status)}
+          options={Aliancer.Orders.Order.statuses_select_options()}
         />
         <.input field={@form[:notes]} type="textarea" label={gettext("Notes")} />
 

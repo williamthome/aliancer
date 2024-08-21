@@ -24,7 +24,9 @@
     </:col>
     <:col :let={{_id, order}} label={gettext("Total")}><%= order.total %></:col>
     <:col :let={{_id, order}} label={gettext("Paid")}><%= order.paid %></:col>
-    <:col :let={{_id, order}} label={gettext("Status")}><%= order.status %></:col>
+    <:col :let={{_id, order}} label={gettext("Status")}>
+      <%= Aliancer.Orders.Order.status_label(order.status) %>
+    </:col>
     <:col :let={{_id, order}} label={gettext("Notes")}><%= order.notes %></:col>
     <:action :let={{_id, order}}>
       <div class="sr-only">

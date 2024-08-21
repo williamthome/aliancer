@@ -16,7 +16,9 @@
     <:item :if={!@order.customer_pickup} title={gettext("Address")}><%= @order.address %></:item>
     <:item title={gettext("Total")}><%= @order.total %></:item>
     <:item title={gettext("Paid")}><%= @order.paid %></:item>
-    <:item title={gettext("Status")}><%= @order.status %></:item>
+    <:item title={gettext("Status")}>
+      <%= Aliancer.Orders.Order.status_label(@order.status) %>
+    </:item>
     <:item title={gettext("Notes")}><%= @order.notes %></:item>
   </.list>
 

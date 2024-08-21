@@ -149,7 +149,7 @@ msgstr ""
 #: lib/aliancer_web/live/customer_live/index.html.heex:32
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:36
 #: lib/aliancer_web/live/employee_live/index.html.heex:33
-#: lib/aliancer_web/live/order_live/index.html.heex:38
+#: lib/aliancer_web/live/order_live/index.html.heex:40
 #: lib/aliancer_web/live/product_live/index.html.heex:30
 #, elixir-autogen, elixir-format
 msgid "Are you sure?"
@@ -165,7 +165,7 @@ msgstr ""
 msgid "Back to employees"
 msgstr ""
 
-#: lib/aliancer_web/live/order_live/show.html.heex:23
+#: lib/aliancer_web/live/order_live/show.html.heex:25
 #, elixir-autogen, elixir-format
 msgid "Back to orders"
 msgstr ""
@@ -309,7 +309,7 @@ msgstr ""
 #: lib/aliancer_web/live/customer_live/index.html.heex:34
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:38
 #: lib/aliancer_web/live/employee_live/index.html.heex:35
-#: lib/aliancer_web/live/order_live/index.html.heex:40
+#: lib/aliancer_web/live/order_live/index.html.heex:42
 #: lib/aliancer_web/live/product_live/index.html.heex:32
 #, elixir-autogen, elixir-format
 msgid "Delete"
@@ -332,7 +332,7 @@ msgstr ""
 #: lib/aliancer_web/live/customer_live/index.html.heex:27
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:31
 #: lib/aliancer_web/live/employee_live/index.html.heex:28
-#: lib/aliancer_web/live/order_live/index.html.heex:33
+#: lib/aliancer_web/live/order_live/index.html.heex:35
 #: lib/aliancer_web/live/product_live/index.html.heex:25
 #, elixir-autogen, elixir-format
 msgid "Edit"
@@ -598,8 +598,8 @@ msgstr ""
 #: lib/aliancer_web/live/customer_live/index.html.heex:22
 #: lib/aliancer_web/live/customer_live/show.html.heex:17
 #: lib/aliancer_web/live/order_live/form_component.ex:49
-#: lib/aliancer_web/live/order_live/index.html.heex:28
-#: lib/aliancer_web/live/order_live/show.html.heex:20
+#: lib/aliancer_web/live/order_live/index.html.heex:30
+#: lib/aliancer_web/live/order_live/show.html.heex:22
 #, elixir-autogen, elixir-format
 msgid "Notes"
 msgstr ""
@@ -795,7 +795,7 @@ msgstr ""
 #: lib/aliancer_web/live/customer_live/index.html.heex:25
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:29
 #: lib/aliancer_web/live/employee_live/index.html.heex:26
-#: lib/aliancer_web/live/order_live/index.html.heex:31
+#: lib/aliancer_web/live/order_live/index.html.heex:33
 #: lib/aliancer_web/live/product_live/index.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Show"
@@ -943,4 +943,74 @@ msgstr ""
 #: lib/aliancer_web/live/daily_production_live/form_component.ex:14
 #, elixir-autogen, elixir-format
 msgid "Use this form to manage daily production records in your database."
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:81
+#, elixir-autogen, elixir-format
+msgid "Attempted dispatch"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:87
+#, elixir-autogen, elixir-format
+msgid "Awaiting pickup"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:77
+#, elixir-autogen, elixir-format
+msgid "Canceled"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:88
+#, elixir-autogen, elixir-format
+msgid "Completed"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:83
+#, elixir-autogen, elixir-format
+msgid "Delayed"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:82
+#, elixir-autogen, elixir-format
+msgid "Dispatched"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:75
+#, elixir-autogen, elixir-format
+msgid "In process"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:78
+#, elixir-autogen, elixir-format
+msgid "In production"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:86
+#, elixir-autogen, elixir-format
+msgid "Lost"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:80
+#, elixir-autogen, elixir-format
+msgid "Partially dispatched"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:85
+#, elixir-autogen, elixir-format
+msgid "Partially returned"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:76
+#, elixir-autogen, elixir-format
+msgid "Paused"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:79
+#, elixir-autogen, elixir-format
+msgid "Ready for dispatch"
+msgstr ""
+
+#: lib/aliancer/orders/order.ex:84
+#, elixir-autogen, elixir-format
+msgid "Returned"
 msgstr ""
