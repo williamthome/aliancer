@@ -983,3 +983,28 @@ msgstr "Pronto para despacho"
 #, elixir-autogen, elixir-format
 msgid "Returned"
 msgstr "Retornado"
+
+#: lib/aliancer_web/controllers/user_session_controller.ex:8
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Account created successfully!"
+msgstr "Conta criada com sucesso!"
+
+#: lib/aliancer_web/controllers/user_session_controller.ex:31
+#, elixir-autogen, elixir-format
+msgid "Invalid email or password"
+msgstr "Email ou senha inválidos"
+
+#: lib/aliancer_web/controllers/user_session_controller.ex:39
+#, elixir-autogen, elixir-format
+msgid "Logged out successfully."
+msgstr "Desconectado com sucesso."
+
+#: lib/aliancer_web/controllers/user_session_controller.ex:14
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Password updated successfully!"
+msgstr "Senha atualizada com sucesso!"
+
+#: lib/aliancer_web/controllers/user_session_controller.ex:18
+#, elixir-autogen, elixir-format
+msgid "Welcome back!"
+msgstr "Bem vindo de volta!"
