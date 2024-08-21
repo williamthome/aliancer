@@ -29,6 +29,7 @@ msgstr "Clientes"
 
 #: lib/aliancer_web/components/layouts/app.html.heex:32
 #: lib/aliancer_web/live/daily_production_live/show.html.heex:3
+#: lib/aliancer_web/live/dashboard_live/index.html.heex:45
 #, elixir-autogen, elixir-format
 msgid "Daily production"
 msgstr "Produção diária"
@@ -281,16 +282,17 @@ msgstr "Cliente retira"
 msgid "Customer updated successfully"
 msgstr "Cliente atualizado com sucesso"
 
-#: lib/aliancer_web/live/daily_production_live/form_component.ex:100
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:105
 #, elixir-autogen, elixir-format
 msgid "Daily production created successfully"
 msgstr "Produção diária criada com sucesso"
 
-#: lib/aliancer_web/live/daily_production_live/form_component.ex:85
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:90
 #, elixir-autogen, elixir-format
 msgid "Daily production updated successfully"
 msgstr "Produção diária atualizada com sucesso"
 
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:25
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:18
 #: lib/aliancer_web/live/daily_production_live/show.html.heex:16
 #, elixir-autogen, elixir-format
@@ -429,7 +431,7 @@ msgstr "Colaborador atualizado com sucesso"
 msgid "Forgot your password?"
 msgstr "Esqueceu sua senha?"
 
-#: lib/aliancer_web/live/dashboard_live/index.html.heex:52
+#: lib/aliancer_web/live/dashboard_live/index.html.heex:53
 #, elixir-autogen, elixir-format
 msgid "Goal"
 msgstr "Objetivo"
@@ -677,6 +679,7 @@ msgstr "Por favor, adicione os itens do pedido"
 msgid "Price"
 msgstr "Preço"
 
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:28
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:21
 #: lib/aliancer_web/live/daily_production_live/show.html.heex:17
 #: lib/aliancer_web/live/product_live/form_component.ex:60
@@ -695,6 +698,7 @@ msgstr "Produto criado com sucesso"
 msgid "Product updated successfully"
 msgstr "Produto atualizado com sucesso"
 
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:32
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:24
 #: lib/aliancer_web/live/daily_production_live/show.html.heex:18
 #: lib/aliancer_web/live/order_live/form_component.ex:75
@@ -748,7 +752,7 @@ msgstr "Vendável"
 msgid "Save Customer"
 msgstr "Salvar Cliente"
 
-#: lib/aliancer_web/live/daily_production_live/form_component.ex:30
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:35
 #, elixir-autogen, elixir-format
 msgid "Save Daily production"
 msgstr "Salvar Produção diária"
@@ -769,7 +773,7 @@ msgid "Save Product"
 msgstr "Salvar Produto"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:30
-#: lib/aliancer_web/live/daily_production_live/form_component.ex:29
+#: lib/aliancer_web/live/daily_production_live/form_component.ex:34
 #: lib/aliancer_web/live/employee_live/form_component.ex:31
 #: lib/aliancer_web/live/order_live/form_component.ex:118
 #: lib/aliancer_web/live/product_live/form_component.ex:105

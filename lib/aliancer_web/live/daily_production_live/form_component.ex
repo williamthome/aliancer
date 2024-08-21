@@ -22,9 +22,14 @@ defmodule AliancerWeb.DailyProductionLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:date]} type="date" label="Date" />
-        <.input field={@form[:product_id]} label="Product" type="select" options={@products} />
-        <.input field={@form[:quantity]} type="number" label="Quantity" step="any" />
+        <.input field={@form[:date]} type="date" label={gettext("Date")} />
+        <.input
+          field={@form[:product_id]}
+          label={gettext("Product")}
+          type="select"
+          options={@products}
+        />
+        <.input field={@form[:quantity]} type="number" label={gettext("Quantity")} step="any" />
         <:actions>
           <.button phx-disable-with={gettext("Saving...")}>
             <%= gettext("Save Daily production") %>
