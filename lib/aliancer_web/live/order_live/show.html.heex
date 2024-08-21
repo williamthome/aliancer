@@ -12,8 +12,12 @@
   <.list>
     <:item title={gettext("Datetime")}><%= @order.datetime %></:item>
     <:item title={gettext("Customer")}><%= @order.customer.name %></:item>
-    <:item :if={@order.customer_pickup} title={gettext("Address")}>Customer pickup</:item>
-    <:item :if={!@order.customer_pickup} title={gettext("Address")}><%= @order.address %></:item>
+    <:item :if={@order.customer_pickup} title={gettext("Address")}>
+      <%= gettext("Customer pickup") %>
+    </:item>
+    <:item :if={!@order.customer_pickup} title={gettext("Address")}>
+      <%= @order.address %>
+    </:item>
     <:item title={gettext("Total")}><%= @order.total %></:item>
     <:item title={gettext("Paid")}><%= @order.paid %></:item>
     <:item title={gettext("Status")}>

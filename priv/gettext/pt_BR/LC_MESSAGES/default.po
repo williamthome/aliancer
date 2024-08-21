@@ -136,7 +136,7 @@ msgstr "Adicione produtos que compõem este produto"
 #: lib/aliancer_web/live/order_live/form_component.ex:38
 #: lib/aliancer_web/live/order_live/index.html.heex:18
 #: lib/aliancer_web/live/order_live/show.html.heex:15
-#: lib/aliancer_web/live/order_live/show.html.heex:16
+#: lib/aliancer_web/live/order_live/show.html.heex:18
 #, elixir-autogen, elixir-format
 msgid "Address"
 msgstr "Endereço"
@@ -165,7 +165,7 @@ msgstr "Voltar para clientes"
 msgid "Back to employees"
 msgstr "Voltar para colaboradores"
 
-#: lib/aliancer_web/live/order_live/show.html.heex:25
+#: lib/aliancer_web/live/order_live/show.html.heex:29
 #, elixir-autogen, elixir-format
 msgid "Back to orders"
 msgstr "Voltar para pedidos"
@@ -273,6 +273,7 @@ msgstr "Cliente criado com sucesso"
 
 #: lib/aliancer_web/live/order_live/form_component.ex:33
 #: lib/aliancer_web/live/order_live/index.html.heex:20
+#: lib/aliancer_web/live/order_live/show.html.heex:16
 #, elixir-autogen, elixir-format
 msgid "Customer pickup"
 msgstr "Cliente retira"
@@ -599,7 +600,7 @@ msgstr "Não recebeu instruções de confirmação?"
 #: lib/aliancer_web/live/customer_live/show.html.heex:17
 #: lib/aliancer_web/live/order_live/form_component.ex:49
 #: lib/aliancer_web/live/order_live/index.html.heex:30
-#: lib/aliancer_web/live/order_live/show.html.heex:22
+#: lib/aliancer_web/live/order_live/show.html.heex:26
 #, elixir-autogen, elixir-format
 msgid "Notes"
 msgstr "Observações"
@@ -639,7 +640,7 @@ msgstr "Produção própria"
 
 #: lib/aliancer_web/live/order_live/form_component.ex:41
 #: lib/aliancer_web/live/order_live/index.html.heex:26
-#: lib/aliancer_web/live/order_live/show.html.heex:18
+#: lib/aliancer_web/live/order_live/show.html.heex:22
 #, elixir-autogen, elixir-format
 msgid "Paid"
 msgstr "Está pago"
@@ -828,7 +829,7 @@ msgstr "Mostrar Produto"
 
 #: lib/aliancer_web/live/order_live/form_component.ex:45
 #: lib/aliancer_web/live/order_live/index.html.heex:27
-#: lib/aliancer_web/live/order_live/show.html.heex:19
+#: lib/aliancer_web/live/order_live/show.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Status"
 msgstr ""
@@ -856,7 +857,7 @@ msgstr "Este é um registro de produto do seu banco de dados."
 #: lib/aliancer_web/live/order_live/form_component.ex:40
 #: lib/aliancer_web/live/order_live/form_component.ex:81
 #: lib/aliancer_web/live/order_live/index.html.heex:25
-#: lib/aliancer_web/live/order_live/show.html.heex:17
+#: lib/aliancer_web/live/order_live/show.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "Total"
 msgstr ""
