@@ -1,17 +1,17 @@
 ---
-name: Fly Deploy
-# See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
+name: Act on release created
 
 "on":
-  push:
-    branches:
-      - main
+  release:
+    types:
+      - created
 
 jobs:
   deploy:
-    name: Deploy app
+    # See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
+    name: Fly / Deploy app
     runs-on: ubuntu-latest
-    concurrency: deploy-group    # optional: ensure only one action runs at a time
+    concurrency: deploy-group
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
