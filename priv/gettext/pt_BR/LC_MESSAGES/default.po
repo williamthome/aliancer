@@ -141,11 +141,6 @@ msgstr "Adicione produtos que compõem este produto"
 msgid "Address"
 msgstr "Endereço"
 
-#: lib/aliancer_web/live/user_live/registration.ex:13
-#, elixir-autogen, elixir-format
-msgid "Already registered?"
-msgstr "Já está registrado?"
-
 #: lib/aliancer_web/live/customer_live/index.html.heex:32
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:36
 #: lib/aliancer_web/live/employee_live/index.html.heex:33
@@ -241,16 +236,6 @@ msgstr "Confirmando..."
 #, elixir-autogen, elixir-format
 msgid "Cost"
 msgstr "Custo"
-
-#: lib/aliancer_web/live/user_live/registration.ex:39
-#, elixir-autogen, elixir-format
-msgid "Create an account"
-msgstr "Criar uma conta"
-
-#: lib/aliancer_web/live/user_live/registration.ex:38
-#, elixir-autogen, elixir-format
-msgid "Creating account..."
-msgstr "Criando conta..."
 
 #: lib/aliancer_web/live/user_live/settings.ex:30
 #: lib/aliancer_web/live/user_live/settings.ex:72
@@ -394,8 +379,7 @@ msgstr "Editar produto"
 #: lib/aliancer_web/live/customer_live/show.html.heex:16
 #: lib/aliancer_web/live/user_live/confirmation_instructions.ex:15
 #: lib/aliancer_web/live/user_live/forgot_password.ex:15
-#: lib/aliancer_web/live/user_live/login.ex:19
-#: lib/aliancer_web/live/user_live/registration.ex:34
+#: lib/aliancer_web/live/user_live/login.ex:12
 #: lib/aliancer_web/live/user_live/settings.ex:24
 #, elixir-autogen, elixir-format
 msgid "Email"
@@ -427,7 +411,7 @@ msgid "Employee updated successfully"
 msgstr "Colaborador atualizado com sucesso"
 
 #: lib/aliancer_web/live/user_live/forgot_password.ex:10
-#: lib/aliancer_web/live/user_live/login.ex:25
+#: lib/aliancer_web/live/user_live/login.ex:18
 #, elixir-autogen, elixir-format
 msgid "Forgot your password?"
 msgstr "Esqueceu sua senha?"
@@ -466,7 +450,7 @@ msgstr ""
 msgid "Job name"
 msgstr "Cargo"
 
-#: lib/aliancer_web/live/user_live/login.ex:23
+#: lib/aliancer_web/live/user_live/login.ex:16
 #, elixir-autogen, elixir-format
 msgid "Keep me logged in"
 msgstr "Mantenha-me conectado"
@@ -514,8 +498,7 @@ msgstr "Listando Sub produtos"
 #: lib/aliancer_web/live/user_live/confirmation.ex:21
 #: lib/aliancer_web/live/user_live/confirmation_instructions.ex:24
 #: lib/aliancer_web/live/user_live/forgot_password.ex:23
-#: lib/aliancer_web/live/user_live/login.ex:30
-#: lib/aliancer_web/live/user_live/registration.ex:15
+#: lib/aliancer_web/live/user_live/login.ex:23
 #: lib/aliancer_web/live/user_live/reset_password.ex:36
 #, elixir-autogen, elixir-format
 msgid "Log in"
@@ -526,12 +509,12 @@ msgstr "Entrar"
 msgid "Log in to account"
 msgstr "Entrar na conta"
 
-#: lib/aliancer_web/live/user_live/login.ex:29
+#: lib/aliancer_web/live/user_live/login.ex:22
 #, elixir-autogen, elixir-format
 msgid "Logging in..."
 msgstr "Entrando..."
 
-#: lib/aliancer_web/live/user_live/login.ex:44
+#: lib/aliancer_web/live/user_live/login.ex:37
 #, elixir-autogen, elixir-format
 msgid "Login"
 msgstr "Entrar"
@@ -611,7 +594,6 @@ msgstr "Observações"
 msgid "Nothing!"
 msgstr "Nada!"
 
-#: lib/aliancer_web/live/user_live/registration.ex:31
 #: lib/aliancer_web/live/user_live/reset_password.ex:18
 #, elixir-autogen, elixir-format
 msgid "Oops, something went wrong! Please check the errors below."
@@ -646,8 +628,7 @@ msgstr "Produção própria"
 msgid "Paid"
 msgstr "Está pago"
 
-#: lib/aliancer_web/live/user_live/login.ex:20
-#: lib/aliancer_web/live/user_live/registration.ex:35
+#: lib/aliancer_web/live/user_live/login.ex:13
 #, elixir-autogen, elixir-format
 msgid "Password"
 msgstr "Senha"
@@ -708,16 +689,6 @@ msgstr "Produto atualizado com sucesso"
 #, elixir-autogen, elixir-format
 msgid "Quantity"
 msgstr "Quantidade"
-
-#: lib/aliancer_web/live/user_live/registration.ex:52
-#, elixir-autogen, elixir-format
-msgid "Register"
-msgstr "Registrar"
-
-#: lib/aliancer_web/live/user_live/registration.ex:11
-#, elixir-autogen, elixir-format
-msgid "Register for an account"
-msgstr "Registrar uma nova conta"
 
 #: lib/aliancer_web/live/user_live/confirmation_instructions.ex:18
 #, elixir-autogen, elixir-format
@@ -922,11 +893,6 @@ msgstr "Você deve ser um administrador para acessar esta página."
 #, elixir-autogen, elixir-format
 msgid "You must log in to access this page."
 msgstr "Você deve efetuar login para acessar esta página."
-
-#: lib/aliancer_web/live/user_live/registration.ex:17
-#, elixir-autogen, elixir-format
-msgid "to your account now."
-msgstr "na sua conta agora."
 
 #: lib/aliancer_web/live/daily_production_live/show.html.heex:21
 #, elixir-autogen, elixir-format, fuzzy
