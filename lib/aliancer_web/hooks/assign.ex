@@ -10,11 +10,19 @@ defmodule AliancerWeb.Hooks.Assign do
   end
 
   def on_mount(:show_menu, _params, _session, socket) do
-    ua = Phoenix.LiveView.get_connect_info(socket, :user_agent)
+    # Tests do not contain :user_agent
+    show_menu =
+      case Phoenix.LiveView.get_connect_info(socket, :user_agent) do
+        nil ->
+          true
+
+        ua ->
+          Browser.device_type(ua) == :desktop
+      end
 
     socket =
       socket
-      |> Phoenix.Component.assign(:show_menu, Browser.device_type(ua) == :desktop)
+      |> Phoenix.Component.assign(:show_menu, show_menu)
 
     {:cont, socket}
   end
