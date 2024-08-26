@@ -27,7 +27,8 @@ defmodule AliancerWeb.Router do
     live_session :ensure_user_is_admin,
       on_mount: [
         {AliancerWeb.UserAuth, :ensure_user_is_admin},
-        {AliancerWeb.Hooks.Assign, :current_uri}
+        {AliancerWeb.Hooks.Assign, :current_uri},
+        {AliancerWeb.Hooks.Assign, :show_menu}
       ] do
       live "/employees", EmployeeLive.Index, :index
       live "/employees/new", EmployeeLive.Index, :new
@@ -71,7 +72,8 @@ defmodule AliancerWeb.Router do
     live_session :require_authenticated_user,
       on_mount: [
         {AliancerWeb.UserAuth, :ensure_authenticated},
-        {AliancerWeb.Hooks.Assign, :current_uri}
+        {AliancerWeb.Hooks.Assign, :current_uri},
+        {AliancerWeb.Hooks.Assign, :show_menu}
       ] do
       live "/", DashboardLive.Index, :index
 

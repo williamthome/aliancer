@@ -1,6 +1,9 @@
 <div 
   id="app"
-  class="flex h-screen overflow-hidden show-menu"
+  class={[
+    "flex h-screen overflow-hidden",
+    @show_menu && "show-menu"
+  ]}
 >
   <%!-- Left Side --%>
   <aside 

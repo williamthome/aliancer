@@ -9,6 +9,16 @@ defmodule AliancerWeb.Hooks.Assign do
      )}
   end
 
+  def on_mount(:show_menu, _params, _session, socket) do
+    ua = Phoenix.LiveView.get_connect_info(socket, :user_agent)
+
+    socket =
+      socket
+      |> Phoenix.Component.assign(:show_menu, Browser.device_type(ua) == :desktop)
+
+    {:cont, socket}
+  end
+
   defp assign_current_uri(_params, url, socket) do
     {:cont, Phoenix.Component.assign(socket, :current_uri, URI.parse(url) |> Map.get(:path))}
   end
