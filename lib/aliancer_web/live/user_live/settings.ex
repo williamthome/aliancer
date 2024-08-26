@@ -5,7 +5,7 @@ defmodule AliancerWeb.UserLive.Settings do
 
   def render(assigns) do
     ~H"""
-    <div class="px-4 py-8">
+    <div class="px-4 py-8 m-auto max-w-xl">
       <.header class="text-center">
         <%= gettext("Account Settings") %>
         <:subtitle>
