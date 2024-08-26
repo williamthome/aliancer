@@ -21,26 +21,26 @@ msgstr "Ações"
 msgid "Attempting to reconnect"
 msgstr "Tentando reconectar"
 
-#: lib/aliancer_web/components/layouts/app.html.heex:28
+#: lib/aliancer_web/components/layouts/app.html.heex:37
 #: lib/aliancer_web/live/dashboard_live/index.html.heex:8
 #, elixir-autogen, elixir-format
 msgid "Customers"
 msgstr "Clientes"
 
-#: lib/aliancer_web/components/layouts/app.html.heex:32
+#: lib/aliancer_web/components/layouts/app.html.heex:41
 #: lib/aliancer_web/live/daily_production_live/show.html.heex:3
 #: lib/aliancer_web/live/dashboard_live/index.html.heex:45
 #, elixir-autogen, elixir-format
 msgid "Daily production"
 msgstr "Produção diária"
 
-#: lib/aliancer_web/components/layouts/app.html.heex:27
+#: lib/aliancer_web/components/layouts/app.html.heex:36
 #: lib/aliancer_web/live/dashboard_live/index.ex:16
 #, elixir-autogen, elixir-format
 msgid "Dashboard"
 msgstr ""
 
-#: lib/aliancer_web/components/layouts/app.html.heex:58
+#: lib/aliancer_web/components/layouts/app.html.heex:67
 #: lib/aliancer_web/live/dashboard_live/index.html.heex:13
 #, elixir-autogen, elixir-format
 msgid "Employees"
@@ -56,24 +56,24 @@ msgstr "Erro!"
 msgid "Hang in there while we get back on track"
 msgstr "Aguente firme enquanto voltamos aos trilhos"
 
-#: lib/aliancer_web/components/layouts/app.html.heex:140
+#: lib/aliancer_web/components/layouts/app.html.heex:160
 #, elixir-autogen, elixir-format
 msgid "Log out"
 msgstr "Sair"
 
-#: lib/aliancer_web/components/layouts/app.html.heex:30
+#: lib/aliancer_web/components/layouts/app.html.heex:39
 #: lib/aliancer_web/live/dashboard_live/index.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Orders"
 msgstr "Pedidos"
 
-#: lib/aliancer_web/components/layouts/app.html.heex:29
+#: lib/aliancer_web/components/layouts/app.html.heex:38
 #: lib/aliancer_web/live/dashboard_live/index.html.heex:18
 #, elixir-autogen, elixir-format
 msgid "Products"
 msgstr "Produtos"
 
-#: lib/aliancer_web/components/layouts/app.html.heex:128
+#: lib/aliancer_web/components/layouts/app.html.heex:148
 #: lib/aliancer_web/live/user_live/settings.ex:109
 #, elixir-autogen, elixir-format
 msgid "Settings"
@@ -89,7 +89,7 @@ msgstr "Alguma coisa deu errado!"
 msgid "Success!"
 msgstr "Sucesso!"
 
-#: lib/aliancer_web/components/layouts/app.html.heex:62
+#: lib/aliancer_web/components/layouts/app.html.heex:71
 #, elixir-autogen, elixir-format
 msgid "System"
 msgstr "Sistema"

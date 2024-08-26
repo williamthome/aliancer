@@ -2,4 +2,23 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* This file is for your main application CSS */
+:root {
+  --menu-width: 20rem;
+}
+
+#app.show-menu #asideMenu {
+  display: block;
+}
+
+#app.show-menu #hamburgerBtn {
+  left: -5rem;
+  color: white;
+}
+
+#app.show-menu #content {
+  width: calc(100vw - var(--menu-width));
+}
+
+#app:not(.show-menu) #content {
+  overflow: hidden;
+}

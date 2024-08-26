@@ -1,6 +1,6 @@
 <div class="bg-slate-100 p-6 min-h-full">
-  <div class="flex flex-col gap-6 m-auto" style="max-width: calc(100vh + 3rem)">
-    <div class="grid grid-cols-4 gap-6">
+  <div class="flex flex-col gap-6 m-auto max-w-[calc(100vh+(2*theme('spacing.6')))]">
+    <div class="flex flex-wrap gap-6">
       <div
         :for={
           item <- [
@@ -26,7 +26,7 @@
             }
           ]
         }
-        class="flex justify-between gap-2 p-4 bg-white shadow-md hover:shadow-lg bg-clip-border rounded-xl"
+        class="flex justify-between gap-2 grow p-4 bg-white shadow-md hover:shadow-lg bg-clip-border rounded-xl"
       >
         <div class="flex flex-col gap-2">
           <.icon name={item.icon} class="h-5 w-5 text-slate-400" />
