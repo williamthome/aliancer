@@ -1,4 +1,4 @@
-<div 
+<div
   id="app"
   class={[
     "flex h-screen overflow-hidden",
@@ -6,7 +6,7 @@
   ]}
 >
   <%!-- Left Side --%>
-  <aside 
+  <aside
     id="asideMenu"
     class="hidden flex flex-col bg-slate-900 text-white w-[--menu-width] min-w-[100vw] sm:min-w-max"
   >
@@ -87,25 +87,22 @@
     </div>
   </aside>
   <%!-- Right Side --%>
-  <div 
-    id="content"
-    class="flex flex-col grow"
-  >
+  <div id="content" class="flex flex-col grow">
     <%!-- Top Bar --%>
     <header class="border-b border-zinc-100 text-sm shadow-md z-40">
       <div class="flex items-center justify-between px-4 py-4 h-16">
         <div class="flex items-center relative">
           <%!-- Hamburger Button --%>
-          <button 
+          <button
             id="hamburgerBtn"
             type="button"
             class={[
               "rounded-lg bg-transparent py-2 px-3 absolute left-0 top-0 -translate-y-1/2",
-              "text-sm font-semibold leading-6 text-black transition-left duration-300",
+              "text-sm font-semibold leading-6 text-black transition-left duration-300"
             ]}
             phx-click={JS.toggle_class("show-menu", to: "#app")}
           >
-            <.icon name="hero-bars-3"/>
+            <.icon name="hero-bars-3" />
           </button>
         </div>
         <div class="flex items-center gap-4">
