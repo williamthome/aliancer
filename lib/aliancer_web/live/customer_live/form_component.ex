@@ -30,7 +30,7 @@ defmodule AliancerWeb.CustomerLive.FormComponent do
               options={Aliancer.Persons.Customer.person_type_select_options()}
             />
             <.input
-              field={@form[:name]}
+              field={@form[:first_name]}
               type="text"
               label={Aliancer.Persons.Customer.first_name_label(@form[:person_type].value)}
             />

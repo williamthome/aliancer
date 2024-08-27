@@ -11,7 +11,7 @@
 
   <.list>
     <:item title={gettext("Datetime")}><%= @order.datetime %></:item>
-    <:item title={gettext("Customer")}><%= @order.customer.name %></:item>
+    <:item title={gettext("Customer")}><%= @order.customer.first_name %></:item>
     <:item :if={@order.customer_pickup} title={gettext("Address")}>
       <%= gettext("Customer pickup") %>
     </:item>

@@ -14,7 +14,7 @@
     row_click={fn {_id, order} -> JS.navigate(~p"/orders/#{order}") end}
   >
     <:col :let={{_id, order}} label={gettext("Datetime")}><%= order.datetime %></:col>
-    <:col :let={{_id, order}} label={gettext("Customer")}><%= order.customer.name %></:col>
+    <:col :let={{_id, order}} label={gettext("Customer")}><%= order.customer.first_name %></:col>
     <:col :let={{_id, order}} label={gettext("Address")}>
       <%= if order.customer_pickup do
         gettext("Customer pickup")

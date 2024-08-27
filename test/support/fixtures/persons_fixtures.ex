@@ -11,11 +11,21 @@ defmodule Aliancer.PersonsFixtures do
     {:ok, customer} =
       attrs
       |> Enum.into(%{
-        address: "some address",
-        email: "some email",
-        name: "some name",
+        person_type: :natural,
+        first_name: "some first_name",
+        second_name: "some second_name",
+        id_number: "0",
         notes: "some notes",
-        phone: "some phone"
+        contact_phone: "some contact_phone",
+        contact_email: "some contact_email",
+        addr_street: "some addr_street",
+        addr_number: "some addr_number",
+        addr_complement: "some addr_complement",
+        addr_neighborhood: "some addr_neighborhood",
+        addr_city: "some addr_city",
+        addr_state: "SC",
+        addr_postcode: "some addr_postcode",
+        addr_reference: "some addr_reference"
       })
       |> Aliancer.Persons.create_customer()
 

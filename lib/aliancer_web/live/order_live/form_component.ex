@@ -141,7 +141,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
   defp assign_customers(socket) do
     customers =
       Persons.list_customers()
-      |> Enum.map(&{&1.name, &1.id})
+      |> Enum.map(&{&1.first_name, &1.id})
 
     assign(socket, :customers, customers)
   end
