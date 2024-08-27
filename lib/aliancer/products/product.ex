@@ -6,7 +6,7 @@ defmodule Aliancer.Products.Product do
 
   schema "products" do
     field :name, :string
-    field :unit, Ecto.Enum, values: [:un, :m2, :m3]
+    field :unit, Ecto.Enum, values: [:un, :m2, :m3, :m]
     field :description, :string
     field :cost, :decimal
     field :price, :decimal
