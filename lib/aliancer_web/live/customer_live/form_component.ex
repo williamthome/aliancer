@@ -21,11 +21,47 @@ defmodule AliancerWeb.CustomerLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:name]} type="text" label={gettext("Name")} />
-        <.input field={@form[:address]} type="text" label={gettext("Address")} />
-        <.input field={@form[:phone]} type="text" label={gettext("Phone")} />
-        <.input field={@form[:email]} type="text" label={gettext("Email")} />
-        <.input field={@form[:notes]} type="textarea" label={gettext("Notes")} />
+        <.tabs>
+          <:tab slug="info" label={gettext("Details")} class="pt-8 space-y-8" active>
+            <.input
+              field={@form[:person_type]}
+              type="select"
+              label={gettext("Person type")}
+              options={Aliancer.Persons.Customer.person_type_select_options()}
+            />
+            <.input
+              field={@form[:first_name]}
+              type="text"
+              label={Aliancer.Persons.Customer.first_name_label(@form[:person_type].value)}
+            />
+            <.input
+              field={@form[:second_name]}
+              type="text"
+              label={Aliancer.Persons.Customer.second_name_label(@form[:person_type].value)}
+            />
+            <.input
+              field={@form[:id_number]}
+              type="text"
+              label={Aliancer.Persons.Customer.id_number_label(@form[:person_type].value)}
+            />
+            <.input field={@form[:notes]} type="textarea" label={gettext("Notes")} />
+          </:tab>
+          <:tab slug="contact" label={gettext("Contact")} class="pt-8 space-y-8">
+            <.input field={@form[:contact_phone]} type="text" label={gettext("Phone")} />
+            <.input field={@form[:contact_email]} type="text" label={gettext("Email")} />
+          </:tab>
+          <:tab slug="address" label={gettext("Address")} class="pt-8 space-y-8">
+            <.input field={@form[:addr_street]} type="text" label={gettext("Street name")} />
+            <.input field={@form[:addr_number]} type="text" label={gettext("Street number")} />
+            <.input field={@form[:addr_complement]} type="text" label={gettext("Complement")} />
+            <.input field={@form[:addr_neighborhood]} type="text" label={gettext("Neighborhood")} />
+            <.input field={@form[:addr_state]} type="text" label={gettext("State")} />
+            <.input field={@form[:addr_city]} type="text" label={gettext("City")} />
+            <.input field={@form[:addr_postcode]} type="text" label={gettext("Postal code")} />
+            <.input field={@form[:addr_reference]} type="textarea" label={gettext("Reference")} />
+          </:tab>
+        </.tabs>
+
         <:actions>
           <.button phx-disable-with={gettext("Saving...")}>
             <%= gettext("Save Customer") %>

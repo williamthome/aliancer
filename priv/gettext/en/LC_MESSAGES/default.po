@@ -130,9 +130,9 @@ msgstr ""
 msgid "Add products that compose that product"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:25
-#: lib/aliancer_web/live/customer_live/index.html.heex:19
-#: lib/aliancer_web/live/customer_live/show.html.heex:14
+#: lib/aliancer_web/live/customer_live/form_component.ex:53
+#: lib/aliancer_web/live/customer_live/index.html.heex:20
+#: lib/aliancer_web/live/customer_live/show.html.heex:17
 #: lib/aliancer_web/live/order_live/form_component.ex:38
 #: lib/aliancer_web/live/order_live/index.html.heex:18
 #: lib/aliancer_web/live/order_live/show.html.heex:15
@@ -141,7 +141,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/index.html.heex:32
+#: lib/aliancer_web/live/customer_live/index.html.heex:30
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:36
 #: lib/aliancer_web/live/employee_live/index.html.heex:33
 #: lib/aliancer_web/live/order_live/index.html.heex:42
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Customer"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:81
+#: lib/aliancer_web/live/customer_live/form_component.ex:117
 #, elixir-autogen, elixir-format
 msgid "Customer created successfully"
 msgstr ""
@@ -263,7 +263,7 @@ msgstr ""
 msgid "Customer pickup"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:66
+#: lib/aliancer_web/live/customer_live/form_component.ex:102
 #, elixir-autogen, elixir-format
 msgid "Customer updated successfully"
 msgstr ""
@@ -292,7 +292,7 @@ msgstr ""
 msgid "Datetime"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/index.html.heex:34
+#: lib/aliancer_web/live/customer_live/index.html.heex:32
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:38
 #: lib/aliancer_web/live/employee_live/index.html.heex:35
 #: lib/aliancer_web/live/order_live/index.html.heex:44
@@ -315,7 +315,7 @@ msgstr ""
 msgid "Dismiss date"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/index.html.heex:27
+#: lib/aliancer_web/live/customer_live/index.html.heex:25
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:31
 #: lib/aliancer_web/live/employee_live/index.html.heex:28
 #: lib/aliancer_web/live/order_live/index.html.heex:37
@@ -374,8 +374,7 @@ msgstr ""
 msgid "Edit product"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:27
-#: lib/aliancer_web/live/customer_live/index.html.heex:21
+#: lib/aliancer_web/live/customer_live/form_component.ex:51
 #: lib/aliancer_web/live/customer_live/show.html.heex:16
 #: lib/aliancer_web/live/user_live/confirmation_instructions.ex:15
 #: lib/aliancer_web/live/user_live/forgot_password.ex:15
@@ -524,7 +523,6 @@ msgstr ""
 msgid "Manage your account email address and password settings"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:24
 #: lib/aliancer_web/live/customer_live/index.html.heex:18
 #: lib/aliancer_web/live/customer_live/show.html.heex:13
 #: lib/aliancer_web/live/employee_live/form_component.ex:24
@@ -578,9 +576,8 @@ msgstr ""
 msgid "No confirmation instructions received?"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:28
-#: lib/aliancer_web/live/customer_live/index.html.heex:22
-#: lib/aliancer_web/live/customer_live/show.html.heex:17
+#: lib/aliancer_web/live/customer_live/form_component.ex:47
+#: lib/aliancer_web/live/customer_live/show.html.heex:14
 #: lib/aliancer_web/live/order_live/form_component.ex:49
 #: lib/aliancer_web/live/order_live/index.html.heex:32
 #: lib/aliancer_web/live/order_live/show.html.heex:28
@@ -643,8 +640,8 @@ msgstr ""
 msgid "Password reset successfully."
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:26
-#: lib/aliancer_web/live/customer_live/index.html.heex:20
+#: lib/aliancer_web/live/customer_live/form_component.ex:50
+#: lib/aliancer_web/live/customer_live/index.html.heex:19
 #: lib/aliancer_web/live/customer_live/show.html.heex:15
 #, elixir-autogen, elixir-format
 msgid "Phone"
@@ -721,7 +718,7 @@ msgstr ""
 msgid "Saleable"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:31
+#: lib/aliancer_web/live/customer_live/form_component.ex:67
 #, elixir-autogen, elixir-format
 msgid "Save Customer"
 msgstr ""
@@ -746,7 +743,7 @@ msgstr ""
 msgid "Save Product"
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/form_component.ex:30
+#: lib/aliancer_web/live/customer_live/form_component.ex:66
 #: lib/aliancer_web/live/daily_production_live/form_component.ex:34
 #: lib/aliancer_web/live/employee_live/form_component.ex:31
 #: lib/aliancer_web/live/order_live/form_component.ex:118
@@ -766,7 +763,7 @@ msgstr ""
 msgid "Sending..."
 msgstr ""
 
-#: lib/aliancer_web/live/customer_live/index.html.heex:25
+#: lib/aliancer_web/live/customer_live/index.html.heex:23
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:29
 #: lib/aliancer_web/live/employee_live/index.html.heex:26
 #: lib/aliancer_web/live/order_live/index.html.heex:35
@@ -1007,4 +1004,99 @@ msgstr ""
 #: lib/aliancer_web/controllers/user_session_controller.ex:18
 #, elixir-autogen, elixir-format
 msgid "Welcome back!"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:59
+#, elixir-autogen, elixir-format
+msgid "City"
+msgstr ""
+
+#: lib/aliancer/persons/customer.ex:87
+#, elixir-autogen, elixir-format
+msgid "Company name"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:56
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Complement"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:49
+#, elixir-autogen, elixir-format
+msgid "Contact"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:25
+#, elixir-autogen, elixir-format
+msgid "Details"
+msgstr ""
+
+#: lib/aliancer/persons/customer.ex:84
+#, elixir-autogen, elixir-format
+msgid "First name"
+msgstr ""
+
+#: lib/aliancer/persons/customer.ex:77
+#, elixir-autogen, elixir-format
+msgid "Legal person"
+msgstr ""
+
+#: lib/aliancer/persons/customer.ex:107
+#, elixir-autogen, elixir-format
+msgid "Legal person tax ID"
+msgstr ""
+
+#: lib/aliancer/persons/customer.ex:74
+#, elixir-autogen, elixir-format
+msgid "Natural person"
+msgstr ""
+
+#: lib/aliancer/persons/customer.ex:104
+#, elixir-autogen, elixir-format
+msgid "Natural person tax ID"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:57
+#, elixir-autogen, elixir-format
+msgid "Neighborhood"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:29
+#, elixir-autogen, elixir-format
+msgid "Person type"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:60
+#, elixir-autogen, elixir-format
+msgid "Postal code"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:61
+#, elixir-autogen, elixir-format
+msgid "Reference"
+msgstr ""
+
+#: lib/aliancer/persons/customer.ex:94
+#, elixir-autogen, elixir-format
+msgid "Second name"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:58
+#, elixir-autogen, elixir-format, fuzzy
+msgid "State"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:54
+#, elixir-autogen, elixir-format
+msgid "Street name"
+msgstr ""
+
+#: lib/aliancer_web/live/customer_live/form_component.ex:55
+#, elixir-autogen, elixir-format
+msgid "Street number"
+msgstr ""
+
+#: lib/aliancer/persons/customer.ex:97
+#, elixir-autogen, elixir-format
+msgid "Trading name"
 msgstr ""

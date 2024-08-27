@@ -59,8 +59,8 @@ defmodule AliancerWeb.CoreComponents do
         aria-modal="true"
         tabindex="0"
       >
-        <div class="flex min-h-full items-center justify-center">
-          <div class="w-full max-w-3xl p-4 sm:p-6 lg:py-8">
+        <div class="flex min-h-full justify-center">
+          <div class="w-full max-w-3xl p-4 sm:p-14 lg:py-20">
             <.focus_wrap
               id={"#{@id}-container"}
               phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
@@ -609,6 +609,57 @@ defmodule AliancerWeb.CoreComponents do
     """
   end
 
+  slot :tab, required: true do
+    attr :slug, :string, required: true
+    attr :label, :string, required: true
+    attr :class, :string
+    attr :active, :boolean
+  end
+
+  # Adapted from:
+  # - https://fly.io/phoenix-files/tabs-with-js-commands/
+  # - https://www.creative-tim.com/twcomponents/component/tailwind-css-tabs
+  def tabs(assigns) do
+    ~H"""
+    <div>
+      <div class="border-b border-gray-200">
+        <ul class="flex flex-wrap" role="tablist">
+          <li :for={tab <- @tab} class="mr-2" role="presentation">
+            <button
+              id={"#{tab.slug}-tab"}
+              class={[
+                "inline-block text-gray-500 hover:text-gray-600 hover:border-gray-300 pb-4 px-4 text-sm font-medium text-center border-transparent border-b-2",
+                tab[:active] && "active"
+              ]}
+              type="button"
+              phx-click={
+                set_active_tab("##{tab.slug}-tab")
+                |> show_active_tab_content("##{tab.slug}")
+              }
+              role="tab"
+              aria-controls={tab.slug}
+              aria-selected={tab[:active] == true}
+            >
+              <%= tab.label %>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div
+          :for={tab <- @tab}
+          id={tab.slug}
+          class={["tab-content", tab[:class], !tab[:active] && "hidden"]}
+          role="tabpanel"
+          aria-labelledby={"#{tab.slug}-tab"}
+        >
+          <%= render_slot(tab) %>
+        </div>
+      </div>
+    </div>
+    """
+  end
+
   ## JS Commands
 
   def show(js \\ %JS{}, selector) do
@@ -656,6 +707,18 @@ defmodule AliancerWeb.CoreComponents do
     |> JS.hide(to: "##{id}", transition: {"block", "block", "hidden"})
     |> JS.remove_class("overflow-hidden", to: "body")
     |> JS.pop_focus()
+  end
+
+  def set_active_tab(js \\ %JS{}, tab) do
+    js
+    |> JS.remove_class("active", to: ".active")
+    |> JS.add_class("active", to: tab)
+  end
+
+  def show_active_tab_content(js \\ %JS{}, to) do
+    js
+    |> JS.hide(to: ".tab-content")
+    |> JS.show(to: to)
   end
 
   @doc """
