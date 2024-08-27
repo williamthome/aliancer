@@ -120,12 +120,12 @@ msgstr ""
 msgid "Add Item"
 msgstr ""
 
-#: lib/aliancer_web/live/product_live/form_component.ex:49
+#: lib/aliancer_web/live/product_live/form_component.ex:53
 #, elixir-autogen, elixir-format
 msgid "Add Sub Product"
 msgstr ""
 
-#: lib/aliancer_web/live/product_live/form_component.ex:98
+#: lib/aliancer_web/live/product_live/form_component.ex:102
 #, elixir-autogen, elixir-format
 msgid "Add products that compose that product"
 msgstr ""
@@ -489,7 +489,7 @@ msgstr ""
 msgid "Listing Products"
 msgstr ""
 
-#: lib/aliancer_web/live/product_live/form_component.ex:45
+#: lib/aliancer_web/live/product_live/form_component.ex:49
 #, elixir-autogen, elixir-format
 msgid "Listing Sub products"
 msgstr ""
@@ -586,7 +586,7 @@ msgid "Notes"
 msgstr ""
 
 #: lib/aliancer_web/live/order_live/form_component.ex:109
-#: lib/aliancer_web/live/product_live/form_component.ex:96
+#: lib/aliancer_web/live/product_live/form_component.ex:100
 #, elixir-autogen, elixir-format
 msgid "Nothing!"
 msgstr ""
@@ -611,7 +611,7 @@ msgstr ""
 msgid "Order updated successfully"
 msgstr ""
 
-#: lib/aliancer_web/live/product_live/form_component.ex:42
+#: lib/aliancer_web/live/product_live/form_component.ex:46
 #: lib/aliancer_web/live/product_live/index.html.heex:24
 #: lib/aliancer_web/live/product_live/show.html.heex:21
 #, elixir-autogen, elixir-format
@@ -662,18 +662,18 @@ msgstr ""
 #: lib/aliancer_web/live/daily_production_live/form_component.ex:28
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:21
 #: lib/aliancer_web/live/daily_production_live/show.html.heex:17
-#: lib/aliancer_web/live/product_live/form_component.ex:60
+#: lib/aliancer_web/live/product_live/form_component.ex:64
 #: lib/aliancer_web/live/product_live/show.html.heex:3
 #, elixir-autogen, elixir-format
 msgid "Product"
 msgstr ""
 
-#: lib/aliancer_web/live/product_live/form_component.ex:171
+#: lib/aliancer_web/live/product_live/form_component.ex:175
 #, elixir-autogen, elixir-format
 msgid "Product created successfully"
 msgstr ""
 
-#: lib/aliancer_web/live/product_live/form_component.ex:156
+#: lib/aliancer_web/live/product_live/form_component.ex:160
 #, elixir-autogen, elixir-format
 msgid "Product updated successfully"
 msgstr ""
@@ -682,7 +682,7 @@ msgstr ""
 #: lib/aliancer_web/live/daily_production_live/index.html.heex:24
 #: lib/aliancer_web/live/daily_production_live/show.html.heex:18
 #: lib/aliancer_web/live/order_live/form_component.ex:75
-#: lib/aliancer_web/live/product_live/form_component.ex:68
+#: lib/aliancer_web/live/product_live/form_component.ex:72
 #, elixir-autogen, elixir-format
 msgid "Quantity"
 msgstr ""
@@ -738,7 +738,7 @@ msgstr ""
 msgid "Save Order"
 msgstr ""
 
-#: lib/aliancer_web/live/product_live/form_component.ex:106
+#: lib/aliancer_web/live/product_live/form_component.ex:110
 #, elixir-autogen, elixir-format
 msgid "Save Product"
 msgstr ""
@@ -747,7 +747,7 @@ msgstr ""
 #: lib/aliancer_web/live/daily_production_live/form_component.ex:34
 #: lib/aliancer_web/live/employee_live/form_component.ex:31
 #: lib/aliancer_web/live/order_live/form_component.ex:118
-#: lib/aliancer_web/live/product_live/form_component.ex:105
+#: lib/aliancer_web/live/product_live/form_component.ex:109
 #, elixir-autogen, elixir-format
 msgid "Saving..."
 msgstr ""
@@ -1099,4 +1099,14 @@ msgstr ""
 #: lib/aliancer/persons/customer.ex:97
 #, elixir-autogen, elixir-format
 msgid "Trading name"
+msgstr ""
+
+#: lib/aliancer_web/live/product_live/form_component.ex:208
+#, elixir-autogen, elixir-format
+msgid "NaN"
+msgstr ""
+
+#: lib/aliancer_web/live/product_live/form_component.ex:43
+#, elixir-autogen, elixir-format
+msgid "Profit margin"
 msgstr ""
