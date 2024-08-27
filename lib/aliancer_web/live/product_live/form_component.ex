@@ -39,6 +39,10 @@ defmodule AliancerWeb.ProductLive.FormComponent do
           label={gettext("Price")}
           step="any"
         />
+        <div :if={@form[:saleable].value} class="flex items-center justify-between">
+          <span><%= gettext("Profit margin") %></span>
+          <span><%= calculate_profit_margin(@form[:cost].value, @form[:price].value) %></span>
+        </div>
         <.input field={@form[:own_production]} type="checkbox" label={gettext("Own production")} />
 
         <.header>
@@ -177,4 +181,39 @@ defmodule AliancerWeb.ProductLive.FormComponent do
   end
 
   defp notify_parent(msg), do: send(self(), {__MODULE__, msg})
+
+  defp calculate_profit_margin(%Decimal{} = cost, %Decimal{} = price) do
+    profit_margin =
+      Decimal.div(cost, price)
+      |> Decimal.sub(1)
+      |> Decimal.mult(-100)
+      |> Decimal.round(3)
+      |> Decimal.to_string()
+
+    "#{profit_margin} %"
+  end
+
+  defp calculate_profit_margin(%Decimal{} = cost, price) when is_binary(price) do
+    calculate_profit_margin(cost, parse_decimal!(price))
+  end
+
+  defp calculate_profit_margin(cost, %Decimal{} = price) when is_binary(cost) do
+    calculate_profit_margin(parse_decimal!(cost), price)
+  end
+
+  defp calculate_profit_margin(cost, price) when is_binary(cost) and is_binary(price) do
+    calculate_profit_margin(parse_decimal!(cost), parse_decimal!(price))
+  end
+
+  defp calculate_profit_margin(_cost, _price), do: gettext("NaN")
+
+  defp parse_decimal!(value) do
+    case Decimal.parse(value) do
+      {decimal, _remainder} ->
+        decimal
+
+      :error ->
+        nil
+    end
+  end
 end
