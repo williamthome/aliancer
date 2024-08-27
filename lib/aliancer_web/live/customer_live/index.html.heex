@@ -15,11 +15,9 @@
     rows={@streams.customers}
     row_click={fn {_id, customer} -> JS.navigate(~p"/customers/#{customer}") end}
   >
-    <:col :let={{_id, customer}} label={gettext("Name")}><%= customer.name %></:col>
-    <:col :let={{_id, customer}} label={gettext("Address")}><%= customer.address %></:col>
-    <:col :let={{_id, customer}} label={gettext("Phone")}><%= customer.phone %></:col>
-    <:col :let={{_id, customer}} label={gettext("Email")}><%= customer.email %></:col>
-    <:col :let={{_id, customer}} label={gettext("Notes")}><%= customer.notes %></:col>
+    <:col :let={{_id, customer}} label={gettext("Name")}><%= customer.first_name %></:col>
+    <:col :let={{_id, customer}} label={gettext("Phone")}><%= customer.contact_phone %></:col>
+    <:col :let={{_id, customer}} label={gettext("Address")}><%= customer.addr_city %></:col>
     <:action :let={{_id, customer}}>
       <div class="sr-only">
         <.link navigate={~p"/customers/#{customer}"}><%= gettext("Show") %></.link>

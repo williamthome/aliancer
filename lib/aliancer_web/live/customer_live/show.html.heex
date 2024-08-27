@@ -10,11 +10,11 @@
   </.header>
 
   <.list>
-    <:item title={gettext("Name")}><%= @customer.name %></:item>
-    <:item title={gettext("Address")}><%= @customer.address %></:item>
-    <:item title={gettext("Phone")}><%= @customer.phone %></:item>
-    <:item title={gettext("Email")}><%= @customer.email %></:item>
+    <:item title={gettext("Name")}><%= @customer.first_name %></:item>
     <:item title={gettext("Notes")}><%= @customer.notes %></:item>
+    <:item title={gettext("Phone")}><%= @customer.contact_phone %></:item>
+    <:item title={gettext("Email")}><%= @customer.contact_email %></:item>
+    <:item title={gettext("Address")}><%= @customer.addr_city %></:item>
   </.list>
 
   <.back navigate={~p"/customers"}><%= gettext("Back to customers") %></.back>
