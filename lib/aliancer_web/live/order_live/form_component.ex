@@ -116,12 +116,16 @@ defmodule AliancerWeb.OrderLive.FormComponent do
               type="checkbox"
               label={gettext("Customer pickup")}
             />
-            <.input
-              :if={@form[:customer_pickup].value not in [true, "true"]}
-              field={@form[:address]}
-              type="textarea"
-              label={gettext("Address")}
-            />
+            <div :if={@form[:customer_pickup].value not in [true, "true"]} class="space-y-8">
+              <.input field={@form[:addr_street]} type="text" label={gettext("Street name")} />
+              <.input field={@form[:addr_number]} type="text" label={gettext("Street number")} />
+              <.input field={@form[:addr_complement]} type="text" label={gettext("Complement")} />
+              <.input field={@form[:addr_neighborhood]} type="text" label={gettext("Neighborhood")} />
+              <.input field={@form[:addr_state]} type="text" label={gettext("State")} />
+              <.input field={@form[:addr_city]} type="text" label={gettext("City")} />
+              <.input field={@form[:addr_postcode]} type="text" label={gettext("Postal code")} />
+              <.input field={@form[:addr_reference]} type="textarea" label={gettext("Reference")} />
+            </div>
           </:tab>
         </.tabs>
 
