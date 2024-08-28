@@ -111,11 +111,21 @@ defmodule AliancerWeb.OrderLive.FormComponent do
             <.input field={@form[:paid]} type="checkbox" label={gettext("Paid")} />
           </:tab>
           <:tab slug="address" label={gettext("Address")} class="pt-8 space-y-8">
-            <.input
-              field={@form[:customer_pickup]}
-              type="checkbox"
-              label={gettext("Customer pickup")}
-            />
+            <div class="flex items-center justify-between">
+              <.input
+                field={@form[:customer_pickup]}
+                type="checkbox"
+                label={gettext("Customer pickup")}
+              />
+              <.button
+                :if={@form[:customer_id].value && @form[:customer_pickup].value not in [true, "true"]}
+                type="button"
+                phx-target={@myself}
+                phx-click="copy_customer_address"
+              >
+                Copy customer address
+              </.button>
+            </div>
             <div :if={@form[:customer_pickup].value not in [true, "true"]} class="space-y-8">
               <.input field={@form[:addr_street]} type="text" label={gettext("Street name")} />
               <.input field={@form[:addr_number]} type="text" label={gettext("Street number")} />
@@ -172,6 +182,32 @@ defmodule AliancerWeb.OrderLive.FormComponent do
   @impl true
   def handle_event("validate", %{"order" => order_params}, socket) do
     changeset = Orders.change_order(socket.assigns.order, order_params)
+
+    socket =
+      socket
+      |> assign(form: to_form(changeset, action: :validate))
+
+    {:noreply, socket}
+  end
+
+  def handle_event("copy_customer_address", _params, socket) do
+    customer = socket.assigns.order.customer
+
+    order_params =
+      Map.take(customer, [
+        :addr_street,
+        :addr_number,
+        :addr_complement,
+        :addr_neighborhood,
+        :addr_city,
+        :addr_state,
+        :addr_postcode,
+        :addr_reference
+      ])
+
+    changeset =
+      socket.assigns.form.source
+      |> Ecto.Changeset.change(order_params)
 
     socket =
       socket
