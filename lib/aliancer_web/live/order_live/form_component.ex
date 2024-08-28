@@ -33,7 +33,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
         />
         <.input field={@form[:customer_pickup]} type="checkbox" label={gettext("Customer pickup")} />
         <.input
-          :if={@show_address}
+          :if={@form[:customer_pickup].value != true}
           field={@form[:address]}
           type="textarea"
           label={gettext("Address")}
@@ -159,22 +159,15 @@ defmodule AliancerWeb.OrderLive.FormComponent do
   def handle_event("validate", %{"order" => order_params}, socket) do
     changeset = Orders.change_order(socket.assigns.order, order_params)
 
-    {:noreply,
-     assign(socket, form: to_form(changeset, action: :validate))
-     |> assign_show_address(changeset)}
+    socket =
+      socket
+      |> assign(form: to_form(changeset, action: :validate))
+
+    {:noreply, socket}
   end
 
   def handle_event("save", %{"order" => order_params}, socket) do
     save_order(socket, socket.assigns.action, order_params)
-  end
-
-  defp assign_show_address(socket, %{changes: changes})
-       when is_map_key(changes, :customer_pickup) do
-    assign(socket, :show_address, !changes.customer_pickup)
-  end
-
-  defp assign_show_address(socket, _changeset) do
-    assign(socket, :show_address, !socket.assigns.order.customer_pickup)
   end
 
   defp save_order(socket, :edit, order_params) do
