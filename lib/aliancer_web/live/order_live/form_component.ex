@@ -36,7 +36,6 @@ defmodule AliancerWeb.OrderLive.FormComponent do
               field={@form[:status]}
               type="select"
               label={gettext("Status")}
-              prompt={gettext("Choose a value")}
               options={Aliancer.Orders.Order.statuses_select_options()}
             />
             <.input field={@form[:datetime]} type="datetime-local" label={gettext("Datetime")} />
