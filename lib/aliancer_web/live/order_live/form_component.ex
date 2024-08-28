@@ -23,97 +23,108 @@ defmodule AliancerWeb.OrderLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:datetime]} type="datetime-local" label={gettext("Datetime")} />
-        <.input
-          field={@form[:customer_id]}
-          label={gettext("Customer")}
-          type="select"
-          prompt={gettext("Choose a value")}
-          options={@customers}
-        />
-        <.input field={@form[:customer_pickup]} type="checkbox" label={gettext("Customer pickup")} />
-        <.input
-          :if={@form[:customer_pickup].value != true}
-          field={@form[:address]}
-          type="textarea"
-          label={gettext("Address")}
-        />
-        <.input field={@form[:total]} type="number" label={gettext("Total")} step="any" />
-        <.input field={@form[:paid]} type="checkbox" label={gettext("Paid")} />
-        <.input
-          field={@form[:status]}
-          type="select"
-          label={gettext("Status")}
-          prompt={gettext("Choose a value")}
-          options={Aliancer.Orders.Order.statuses_select_options()}
-        />
-        <.input field={@form[:notes]} type="textarea" label={gettext("Notes")} />
-
-        <.header>
-          <%= gettext("Listing Items") %>
-          <:actions>
-            <label class="rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3 text-sm font-semibold leading-6 text-white active:text-white/80 cursor-pointer">
-              <input type="checkbox" name="order[items_order][]" class="hidden" />
-              <span><%= gettext("Add Item") %></span>
-            </label>
-          </:actions>
-        </.header>
-
-        <div class="space-y-2">
-          <.inputs_for :let={item_form} field={@form[:items]}>
-            <input type="hidden" name="order[items_order][]" value={item_form.index} />
-            <div class="flex space-x-2">
-              <.input
-                field={item_form[:product_id]}
-                label={if item_form.index == 0, do: gettext("Item")}
-                type="select"
-                options={@products}
-                control_class="grow"
-              />
-              <.input
-                field={item_form[:quantity]}
-                type="number"
-                label={if item_form.index == 0, do: gettext("Quantity")}
-                step="any"
-              />
-              <.input
-                field={item_form[:total]}
-                type="number"
-                label={if item_form.index == 0, do: gettext("Total")}
-                step="any"
-              />
-              <div class="flex flex-col">
-                <label
-                  :if={item_form.index == 0}
-                  class="block text-sm font-semibold leading-6 text-zinc-800 invisible"
-                >
-                  X
+        <.tabs>
+          <:tab slug="info" label={gettext("Details")} class="pt-8 space-y-8" active>
+            <.input
+              field={@form[:customer_id]}
+              label={gettext("Customer")}
+              type="select"
+              prompt={gettext("Choose a value")}
+              options={@customers}
+            />
+            <.input
+              field={@form[:status]}
+              type="select"
+              label={gettext("Status")}
+              prompt={gettext("Choose a value")}
+              options={Aliancer.Orders.Order.statuses_select_options()}
+            />
+            <.input field={@form[:datetime]} type="datetime-local" label={gettext("Datetime")} />
+            <.input field={@form[:notes]} type="textarea" label={gettext("Notes")} />
+          </:tab>
+          <:tab slug="items" label={gettext("Items")} class="pt-8 space-y-8">
+            <.header>
+              <%= gettext("Listing Items") %>
+              <:actions>
+                <label class="rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3 text-sm font-semibold leading-6 text-white active:text-white/80 cursor-pointer">
+                  <input type="checkbox" name="order[items_order][]" class="hidden" />
+                  <span><%= gettext("Add Item") %></span>
                 </label>
-                <label class="mt-2 flex items-center justify-center grow cursor-pointer">
-                  <input
-                    type="checkbox"
-                    name="order[items_delete][]"
-                    value={item_form.index}
-                    class="hidden"
+              </:actions>
+            </.header>
+
+            <div class="space-y-2">
+              <.inputs_for :let={item_form} field={@form[:items]}>
+                <input type="hidden" name="order[items_order][]" value={item_form.index} />
+                <div class="flex space-x-2">
+                  <.input
+                    field={item_form[:product_id]}
+                    label={if item_form.index == 0, do: gettext("Item")}
+                    type="select"
+                    options={@products}
+                    control_class="grow"
                   />
-                  <.icon name="hero-x-mark" />
-                </label>
+                  <.input
+                    field={item_form[:quantity]}
+                    type="number"
+                    label={if item_form.index == 0, do: gettext("Quantity")}
+                    step="any"
+                  />
+                  <.input
+                    field={item_form[:total]}
+                    type="number"
+                    label={if item_form.index == 0, do: gettext("Total")}
+                    step="any"
+                  />
+                  <div class="flex flex-col">
+                    <label
+                      :if={item_form.index == 0}
+                      class="block text-sm font-semibold leading-6 text-zinc-800 invisible"
+                    >
+                      X
+                    </label>
+                    <label class="mt-2 flex items-center justify-center grow cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="order[items_delete][]"
+                        value={item_form.index}
+                        class="hidden"
+                      />
+                      <.icon name="hero-x-mark" />
+                    </label>
+                  </div>
+                </div>
+              </.inputs_for>
+
+              <div
+                :if={!is_list(@form[:items].value) || @form[:items].value == []}
+                class="text-center px-3 py-5 border"
+              >
+                <.header>
+                  <%= gettext("Nothing!") %>
+                  <:subtitle>
+                    <%= gettext("Please add the order items") %>
+                  </:subtitle>
+                </.header>
               </div>
             </div>
-          </.inputs_for>
-
-          <div
-            :if={!is_list(@form[:items].value) || @form[:items].value == []}
-            class="text-center px-3 py-5 border"
-          >
-            <.header>
-              <%= gettext("Nothing!") %>
-              <:subtitle>
-                <%= gettext("Please add the order items") %>
-              </:subtitle>
-            </.header>
-          </div>
-        </div>
+            <.input field={@form[:total]} type="number" label={gettext("Total")} step="any" />
+            <.input field={@form[:paid]} type="checkbox" label={gettext("Paid")} />
+          </:tab>
+          <:tab slug="address" label={gettext("Address")} class="pt-8 space-y-8">
+            <.input
+              field={@form[:customer_pickup]}
+              type="checkbox"
+              label={gettext("Customer pickup")}
+            />
+            <.input
+              :if={@form[:customer_pickup].value not in [true, "true"]}
+              field={@form[:address]}
+              type="textarea"
+              label={gettext("Address")}
+            />
+          </:tab>
+        </.tabs>
 
         <:actions>
           <.button phx-disable-with={gettext("Saving...")}>
