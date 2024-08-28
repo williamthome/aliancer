@@ -28,6 +28,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
           field={@form[:customer_id]}
           label={gettext("Customer")}
           type="select"
+          prompt={gettext("Choose a value")}
           options={@customers}
         />
         <.input field={@form[:customer_pickup]} type="checkbox" label={gettext("Customer pickup")} />
