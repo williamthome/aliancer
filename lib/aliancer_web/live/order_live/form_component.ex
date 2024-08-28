@@ -60,6 +60,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
                     field={item_form[:product_id]}
                     label={if item_form.index == 0, do: gettext("Item")}
                     type="select"
+                    prompt={gettext("Choose a value")}
                     options={@products}
                     control_class="grow"
                   />
