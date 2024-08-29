@@ -11,6 +11,7 @@ defmodule Aliancer.OrdersFixtures do
     {:ok, order} =
       attrs
       |> Enum.into(%{
+        delivery_datetime: ~U[2024-08-13 20:32:00Z],
         customer_pickup: false,
         datetime: ~U[2024-08-13 20:32:00Z],
         notes: "some notes",
