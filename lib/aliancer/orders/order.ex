@@ -106,11 +106,13 @@ defmodule Aliancer.Orders.Order do
             Products.get_product!(item.product_id).price
             |> Decimal.mult(item.quantity)
             |> Decimal.add(acc)
+            |> Decimal.round(2)
 
           %{} ->
             item.unit_price
             |> Decimal.mult(item.quantity)
             |> Decimal.add(acc)
+            |> Decimal.round(2)
         end
       end)
 

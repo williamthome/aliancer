@@ -314,6 +314,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
 
   defp do_calculate_product_total(%Decimal{} = unit_price, %Decimal{} = quantity) do
     Decimal.mult(unit_price, quantity)
+    |> Decimal.round(2)
   end
 
   defp do_calculate_product_total(_unit_price, _quantity), do: gettext("NaN")
