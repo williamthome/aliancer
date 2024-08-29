@@ -133,7 +133,6 @@ msgstr "Adicione produtos que compõem este produto"
 #: lib/aliancer_web/live/customer_live/form_component.ex:53
 #: lib/aliancer_web/live/customer_live/index.html.heex:20
 #: lib/aliancer_web/live/customer_live/show.html.heex:17
-#: lib/aliancer_web/live/order_live/form_component.ex:165
 #: lib/aliancer_web/live/order_live/index.html.heex:18
 #: lib/aliancer_web/live/order_live/show.html.heex:15
 #: lib/aliancer_web/live/order_live/show.html.heex:18
@@ -257,7 +256,7 @@ msgstr "Cliente"
 msgid "Customer created successfully"
 msgstr "Cliente criado com sucesso"
 
-#: lib/aliancer_web/live/order_live/form_component.ex:170
+#: lib/aliancer_web/live/order_live/form_component.ex:171
 #: lib/aliancer_web/live/order_live/index.html.heex:20
 #: lib/aliancer_web/live/order_live/show.html.heex:16
 #, elixir-autogen, elixir-format
@@ -287,6 +286,7 @@ msgid "Date"
 msgstr "Data"
 
 #: lib/aliancer_web/live/order_live/form_component.ex:41
+#: lib/aliancer_web/live/order_live/form_component.ex:166
 #: lib/aliancer_web/live/order_live/index.html.heex:16
 #: lib/aliancer_web/live/order_live/show.html.heex:13
 #, elixir-autogen, elixir-format
@@ -478,7 +478,7 @@ msgstr "Listando Colaboradores"
 msgid "Listing Items"
 msgstr "Listando Itens"
 
-#: lib/aliancer_web/live/order_live/index.ex:35
+#: lib/aliancer_web/live/order_live/index.ex:36
 #: lib/aliancer_web/live/order_live/index.html.heex:3
 #, elixir-autogen, elixir-format
 msgid "Listing Orders"
@@ -602,12 +602,12 @@ msgstr "Oops, algo deu errado! Por favor, verifique os erros abaixo."
 msgid "Order"
 msgstr "Pedido"
 
-#: lib/aliancer_web/live/order_live/form_component.ex:297
+#: lib/aliancer_web/live/order_live/form_component.ex:298
 #, elixir-autogen, elixir-format
 msgid "Order created successfully"
 msgstr "Pedido criado com sucesso"
 
-#: lib/aliancer_web/live/order_live/form_component.ex:282
+#: lib/aliancer_web/live/order_live/form_component.ex:283
 #, elixir-autogen, elixir-format
 msgid "Order updated successfully"
 msgstr "Pedido atualizado com sucesso"
@@ -734,7 +734,7 @@ msgstr "Salvar Produção diária"
 msgid "Save Employee"
 msgstr "Salvar Colaborador"
 
-#: lib/aliancer_web/live/order_live/form_component.ex:196
+#: lib/aliancer_web/live/order_live/form_component.ex:197
 #, elixir-autogen, elixir-format
 msgid "Save Order"
 msgstr "Salvar Pedido"
@@ -747,7 +747,7 @@ msgstr "Salvar Produto"
 #: lib/aliancer_web/live/customer_live/form_component.ex:66
 #: lib/aliancer_web/live/daily_production_live/form_component.ex:34
 #: lib/aliancer_web/live/employee_live/form_component.ex:31
-#: lib/aliancer_web/live/order_live/form_component.ex:195
+#: lib/aliancer_web/live/order_live/form_component.ex:196
 #: lib/aliancer_web/live/product_live/form_component.ex:109
 #, elixir-autogen, elixir-format
 msgid "Saving..."
@@ -912,72 +912,72 @@ msgstr "Este é um registro de produção diária do seu banco de dados."
 msgid "Use this form to manage daily production records in your database."
 msgstr "Use este formulário para gerenciar registros de produção diária em seu banco de dados."
 
-#: lib/aliancer/orders/order.ex:134
+#: lib/aliancer/orders/order.ex:136
 #, elixir-autogen, elixir-format
 msgid "Attempted dispatch"
 msgstr "Tentativa de despacho"
 
-#: lib/aliancer/orders/order.ex:140
+#: lib/aliancer/orders/order.ex:142
 #, elixir-autogen, elixir-format
 msgid "Awaiting pickup"
 msgstr "Aguardando retirada"
 
-#: lib/aliancer/orders/order.ex:130
+#: lib/aliancer/orders/order.ex:132
 #, elixir-autogen, elixir-format
 msgid "Canceled"
 msgstr "Cancelado"
 
-#: lib/aliancer/orders/order.ex:141
+#: lib/aliancer/orders/order.ex:143
 #, elixir-autogen, elixir-format
 msgid "Completed"
 msgstr "Finalizado"
 
-#: lib/aliancer/orders/order.ex:136
+#: lib/aliancer/orders/order.ex:138
 #, elixir-autogen, elixir-format
 msgid "Delayed"
 msgstr "Atrasado"
 
-#: lib/aliancer/orders/order.ex:135
+#: lib/aliancer/orders/order.ex:137
 #, elixir-autogen, elixir-format
 msgid "Dispatched"
 msgstr "Despachado"
 
-#: lib/aliancer/orders/order.ex:128
+#: lib/aliancer/orders/order.ex:130
 #, elixir-autogen, elixir-format
 msgid "In process"
 msgstr "Em processo"
 
-#: lib/aliancer/orders/order.ex:131
+#: lib/aliancer/orders/order.ex:133
 #, elixir-autogen, elixir-format, fuzzy
 msgid "In production"
 msgstr "Em produção"
 
-#: lib/aliancer/orders/order.ex:139
+#: lib/aliancer/orders/order.ex:141
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Lost"
 msgstr "Perdido"
 
-#: lib/aliancer/orders/order.ex:133
+#: lib/aliancer/orders/order.ex:135
 #, elixir-autogen, elixir-format
 msgid "Partially dispatched"
 msgstr "Parcialmente despachado"
 
-#: lib/aliancer/orders/order.ex:138
+#: lib/aliancer/orders/order.ex:140
 #, elixir-autogen, elixir-format
 msgid "Partially returned"
 msgstr "Parcialmente retornado"
 
-#: lib/aliancer/orders/order.ex:129
+#: lib/aliancer/orders/order.ex:131
 #, elixir-autogen, elixir-format
 msgid "Paused"
 msgstr "Pausado"
 
-#: lib/aliancer/orders/order.ex:132
+#: lib/aliancer/orders/order.ex:134
 #, elixir-autogen, elixir-format
 msgid "Ready for dispatch"
 msgstr "Pronto para despacho"
 
-#: lib/aliancer/orders/order.ex:137
+#: lib/aliancer/orders/order.ex:139
 #, elixir-autogen, elixir-format
 msgid "Returned"
 msgstr "Retornado"
@@ -1008,7 +1008,7 @@ msgid "Welcome back!"
 msgstr "Bem vindo de volta!"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:59
-#: lib/aliancer_web/live/order_live/form_component.ex:187
+#: lib/aliancer_web/live/order_live/form_component.ex:188
 #, elixir-autogen, elixir-format
 msgid "City"
 msgstr "Cidade"
@@ -1019,7 +1019,7 @@ msgid "Company name"
 msgstr "Razão social"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:56
-#: lib/aliancer_web/live/order_live/form_component.ex:184
+#: lib/aliancer_web/live/order_live/form_component.ex:185
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Complement"
 msgstr "Complemento"
@@ -1061,7 +1061,7 @@ msgid "Natural person tax ID"
 msgstr "CPF"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:57
-#: lib/aliancer_web/live/order_live/form_component.ex:185
+#: lib/aliancer_web/live/order_live/form_component.ex:186
 #, elixir-autogen, elixir-format
 msgid "Neighborhood"
 msgstr "Bairro"
@@ -1072,13 +1072,13 @@ msgid "Person type"
 msgstr "Tipo"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:60
-#: lib/aliancer_web/live/order_live/form_component.ex:188
+#: lib/aliancer_web/live/order_live/form_component.ex:189
 #, elixir-autogen, elixir-format
 msgid "Postal code"
 msgstr "CEP"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:61
-#: lib/aliancer_web/live/order_live/form_component.ex:189
+#: lib/aliancer_web/live/order_live/form_component.ex:190
 #, elixir-autogen, elixir-format
 msgid "Reference"
 msgstr "Referência"
@@ -1089,19 +1089,19 @@ msgid "Second name"
 msgstr "Sobrenome"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:58
-#: lib/aliancer_web/live/order_live/form_component.ex:186
+#: lib/aliancer_web/live/order_live/form_component.ex:187
 #, elixir-autogen, elixir-format, fuzzy
 msgid "State"
 msgstr "UF"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:54
-#: lib/aliancer_web/live/order_live/form_component.ex:182
+#: lib/aliancer_web/live/order_live/form_component.ex:183
 #, elixir-autogen, elixir-format
 msgid "Street name"
 msgstr "Logradouro"
 
 #: lib/aliancer_web/live/customer_live/form_component.ex:55
-#: lib/aliancer_web/live/order_live/form_component.ex:183
+#: lib/aliancer_web/live/order_live/form_component.ex:184
 #, elixir-autogen, elixir-format
 msgid "Street number"
 msgstr "Número"
@@ -1111,7 +1111,7 @@ msgstr "Número"
 msgid "Trading name"
 msgstr "Nome fantasia"
 
-#: lib/aliancer_web/live/order_live/form_component.ex:320
+#: lib/aliancer_web/live/order_live/form_component.ex:321
 #: lib/aliancer_web/live/product_live/form_component.ex:200
 #, elixir-autogen, elixir-format
 msgid "NaN"
@@ -1131,3 +1131,8 @@ msgstr "Itens"
 #, elixir-autogen, elixir-format
 msgid "Unit price"
 msgstr "Preço unitário"
+
+#: lib/aliancer_web/live/order_live/form_component.ex:165
+#, elixir-autogen, elixir-format
+msgid "Delivery"
+msgstr "Entrega"
