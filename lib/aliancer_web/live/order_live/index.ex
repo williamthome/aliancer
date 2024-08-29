@@ -26,7 +26,8 @@ defmodule AliancerWeb.OrderLive.Index do
     |> assign(:order, %Order{
       datetime: DateTime.utc_now(),
       total: 0,
-      status: :in_process
+      status: :in_process,
+      delivery_datetime: DateTime.utc_now()
     })
   end
 
