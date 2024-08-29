@@ -8,29 +8,15 @@ defmodule AliancerWeb.OrderLiveTest do
 
   @create_attrs %{
     status: :in_process,
-    total: "120.5",
-    address: "some address",
     datetime: "2024-08-13T20:32:00Z",
-    customer_pickup: false,
-    paid: true,
     notes: "some notes"
   }
   @update_attrs %{
     status: :paused,
-    total: "456.7",
-    address: nil,
-    datetime: "2024-08-14T20:32:00Z",
-    customer_pickup: true,
-    paid: false,
     notes: "some updated notes"
   }
   @invalid_attrs %{
-    status: nil,
-    total: nil,
-    address: nil,
-    datetime: nil,
-    customer_pickup: false,
-    paid: false,
+    customer_id: nil,
     notes: nil
   }
 
@@ -57,10 +43,12 @@ defmodule AliancerWeb.OrderLiveTest do
       {:ok, _index_live, html} = live(conn, ~p"/orders")
 
       assert html =~ "Listing Orders"
-      assert html =~ order.address
+      assert html =~ order.notes
     end
 
     test "saves new order", %{conn: conn} do
+      customer = customer_fixture()
+
       {:ok, index_live, _html} = live(conn, ~p"/orders")
 
       assert index_live |> element("a", "New Order") |> render_click() =~
@@ -73,14 +61,14 @@ defmodule AliancerWeb.OrderLiveTest do
              |> render_change() =~ "can&#39;t be blank"
 
       assert index_live
-             |> form("#order-form", order: @create_attrs)
+             |> form("#order-form", order: Map.put(@create_attrs, :customer_id, customer.id))
              |> render_submit()
 
       assert_patch(index_live, ~p"/orders")
 
       html = render(index_live)
       assert html =~ "Order created successfully"
-      assert html =~ "some address"
+      assert html =~ "some notes"
     end
 
     test "updates order in listing", %{conn: conn, order: order} do
@@ -105,7 +93,7 @@ defmodule AliancerWeb.OrderLiveTest do
 
       html = render(index_live)
       assert html =~ "Order updated successfully"
-      refute has_element?(index_live, "#order_address")
+      refute has_element?(index_live, "#order_notes")
     end
 
     test "deletes order in listing", %{conn: conn, order: order} do
@@ -123,7 +111,7 @@ defmodule AliancerWeb.OrderLiveTest do
       {:ok, _show_live, html} = live(conn, ~p"/orders/#{order}")
 
       assert html =~ "Show Order"
-      assert html =~ order.address
+      assert html =~ order.notes
     end
 
     test "updates order within modal", %{conn: conn, order: order} do
@@ -148,7 +136,7 @@ defmodule AliancerWeb.OrderLiveTest do
 
       html = render(show_live)
       assert html =~ "Order updated successfully"
-      refute has_element?(show_live, "#order_address")
+      refute has_element?(show_live, "#order_notes")
     end
   end
 end
