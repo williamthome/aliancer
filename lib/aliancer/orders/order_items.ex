@@ -6,8 +6,10 @@ defmodule Aliancer.Orders.OrderItems do
   alias Aliancer.Products.Product
 
   schema "order_items" do
-    field :total, :decimal
-    field :quantity, :decimal
+    field :unit, :string
+    field :unit_price, :decimal
+    field :quantity, :decimal, default: Decimal.new(1)
+
     belongs_to :order, Order
     belongs_to :product, Product
 
@@ -17,7 +19,7 @@ defmodule Aliancer.Orders.OrderItems do
   @doc false
   def changeset(order_items, attrs) do
     order_items
-    |> cast(attrs, [:quantity, :total, :order_id, :product_id])
-    |> validate_required([:quantity, :total, :order_id, :product_id])
+    |> cast(attrs, [:unit, :unit_price, :quantity, :order_id, :product_id])
+    |> validate_required([:unit, :unit_price, :quantity, :order_id, :product_id])
   end
 end

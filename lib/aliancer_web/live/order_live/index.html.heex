@@ -19,7 +19,7 @@
       <%= if order.customer_pickup do
         gettext("Customer pickup")
       else
-        order.address
+        order.addr_city
       end %>
     </:col>
     <:col :let={{_id, order}} label={gettext("Total")}><%= order.total %></:col>
@@ -60,6 +60,5 @@
     action={@live_action}
     order={@order}
     patch={~p"/orders"}
-    show_address={!@order.customer_pickup}
   />
 </.modal>

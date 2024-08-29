@@ -5,6 +5,7 @@ defmodule Aliancer.Orders.Order do
 
   alias Aliancer.Persons.Customer
   alias Aliancer.Orders.OrderItems
+  alias Aliancer.Products
 
   schema "orders" do
     field :status, Ecto.Enum,
@@ -25,12 +26,20 @@ defmodule Aliancer.Orders.Order do
         :completed
       ]
 
-    field :total, :decimal
-    field :address, :string
     field :datetime, :utc_datetime
-    field :customer_pickup, :boolean, default: false
-    field :paid, :boolean, default: false
     field :notes, :string
+    field :total, :decimal
+    field :paid, :boolean, default: false
+    field :customer_pickup, :boolean, default: false
+    field :addr_street, :string
+    field :addr_number, :string
+    field :addr_complement, :string
+    field :addr_neighborhood, :string
+    field :addr_city, :string
+    field :addr_state, :string
+    field :addr_postcode, :string
+    field :addr_reference, :string
+
     belongs_to :customer, Customer
 
     has_many :items, OrderItems, on_replace: :delete
@@ -42,29 +51,73 @@ defmodule Aliancer.Orders.Order do
   def changeset(order, attrs) do
     order
     |> cast(attrs, [
+      :status,
       :datetime,
-      :address,
-      :customer_pickup,
+      :notes,
       :total,
       :paid,
-      :status,
-      :notes,
+      :customer_pickup,
+      :addr_street,
+      :addr_number,
+      :addr_complement,
+      :addr_neighborhood,
+      :addr_city,
+      :addr_state,
+      :addr_postcode,
+      :addr_reference,
       :customer_id
     ])
     |> cast_address()
     |> validate_required([:datetime, :status, :customer_id])
+    |> validate_length(:addr_state, is: 2)
     |> cast_assoc(:items,
       with: &OrderItems.changeset/2,
       sort_param: :items_order,
       drop_param: :items_delete
     )
+    |> calculate_total
   end
 
   defp cast_address(%{changes: %{customer_pickup: true}} = changeset) do
-    put_change(changeset, :address, nil)
+    change(changeset,
+      addr_street: nil,
+      addr_number: nil,
+      addr_complement: nil,
+      addr_neighborhood: nil,
+      addr_city: nil,
+      addr_state: nil,
+      addr_postcode: nil,
+      addr_reference: nil
+    )
   end
 
   defp cast_address(changeset), do: changeset
+
+  defp calculate_total(changeset) do
+    items = get_field(changeset, :items)
+
+    total =
+      Enum.reduce(items, Decimal.new(0), fn item, acc ->
+        case item do
+          %{product_id: nil} ->
+            acc
+
+          %{unit_price: nil} ->
+            Products.get_product!(item.product_id).price
+            |> Decimal.mult(item.quantity)
+            |> Decimal.add(acc)
+            |> Decimal.round(2)
+
+          %{} ->
+            item.unit_price
+            |> Decimal.mult(item.quantity)
+            |> Decimal.add(acc)
+            |> Decimal.round(2)
+        end
+      end)
+
+    put_change(changeset, :total, total)
+  end
 
   def statuses_select_options do
     for s <- Ecto.Enum.values(Aliancer.Orders.Order, :status), into: %{} do

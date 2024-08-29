@@ -182,7 +182,11 @@ defmodule AliancerWeb.ProductLive.FormComponent do
 
   defp notify_parent(msg), do: send(self(), {__MODULE__, msg})
 
-  defp calculate_profit_margin(%Decimal{} = cost, %Decimal{} = price) do
+  defp calculate_profit_margin(cost, price) do
+    do_calculate_profit_margin(parse_decimal(cost), parse_decimal(price))
+  end
+
+  defp do_calculate_profit_margin(%Decimal{} = cost, %Decimal{} = price) do
     profit_margin =
       Decimal.div(cost, price)
       |> Decimal.sub(1)
@@ -193,27 +197,18 @@ defmodule AliancerWeb.ProductLive.FormComponent do
     "#{profit_margin} %"
   end
 
-  defp calculate_profit_margin(%Decimal{} = cost, price) when is_binary(price) do
-    calculate_profit_margin(cost, parse_decimal!(price))
-  end
+  defp do_calculate_profit_margin(_cost, _price), do: gettext("NaN")
 
-  defp calculate_profit_margin(cost, %Decimal{} = price) when is_binary(cost) do
-    calculate_profit_margin(parse_decimal!(cost), price)
-  end
-
-  defp calculate_profit_margin(cost, price) when is_binary(cost) and is_binary(price) do
-    calculate_profit_margin(parse_decimal!(cost), parse_decimal!(price))
-  end
-
-  defp calculate_profit_margin(_cost, _price), do: gettext("NaN")
-
-  defp parse_decimal!(value) do
+  defp parse_decimal(value) when is_binary(value) do
     case Decimal.parse(value) do
       {decimal, _remainder} ->
         decimal
 
       :error ->
-        nil
+        :error
     end
   end
+
+  defp parse_decimal(%Decimal{} = decimal), do: decimal
+  defp parse_decimal(_value), do: :error
 end

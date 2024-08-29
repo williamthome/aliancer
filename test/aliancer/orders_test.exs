@@ -11,8 +11,6 @@ defmodule Aliancer.OrdersTest do
 
     @invalid_attrs %{
       status: nil,
-      total: nil,
-      address: nil,
       datetime: nil,
       customer_id: nil,
       customer_pickup: nil,
@@ -59,9 +57,8 @@ defmodule Aliancer.OrdersTest do
 
       valid_attrs =
         norm_attrs(%{
-          status: :in_process,
           total: "120.5",
-          address: "some address",
+          status: :in_process,
           datetime: ~U[2024-08-13 20:32:00Z],
           customer_id: customer.id,
           customer_pickup: true,
@@ -71,8 +68,6 @@ defmodule Aliancer.OrdersTest do
 
       assert {:ok, %Order{} = order} = Orders.create_order(valid_attrs)
       assert order.status == :in_process
-      assert order.total == Decimal.new("120.5")
-      assert order.address == nil
       assert order.datetime == ~U[2024-08-13 20:32:00Z]
       assert order.customer_pickup == true
       assert order.paid == true
@@ -90,8 +85,6 @@ defmodule Aliancer.OrdersTest do
       update_attrs =
         norm_attrs(%{
           status: :paused,
-          total: "456.7",
-          address: "some updated address",
           datetime: ~U[2024-08-14 20:32:00Z],
           customer_pickup: false,
           paid: false,
@@ -100,8 +93,6 @@ defmodule Aliancer.OrdersTest do
 
       assert {:ok, %Order{} = order} = Orders.update_order(order, update_attrs)
       assert order.status == :paused
-      assert order.total == Decimal.new("456.7")
-      assert order.address == "some updated address"
       assert order.datetime == ~U[2024-08-14 20:32:00Z]
       assert order.customer_pickup == false
       assert order.paid == false
@@ -166,12 +157,13 @@ defmodule Aliancer.OrdersTest do
       valid_attrs = %{
         order_id: order.id,
         product_id: product.id,
+        unit: "m",
+        unit_price: "1",
         total: "120.5",
         quantity: "120.5"
       }
 
       assert {:ok, %OrderItems{} = order_items} = Orders.create_order_items(valid_attrs)
-      assert order_items.total == Decimal.new("120.5")
       assert order_items.quantity == Decimal.new("120.5")
     end
 
@@ -184,12 +176,11 @@ defmodule Aliancer.OrdersTest do
       order = order_fixture(%{customer_id: customer.id})
       product = product_fixture()
       order_items = order_items_fixture(%{order_id: order.id, product_id: product.id})
-      update_attrs = %{total: "456.7", quantity: "456.7"}
+      update_attrs = %{quantity: "456.7"}
 
       assert {:ok, %OrderItems{} = order_items} =
                Orders.update_order_items(order_items, update_attrs)
 
-      assert order_items.total == Decimal.new("456.7")
       assert order_items.quantity == Decimal.new("456.7")
     end
 
