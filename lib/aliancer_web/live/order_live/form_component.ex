@@ -52,7 +52,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
               </:actions>
             </.header>
 
-            <div class="space-y-2 border-b pb-6">
+            <div class={["space-y-2 border-b", has_items?(@form.source) && "pb-6"]}>
               <.inputs_for :let={item_form} field={@form[:items]}>
                 <input type="hidden" name="order[items_order][]" value={item_form.index} />
                 <div class="flex space-x-2">
@@ -148,10 +148,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
                 </div>
               </.inputs_for>
 
-              <div
-                :if={!is_list(@form[:items].value) || @form[:items].value == []}
-                class="text-center px-3 py-5 border"
-              >
+              <div :if={!has_items?(@form.source)} class="text-center px-3 py-5 border">
                 <.header>
                   <%= gettext("Nothing!") %>
                   <:subtitle>
@@ -161,7 +158,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
               </div>
             </div>
 
-            <div class="pt-6">
+            <div :if={has_items?(@form.source)} class="pt-6">
               <.input field={@form[:paid]} type="checkbox" label={gettext("Paid")} />
             </div>
           </:tab>
@@ -306,6 +303,10 @@ defmodule AliancerWeb.OrderLive.FormComponent do
   end
 
   defp notify_parent(msg), do: send(self(), {__MODULE__, msg})
+
+  defp has_items?(changeset) do
+    Ecto.Changeset.get_field(changeset, :items) != []
+  end
 
   defp calculate_product_total(unit_price, quantity) do
     do_calculate_product_total(parse_decimal(unit_price), parse_decimal(quantity))
