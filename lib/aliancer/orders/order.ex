@@ -30,6 +30,7 @@ defmodule Aliancer.Orders.Order do
     field :notes, :string
     field :total, :decimal
     field :paid, :boolean, default: false
+    field :delivery_datetime, :utc_datetime
     field :customer_pickup, :boolean, default: false
     field :addr_street, :string
     field :addr_number, :string
@@ -56,6 +57,7 @@ defmodule Aliancer.Orders.Order do
       :notes,
       :total,
       :paid,
+      :delivery_datetime,
       :customer_pickup,
       :addr_street,
       :addr_number,

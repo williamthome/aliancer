@@ -163,6 +163,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
             </div>
           </:tab>
           <:tab slug="address" label={gettext("Address")} class="pt-8 space-y-8">
+            <.input field={@form[:delivery_datetime]} type="datetime-local" label={gettext("Datetime")} />
             <div class="flex items-center justify-between">
               <.input
                 field={@form[:customer_pickup]}

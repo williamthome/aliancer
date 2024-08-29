@@ -8,6 +8,7 @@ defmodule Aliancer.Repo.Migrations.CreateOrders do
       add :notes, :string
       add :total, :decimal, default: 0
       add :paid, :boolean, default: false, null: false
+      add :delivery_datetime, :utc_datetime, default: fragment("now()")
       add :customer_pickup, :boolean, default: false, null: false
       add :addr_street, :string
       add :addr_number, :string
