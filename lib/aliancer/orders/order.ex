@@ -5,6 +5,7 @@ defmodule Aliancer.Orders.Order do
 
   alias Aliancer.Persons.Customer
   alias Aliancer.Orders.OrderItems
+  alias Aliancer.Products
 
   schema "orders" do
     field :status, Ecto.Enum,
@@ -74,6 +75,7 @@ defmodule Aliancer.Orders.Order do
       sort_param: :items_order,
       drop_param: :items_delete
     )
+    |> calculate_total
   end
 
   defp cast_address(%{changes: %{customer_pickup: true}} = changeset) do
@@ -90,6 +92,30 @@ defmodule Aliancer.Orders.Order do
   end
 
   defp cast_address(changeset), do: changeset
+
+  defp calculate_total(changeset) do
+    items = get_field(changeset, :items)
+
+    total =
+      Enum.reduce(items, Decimal.new(0), fn item, acc ->
+        case item do
+          %{product_id: nil} ->
+            acc
+
+          %{unit_price: nil} ->
+            Products.get_product!(item.product_id).price
+            |> Decimal.mult(item.quantity)
+            |> Decimal.add(acc)
+
+          %{} ->
+            item.unit_price
+            |> Decimal.mult(item.quantity)
+            |> Decimal.add(acc)
+        end
+      end)
+
+    put_change(changeset, :total, total)
+  end
 
   def statuses_select_options do
     for s <- Ecto.Enum.values(Aliancer.Orders.Order, :status), into: %{} do

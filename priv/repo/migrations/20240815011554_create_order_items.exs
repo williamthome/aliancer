@@ -3,8 +3,9 @@ defmodule Aliancer.Repo.Migrations.CreateOrderItems do
 
   def change do
     create table(:order_items) do
+      add :unit, :string, null: false
+      add :unit_price, :decimal, null: false
       add :quantity, :decimal, null: false
-      add :total, :decimal, null: false
       add :order_id, references(:orders, on_delete: :restrict), null: false
       add :product_id, references(:products, on_delete: :restrict), null: false
 

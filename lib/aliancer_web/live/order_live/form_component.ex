@@ -52,30 +52,82 @@ defmodule AliancerWeb.OrderLive.FormComponent do
               </:actions>
             </.header>
 
-            <div class="space-y-2">
+            <div class="space-y-2 border-b pb-6">
               <.inputs_for :let={item_form} field={@form[:items]}>
                 <input type="hidden" name="order[items_order][]" value={item_form.index} />
                 <div class="flex space-x-2">
                   <.input
-                    field={item_form[:product_id]}
                     label={if item_form.index == 0, do: gettext("Item")}
+                    field={item_form[:product_id]}
                     type="select"
+                    control_class="grow"
                     prompt={gettext("Choose a value")}
                     options={@products}
-                    control_class="grow"
                   />
                   <.input
+                    :if={item_form[:product_id].value not in [nil, ""]}
                     field={item_form[:quantity]}
                     type="number"
                     label={if item_form.index == 0, do: gettext("Quantity")}
                     step="any"
                   />
                   <.input
-                    field={item_form[:total]}
+                    :if={item_form[:product_id].value not in [nil, ""]}
+                    field={item_form[:unit]}
+                    type="text"
+                    class="border-none"
+                    value={
+                      if item_form[:unit].value in [nil, ""] do
+                        Products.get_product!(item_form[:product_id].value).unit
+                      else
+                        item_form[:unit].value
+                      end
+                    }
+                    label={if item_form.index == 0, do: gettext("Unit")}
+                    readonly
+                  />
+                  <.input
+                    :if={item_form[:product_id].value not in [nil, ""]}
+                    field={item_form[:unit_price]}
                     type="number"
-                    label={if item_form.index == 0, do: gettext("Total")}
+                    value={
+                      if item_form[:unit_price].value in [nil, ""] do
+                        Products.get_product!(item_form[:product_id].value).price
+                      else
+                        item_form[:unit_price].value
+                      end
+                    }
+                    label={if item_form.index == 0, do: gettext("Unit price")}
                     step="any"
                   />
+                  <div class="relative">
+                    <.input
+                      :if={item_form[:product_id].value not in [nil, ""]}
+                      field={item_form[:total]}
+                      class="border-none pl-0 pr-4 text-right"
+                      value={
+                        if item_form[:unit_price].value in [nil, ""] do
+                          calculate_product_total(
+                            Products.get_product!(item_form[:product_id].value).price,
+                            item_form[:quantity].value
+                          )
+                        else
+                          calculate_product_total(
+                            item_form[:unit_price].value,
+                            item_form[:quantity].value
+                          )
+                        end
+                      }
+                      label={if item_form.index == 0, do: gettext("Total")}
+                      disabled
+                    />
+                    <span
+                      :if={item_form.params["_persistent_id"] == "0"}
+                      class="absolute -bottom-16 left-0 w-full font-bold mt-2 sm:text-sm sm:leading-6 text-right pr-4"
+                    >
+                      <%= @form[:total].value %>
+                    </span>
+                  </div>
                   <div class="flex flex-col">
                     <label
                       :if={item_form.index == 0}
@@ -90,7 +142,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
                         value={item_form.index}
                         class="hidden"
                       />
-                      <.icon name="hero-x-mark" />
+                      <.icon name="hero-trash" />
                     </label>
                   </div>
                 </div>
@@ -108,8 +160,10 @@ defmodule AliancerWeb.OrderLive.FormComponent do
                 </.header>
               </div>
             </div>
-            <.input field={@form[:total]} type="number" label={gettext("Total")} step="any" />
-            <.input field={@form[:paid]} type="checkbox" label={gettext("Paid")} />
+
+            <div class="pt-6">
+              <.input field={@form[:paid]} type="checkbox" label={gettext("Paid")} />
+            </div>
           </:tab>
           <:tab slug="address" label={gettext("Address")} class="pt-8 space-y-8">
             <div class="flex items-center justify-between">
@@ -252,4 +306,27 @@ defmodule AliancerWeb.OrderLive.FormComponent do
   end
 
   defp notify_parent(msg), do: send(self(), {__MODULE__, msg})
+
+  defp calculate_product_total(unit_price, quantity) do
+    do_calculate_product_total(parse_decimal(unit_price), parse_decimal(quantity))
+  end
+
+  defp do_calculate_product_total(%Decimal{} = unit_price, %Decimal{} = quantity) do
+    Decimal.mult(unit_price, quantity)
+  end
+
+  defp do_calculate_product_total(_unit_price, _quantity), do: gettext("NaN")
+
+  defp parse_decimal(value) when is_binary(value) do
+    case Decimal.parse(value) do
+      {decimal, _remainder} ->
+        decimal
+
+      :error ->
+        :error
+    end
+  end
+
+  defp parse_decimal(%Decimal{} = decimal), do: decimal
+  defp parse_decimal(_value), do: :error
 end
