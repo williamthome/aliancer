@@ -162,7 +162,7 @@ defmodule AliancerWeb.OrderLive.FormComponent do
               <.input field={@form[:paid]} type="checkbox" label={gettext("Paid")} />
             </div>
           </:tab>
-          <:tab slug="address" label={gettext("Address")} class="pt-8 space-y-8">
+          <:tab slug="delivery" label={gettext("Delivery")} class="pt-8 space-y-8">
             <.input field={@form[:delivery_datetime]} type="datetime-local" label={gettext("Datetime")} />
             <div class="flex items-center justify-between">
               <.input
